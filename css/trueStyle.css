@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+
+/* =========================
+Titulo
+========================= */
+
+header h1 {
+    text-align: center;
+    font: 4em Georgia; ;
+    background-color: #cbb9a3;
+    display: block;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: #653d19;
+    text-shadow: white;
+}
+
+header {
+    font: 1em Georgia;
+}
+
+
+/* =========================
+Navegación
+========================= */
+
+.barraPrincipal {
+    height: 50px;
+    background-color: #cbb9a3;
+    padding: 10px 0;  
+    height: auto;        /* Deja que la barra crezca según su contenido */
+    overflow: hidden;    /* Si algun elemento se desborda se esconde */
+    
+    
+}
+
+.barraPrincipal ul {
+    list-style: none;
+    
+}
+
+.barraPrincipal li {
+    text-align: center;
+    background-color: none;
+    margin-left: 13rem;
+    margin-right: 13rem;
+    display: inline-block;
+    padding: 1em;
+    padding-bottom:0.5em ;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.5em;
+    line-height: 46px;
+    width: auto;
+    border: 0.3rem solid #ffffff;
+    border-radius: 20px;
+    font-size: 1.5em;
+}
+
+
+
+
+.barraPrincipal li a{
+    color: #333333;        
+    text-decoration: none; 
+    /* DEBE IR EN LA ETIQUETA a EN LAS DEMAS NO SIRVE */
+}
+
+/* Esto le da la forma de cápsula gris a la barra contenedora */
+.bolitasNavegacion ul {
+    display: flex;
+    justify-content: space-around; /* Distribuye las bolitas con espacio uniforme */
+    align-items: center;           /* Centra las bolitas verticalmente */
+    width: 250px;                  /* Ancho total de la cápsula */
+    height: 70px;                  /* Alto total de la cápsula */
+    border: 3px solid #d1c7bd;     /* Borde gris claro como el de tu foto */
+    border-radius: 50px;           /* Hace las esquinas totalmente redondeadas */
+    background-color: white;       /* Fondo blanco interno */
+    list-style: none;               /* Quita los puntos negros por defecto de la lista */
+    padding: 0 15px;               /* Colchón interno a los lados */
+    margin: 0 auto;                /* Centra toda la cápsula en la pantalla */
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/* Esto transforma cada <li> vacío en una bolita con borde */
+.bolitasNavegacion li {
+    width: 25px;                   /* Ancho de la bolita */
+    height: 25px;                  /* Alto de la bolita */
+    border: 2px solid #ccc;        /* Borde gris fino para las bolitas vacías */
+    border-radius: 50%;            /* Convierte el cuadrado en un círculo perfecto */
+    background-color: transparent; /* Sin fondo para las de los lados */
+    box-sizing: border-box;        /* Evita que el borde altere el tamaño */
+}
+
+/* Esto pinta la bolita del centro cuando tiene la clase "activa" */
+.bolitasNavegacion li.activa {
+    background-color: #634329;     /* Color marrón idéntico al de tu foto */
+    border: none;                  /* Le quita el borde gris para que se vea sólida */
+}
+
+/* =========================
+Main
+========================= */
+
+.heroSection1 img {
+    display: block;       /* Convierte la imagen en un bloque para poder centrarla */
+    margin-left: auto;    /* Calcula automáticamente el espacio a la izquierda */
+    margin-right: auto;   /* Calcula automáticamente el espacio a la derecha */
+    max-width: 100%;      /* Evita que la imagen se salga de la pantalla en celulares */
+    height: auto;         /* Mantiene la proporción de la imagen */
+}
+
+
