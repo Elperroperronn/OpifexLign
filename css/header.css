@@ -1,72 +1,98 @@
-* {
-    box-sizing: border-box;
+/* =========================
+Cabecera
+========================= */
+
+header {
+
+    background-color: #CBB9A3 ;
 }
+
 
 /* =========================
 Titulo
 ========================= */
 
+
+
 header h1 {
     text-align: center;
-    font: 4em Georgia; ;
-    background-color: #cbb9a3;
+    font: 6em Georgia; ;
+    
     display: block;
     margin-bottom: 0;
+    padding-bottom: 0;
     margin-top: 0;
     color: #653d19;
     text-shadow: white;
 }
 
-header {
-    font: 1em Georgia;
-}
 
 
 /* =========================
 Navegación
 ========================= */
 
+
+
 .barraPrincipal {
-    height: 50px;
-    background-color: #cbb9a3;
+
+    
     padding: 10px 0;  
     height: auto;        /* Deja que la barra crezca según su contenido */
-    overflow: hidden;    /* Si algun elemento se desborda se esconde */
     
     
 }
 
 .barraPrincipal ul {
     list-style: none;
-    
+    display: flex;
+    gap: 20rem; /* Cambiado de 20em a 2rem para un espacio más controlado */
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font: 2em Georgia;
 }
 
 .barraPrincipal li {
     text-align: center;
-    background-color: none;
-    margin-left: 13rem;
-    margin-right: 13rem;
-    display: inline-block;
-    padding: 1em;
-    padding-bottom:0.5em ;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 0.5em;
+    display: flex;
+    padding: 0.5rem 2rem; /* Simplificado: arriba/abajo 0.5rem, izquierda/derecha 2rem */
     line-height: 46px;
     width: auto;
-    border: 0.3rem solid #ffffff;
-    border-radius: 20px;
     font-size: 1.5em;
+
+    border: 0.3rem solid #ffffff; /* Borde blanco grueso */
+    border-radius: 50px; /* Bordes completamente ovalados*/
 }
 
+/* Solo el botón con la clase .actual tendrá el diseño de la imagen */
+.barraPrincipal li.actual {
+    background-color: #634329; /* Marrón de fondo */
+    border: 0.3rem solid #ffffff; /* Borde blanco grueso */
+    border-radius: 50px; /* Bordes completamente ovalados como tu imagen */
+    
+    /* Sombra exterior marrón claro desplazada hacia abajo y la derecha */
+    box-shadow: 15px 15px 0px #b1987d; 
+}
 
-
+.barraPrincipal li a.actuala{
+    color: #CBB9A3;        /* Color de la fuente "Inicio" */    
+}
 
 .barraPrincipal li a{
     color: #333333;        
-    text-decoration: none; 
-    /* DEBE IR EN LA ETIQUETA a EN LAS DEMAS NO SIRVE */
+    
 }
+
+/* =========================
+Navegación-Bolitas
+========================= */
+
+.bolitasNavegacion {
+    background-color: white;
+    padding-top: 10px;
+}
+
 
 /* Esto le da la forma de cápsula gris a la barra contenedora */
 .bolitasNavegacion ul {
@@ -83,7 +109,10 @@ Navegación
     margin: 0 auto;                /* Centra toda la cápsula en la pantalla */
     margin-top: 1em;
     margin-bottom: 1em;
+
 }
+
+
 
 /* Esto transforma cada <li> vacío en una bolita con borde */
 .bolitasNavegacion li {
@@ -100,17 +129,3 @@ Navegación
     background-color: #634329;     /* Color marrón idéntico al de tu foto */
     border: none;                  /* Le quita el borde gris para que se vea sólida */
 }
-
-/* =========================
-Main
-========================= */
-
-.heroSection1 img {
-    display: block;       /* Convierte la imagen en un bloque para poder centrarla */
-    margin-left: auto;    /* Calcula automáticamente el espacio a la izquierda */
-    margin-right: auto;   /* Calcula automáticamente el espacio a la derecha */
-    max-width: 100%;      /* Evita que la imagen se salga de la pantalla en celulares */
-    height: auto;         /* Mantiene la proporción de la imagen */
-}
-
-

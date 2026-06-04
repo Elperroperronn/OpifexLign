@@ -5,19 +5,19 @@ Reset
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  /*Todo va dentro del borde */ 
 }
 
 html {
     font-size: 16px;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;   /*Que se mueva suave */
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f7fb;
     color: #1f2937;
-    line-height: 1.6;
+    line-height: 1.6; /*Ni idea */
 }
 
 img,
@@ -36,7 +36,7 @@ a {
 }
 
 ul {
-    list-style-position: inside;
+    list-style-position: inside; /*Ni idea */ /*Respeta el margen del elemento contenedor */ 
 }
 
 /* =========================
@@ -77,33 +77,69 @@ Header
     color: white;
     padding: 18px 0;
     border-bottom: 4px solid #00b4d8;
+    position: fixed; /*Se queda fijo arriba y lo sigue*/
+    top: 0;
+left: 0;
+width: 100%;
 }
 
 .header-content {
-    overflow: hidden;
+    /* overflow: hidden;*Intenta que los elementos queden contenidos y si no los oculta */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .logo {
     font-size: 1.4rem;
     margin-bottom: 0;
-    float: left;
+    white-space: nowrap;
+}
+/*check box oculto*/
+
+.menu-toggle{
+    display: none;
+}
+
+/*check box oculto*/
+.menu-button {
+    display: none;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+
+}
+
+/*check box oculto*/
+.menu-button span{
+display: block;
+height: 4px;
+margin-bottom: 6px;
+background-color: white;
+border-radius: 4px;
+
 }
 
 /* =========================
 Navegación
 ========================= */
 
-.main-nav {
-    float: right;
-}
+
 
 .main-nav ul {
     list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 12px; /*12-15*/ display: flex;
+    width: 100%;
+
 }
 
 .main-nav li {
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 18px;
 }
 
 .main-nav a {
@@ -246,18 +282,25 @@ Eventos
 }
 
 .events-grid {
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 28px;
+    align-items: stretch;
 }
 
 .event-card {
-    width: 31%;
-    float: left;
+
+
     margin-right: 3.5%;
     background-color: white;
     border: 1px solid #dbeafe;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .event-card:last-child {
@@ -271,7 +314,7 @@ Eventos
 .event-card img {
     width: 100%;
     height: 220px;
-    object-fit: cover;
+    object-fit: cover; /*Ni idea */
 }
 
 .event-card figcaption {
@@ -282,6 +325,7 @@ Eventos
 
 .event-card-content {
     padding: 18px;
+    flex: 1;
 }
 
 .event-category {
@@ -307,7 +351,7 @@ aside {
     background-color: #ecfeff;
     border-top: 1px solid #bae6fd;
     border-bottom: 1px solid #bae6fd;
-    clear: both;
+    clear: both; /*Ni idea */
 }
 
 aside p,
@@ -374,7 +418,7 @@ footer {
     color: white;
     padding: 35px 0;
     text-align: center;
-    clear: both;
+    clear: both; /*  Ni idea  */  /* */
 }
 
 footer a {
@@ -402,4 +446,57 @@ footer h6 {
 footer address {
     font-style: normal;
     margin-bottom: 15px;
+}
+
+
+/* =========================
+Media query
+========================= */
+
+
+
+/* =========================
+Media movil
+========================= */
+@media (max-width:700px){
+.header-content {
+    position: relative;
+}
+
+    .menu-button{
+        display: block;
+    }
+    .main-nav{
+        display: none;
+        position: absolute;
+        top: 52px;
+        left:0;
+        width: 100%;
+
+        background-color: #00194a;
+        border-top: 1px solid #90e0ef;
+        padding: 14px;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .menu-toggle:checked~.main-nav{
+        display: block;             /* Evento  */
+    }
+
+    .main-nav ul{
+display: flex;
+flex-direction: column;
+align-items: stretch;
+gap: 8px;
+
+    }
+
+.main-nav a {
+    display: block;
+    padding: 12px;
+    background-color: black;
+
+
+}
+
 }
