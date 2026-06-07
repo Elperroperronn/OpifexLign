@@ -1,0 +1,287 @@
+/* ==========================================================================
+Main - Estilos Generales e Inputs
+========================================================================== */
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+input[type="text"], input[type="email"], input[type="password"], input[type="datetime"], input[type="number"]{
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="number"]:focus {
+    border-color: #4f6d5a; /* Color de enfoque */
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3); /* Efecto brillante */
+    font-size: 25pt;
+}
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, input[type="datetime"]:hover{
+border-color: #4f6d5a; /* Color de enfoque */
+    box-shadow: 0 0 1rem #4f6d5a; /* Efecto brillante */
+    font-size: 25pt;
+}
+
+
+
+/* ==========================================================================
+Inicio de sesion y Registrar
+========================================================================== */
+
+.InicioSesion,.Registrar {
+background-color: #cbb9a3;
+    padding: 7rem;
+        min-width: 67rem;
+    min-height: 67rem;
+    padding-top: 0;
+    border-radius: 6rem;
+    margin-top: 2rem;
+    border: 0.5rem solid #4f6d5a;
+    display: none; /*Es flex*/
+    flex-direction: column;
+        box-shadow: 1rem 1rem 1rem #4f6d5a; /* Efecto brillante */
+}
+
+.InicioSesion h1, .Registrar h1 {
+font-size: 56pt;
+margin-bottom: 3rem;
+align-self: center;
+    border-bottom: 0.5rem solid #4f6d5a;
+}
+
+.InicioSesion p,.Registrar p {
+font-size: 34pt;
+margin-bottom: 1rem;
+border-bottom: 0.2rem solid #897056;
+}
+
+.InicioSesion button, .Registrar button{
+    margin-top: 5rem;
+        border-radius: 6rem;            /* Convierte el cuadrado en un círculo perfecto */
+    height: 4.5rem;
+margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    background-color: #a63a50;
+    border-color: #a63a50;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    font-size: 37pt;
+    color: white;
+}
+
+button:hover {
+border-color: #a63a50; /* Color de enfoque */
+    box-shadow: 0 0 1rem #a63a50; /* Efecto brillante */
+}
+
+.InicioSesion .Registro {
+    font-size: 24pt;
+        margin-top: 0.3rem;
+}
+
+
+
+/* ==========================================================================
+Perfil
+========================================================================== */
+
+.Perfil{
+    background-color: #897056;
+width: 100vw; /*Agarra toda la pantalla*/
+        min-height: 100vh;
+color: #fcf3e5;
+}
+
+.Perfil .banner{
+    width: 100vw; /*Agarra toda la pantalla*/
+    height: 20rem;
+    background-color: #a63a50;
+    overflow: hidden;
+    
+}
+
+.banner img {
+
+width: 100%;
+height: 100%;
+  object-fit: fill; /* Fuerza el estiramiento completo */
+
+}
+
+.Informacion{
+    padding-left: 1%;
+    padding-right: 1%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.Informacion .columna-izquierda {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+padding-right: 2%;
+}
+
+.Informacion .columna-central {
+display: block;
+padding-right: 40%;
+
+}
+
+.Informacion .columna-central  h1 {
+
+font-size: 56pt;
+text-align: center;
+}
+
+.Informacion .columna-central  p {
+
+font-size: 25pt;
+text-align: center;
+}
+
+.Informacion .columna-izquierda  img {
+
+width: 100%;
+height: 100%;
+object-fit: fill; /* Fuerza el estiramiento completo */
+border-radius: 65%;
+}
+
+
+
+
+.ConfigurarPerfil {
+    display: none;
+}
+
+.Informacion .columna-izquierda button{
+    margin-top: 5rem;
+        border-radius: 6rem;            /* Convierte el cuadrado en un círculo perfecto */
+        width: 56%;
+    background-color: #a63a50;
+    border-color: #a63a50;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    font-size: 20pt;
+    color: white;
+}
+
+.Informacion .columna-derecha button{
+    margin-top: 5rem;
+        border-radius: 6rem;            /* Convierte el cuadrado en un círculo perfecto */
+    height: 4.5rem;
+    background-color: #a63a50;
+    border-color: #a63a50;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    font-size: 20pt;
+    color: white;
+}
+
+.Informacion .columna-derecha {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    padding-right: 2%;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+}
+
+.Separador {
+    background-color: #653d19;
+    width: 100vw;
+    height: 0.5rem;
+}
+
+.InformacionAlbum{
+display: flex;
+    margin-top: 1%;
+    flex-direction: row;
+    justify-content: flex-start;
+        gap: 2%;
+        padding-left: 1%;
+}
+
+.InformacionAlbum p{
+    font-size: 45pt;
+    gap: 2%;
+    margin: 0;
+}
+
+.InformacionAlbum button{
+        border-radius: 6rem;            /* Convierte el cuadrado en un círculo perfecto */
+    height: 4.5rem;
+    background-color: #a63a50;
+    border-color: #a63a50;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    font-size: 20pt;
+    color: white;
+}
+
+.Cajitas {
+    display: grid;
+    /* 1. Quitamos grid-auto-flow: column para que respete tus filas y columnas normales */
+    grid-template-columns: repeat(5, 1fr); /* Tus 5 columnas */
+    grid-template-rows: repeat(2, auto);    /* 2. Usamos 'auto' en vez de '1fr' para que la fila mida solo lo necesario */
+    align-items: start;                     /* Alinea las cajas arriba y evita que se estiren verticalmente */
+    justify-items: center;
+    gap: 15px;                              /* Añade separación física entre las cajitas */
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+} 
+
+.Cajitas div {
+display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    background-color: #CBB9A3;
+    border-radius: 2rem;
+    overflow: hidden;
+    padding: 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+.Cajitas div img {
+    width: 100%;             /* Ocupa todo el ancho de izquierda a derecha */
+    height: 250px;           /* Controla la altura fija. Ajusta este número a tu gusto */
+    object-fit: cover;       /* Recorta la imagen para que llene el espacio sin deformarse */
+    display: block;          /* Elimina espacios vacíos rebeldes en la base de la imagen */
+}
+
+.Cajitas div p {
+font-size: 24pt;         /* Elimina espacios vacíos rebeldes en la base de la imagen */
+}
+
+
+
