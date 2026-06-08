@@ -10,6 +10,8 @@ main {
     gap: 20px;
         padding-left: 2%;
     padding-right: 2%;
+        width: 100vw;
+    height: 100vh;
 }
 
 main section {
@@ -82,7 +84,7 @@ Hero Section 2
 ========================================================================== */
 
 .heroSection2 {
-    display: grid; /* es grid */
+    display: none; /* es grid */
     grid-template-columns: 1fr 1fr; /* Crea columnas */
     justify-items: center;
     position: relative;
@@ -123,7 +125,7 @@ Hero Section 3
    ========================================================================== */
 
 .heroSection3 {
-    display: grid; /* es grid */
+    display: none; /* es grid */
     grid-template-columns: 1fr 1fr; /* Crea columnas */
     justify-items: center;
     position: relative;
@@ -160,7 +162,7 @@ Hero Section 3
 Hero Section 4
 ========================================================================== */
 .heroSection4 {
-        display: grid;
+        display: none;
     
     justify-items: center;
 }

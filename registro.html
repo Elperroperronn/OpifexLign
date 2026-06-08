@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/registro/mainRegistro.css">
+    <script src="eventos.js"></script>
     <title>OpifexLign</title>
 </head>
 <body>
@@ -37,7 +38,7 @@
             <input type="email">
             <p>Contraseña</p>
             <input type="password">
-            <button>Iniciar sesión</button>
+            <button onclick="InicioSesion_Registro()">Iniciar sesión</button>
             <p class="Registro">¿No tienes cuenta? <a href=""><b>Registrate aqui</b></a></p>
         </section>
         <section class="Registrar">
@@ -47,7 +48,13 @@
             <p>Apellido</p>
             <input type="text">
             <p>Tipo de usuario</p>
-            <input type="radio">
+            <div>
+            <label for="Ebanista">Ebanista</label>
+            <input type="radio" id="Ebanista" ><br>
+            <label for="Cliente">Cliente</label>
+            <input type="radio" id="Cliente" checked><br>
+            
+            </div>
             <p>Correo</p>
             <input type="email">
             <p>Contraseña</p>
@@ -56,7 +63,10 @@
             <input type="datetime">
             <p>Años de experiencia</p>
             <input type="number">
-            <button>Registrarse</button>
+            <p>Sobre mi</p>
+            <textarea ></textarea>
+            <button onclick="Registro_Perfil()" >Registrarse</button>
+
         </section>
         <section class="Perfil">
             <section class="banner">
@@ -67,18 +77,22 @@
                     <div class="avatar-wrapper">
                         <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="Pedro Sanchez">
                     </div>
-                    <button class="btn">Configurar perfil</button>
+                    <button onclick="Perfil_Configurar()">Configurar perfil</button>
                 </div>
 
                 <!-- Columna Central: Nombre y Texto -->
                 <div class="columna-central">
                     <h1>Pedro Sanchez</h1>
-                    <p>Ebanista artesano con más de 8 años de experiencia transformando la madera en soluciones de mobiliario a medida y piezas de diseño. Mi pasión es el trabajo bien hecho, desde la selección cuidadosa de las vetas hasta el ensamblaje preciso y los acabados impecables. Disfruto colaborar con los clientes para entender sus necesidades y hacer realidad sus ideas, aportando mi conocimiento sobre maderas, herrajes y técnicas de restauración. Me considero un profesional detallista, enfocado en la durabilidad, la funcionalidad y la estética de cada mueble que sale del taller.</p>
+                    <p class="Contacto">Correo electronico; presidente@gmail.com</p>
+                    <p class="Contacto">Años de experiencia; ***</p>
+                    <p class="Sobre-mi">Ebanista artesano con más de 8 años de experiencia transformando la madera en soluciones de mobiliario a medida y piezas de diseño. Mi pasión es el trabajo bien hecho, desde la selección cuidadosa de las vetas hasta el ensamblaje preciso y los acabados impecables. Disfruto colaborar con los clientes para entender sus necesidades y hacer realidad sus ideas, aportando mi conocimiento sobre maderas, herrajes y técnicas de restauración. Me considero un profesional detallista, enfocado en la durabilidad, la funcionalidad y la estética de cada mueble que sale del taller.</p>
+                    
+                </div>
                 </div>
 
                 <!-- Columna Derecha: Cerrar Sesión -->
                 <div class="columna-derecha">
-                    <button class="btn btn-cerrar">Cerrar sesion</button>
+                    <button onclick="Perfil_InicioSesion()" >Cerrar sesion</button>
                 </div>
             </section>
             <section class="Album">
@@ -90,43 +104,27 @@
                     <button>Agregar mueble</button>
                 </div>
                 <div class="Cajitas">
-                    <div>
+                    <div class="tarjeta-animada">
                         <img src="assets/images/images.jpg" alt="">
                         <p>Bonito mueble</p>
                     </div>
-                    <div>
+                    <div class="tarjeta-animada">
                         <img src="assets/images/images.jpg" alt="">
                         <p>Bonito mueble</p>
                     </div>
-                    <div>
+                    <div class="tarjeta-animada">
                         <img src="assets/images/images.jpg" alt="">
                         <p>Bonito mueble</p>
                     </div>
-                    <div>
+                    <div class="tarjeta-animada">
                         <img src="assets/images/images.jpg" alt="">
                         <p>Bonito mueble</p>
                     </div>
-                    <div>
+                    <div class="tarjeta-animada">
                         <img src="assets/images/images.jpg" alt="">
                         <p>Bonito mueble</p>
                     </div>
-                    <div>
-                        <img src="assets/images/images.jpg" alt="">
-                        <p>Bonito mueble</p>
-                    </div>
-                    <div>
-                        <img src="assets/images/images.jpg" alt="">
-                        <p>Bonito mueble</p>
-                    </div>
-                    <div>
-                        <img src="assets/images/images.jpg" alt="">
-                        <p>Bonito mueble</p>
-                    </div>
-                    <div>
-                        <img src="assets/images/images.jpg" alt="">
-                        <p>Bonito mueble</p>
-                    </div>
-                    <div>
+                    <div class="tarjeta-animada">
                         <img src="assets/images/images.jpg" alt="">
                         <p>Bonito mueble</p>
                     </div>
@@ -134,18 +132,11 @@
             </section>
         </section>
         <section class="ConfigurarPerfil">
-            <h1>Perfil</h1>
-            <h2></h2>
-            <img src="" alt="">
-            <p>Sobre mi</p>
-            <input type="textarea">
-            <button>Cambiar banner</button>
+            <h1>Configurar</h1>
             <p>Nombre</p>
             <input type="text">
             <p>Apellido</p>
             <input type="text">
-            <p>Tipo de usuario</p>
-            <input type="radio">
             <p>Correo</p>
             <input type="email">
             <p>Contraseña</p>
@@ -154,6 +145,13 @@
             <input type="datetime">
             <p>Años de experiencia</p>
             <input type="number">
+            <p>Sobre mi</p>
+            <textarea ></textarea>
+            <p>Cambiar banner</p>
+            <input type="file" accept="image/*">
+            <button  onclick="Configurar_Perfil()">Aplicar cambios</button>
+            <button  onclick="Configurar_Perfil()">Salir</button>
+            <button  onclick="Configurar_InicioSesion()">Borrar cuenta</button>
         </section>
     </main>
 </body>
