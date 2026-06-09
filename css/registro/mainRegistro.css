@@ -394,5 +394,34 @@ Media-Query
 @media (max-width: 1068px) {
     .InicioSesion, .Registrar, .ConfigurarPerfil {
         min-width: 0;
-    }
+
+    padding: 4%;
+
+}
+
+
+.Cajitas {
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, auto);
+    align-items: start;
+    justify-items: center;
+
+}
+
+.InformacionAlbum {
+
+    align-items: center;
+}
+
+.Informacion .columna-central {
+
+padding-right: 1%;
+
+}
+
+.Registrar div {
+gap: 1.4REM;
+}
+
 }
