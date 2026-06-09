@@ -67,13 +67,15 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="number"]:focus, textarea:focus {
     border-color: #4f6d5a; /* Color de enfoque */
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.3); /* Efecto brillante */
-    font-size: 25pt;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+
 }
 
 input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, input[type="datetime"]:hover, textarea:hover{
 border-color: #4f6d5a; /* Color de enfoque */
     box-shadow: 0 0 1rem #4f6d5a; /* Efecto brillante */
-    font-size: 25pt;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+
 }
 
 button:hover {
@@ -90,7 +92,7 @@ input[type="radio"] {
 }
 
 input[type="file"] {
-    font-size: 25pt;
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 /* ==========================================================================
@@ -117,28 +119,28 @@ background-color: #cbb9a3;
 }
 
 .Registrar div {
-font-size: 24pt;
+font-size: clamp(1rem, 2vw, 1.5rem);
 display: flex;
 gap: 2rem;
 }
 
 
 .InicioSesion h1, .Registrar h1, .ConfigurarPerfil h1 {
-font-size: 56pt;
+font-size: clamp(2rem, 5vw, 3.5rem);
 margin-bottom: 3rem;
 align-self: center;
     border-bottom: 0.5rem solid #4f6d5a;
 }
 
 .InicioSesion p,.Registrar p, .ConfigurarPerfil p{
-font-size: 34pt;
+font-size: clamp(1.25rem, 3vw, 2rem);
 margin-bottom: 1rem;
 border-bottom: 0.2rem solid #897056;
 }
 
 .InicioSesion button, .Registrar button, .ConfigurarPerfil button{
     margin-top: 5rem;
-        border-radius: 6rem;            /* Convierte el cuadrado en un círculo perfecto */
+        border-radius: 6rem;            /* Convierte el cuadrado en un círculo perfecto (mas o menos)*/
     height: 4.5rem;
 margin-left: auto;
     margin-right: auto;
@@ -148,7 +150,7 @@ margin-left: auto;
     align-items: center;
     align-content: center;
     position: relative;
-    font-size: 37pt;
+ font-size: clamp(1.25rem, 3vw, 2.3rem);
     color: white;
 }
 
@@ -225,13 +227,13 @@ Perfil
 .Informacion .columna-izquierda button{
     margin-top: 5rem;
     border-radius: 6rem;            /* Convierte el cuadrado en un círculo perfecto */
-    width: 56%;
+
     background-color: #a63a50;
     border-color: #a63a50;
     align-items: center;
     align-content: center;
     position: relative;
-    font-size: 20pt;
+font-size: clamp(1rem, 2vw, 1.25rem);
     color: white;
 }
 
@@ -244,18 +246,19 @@ Perfil
 }
 
 .Informacion .columna-central h1 {
-    font-size: 56pt;
+  font-size: clamp(2rem, 5vw, 3.5rem);
     text-align: left;
     margin-bottom: 0;
 }
 
 .Sobre-mi {
-    font-size: 25pt;
+ font-size: clamp(1rem, 2vw, 1.6rem);
     text-align: left;
 }
 
 .Contacto {
-    font-size: 20pt;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+
     margin-top: 0;
     text-align: left;
 }
@@ -282,7 +285,7 @@ Perfil
     align-items: center;
     align-content: center;
     position: relative;
-    font-size: 20pt;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     color: white;
 }
 
@@ -313,7 +316,7 @@ Perfil
 }
 
 .InformacionAlbum p{
-    font-size: 45pt;
+font-size: clamp(1.5rem, 4vw, 2.8rem);
     gap: 2%;
     margin: 0;
 }
@@ -326,7 +329,7 @@ Perfil
     align-items: center;
     align-content: center;
     position: relative;
-    font-size: 20pt;
+font-size: clamp(1rem, 2vw, 1.25rem);
     color: white;
 }
 
@@ -339,10 +342,10 @@ Perfil
 
 .Cajitas {
     display: grid;
-    /* 1. Quitamos grid-auto-flow: column para que respete tus filas y columnas normales */
-    grid-template-columns: repeat(5, 1fr); /* Tus 5 columnas */
-    grid-template-rows: repeat(2, auto);    /* 2. Usamos 'auto' en vez de '1fr' para que la fila mida solo lo necesario */
-    align-items: start;                     /* Alinea las cajas arriba y evita que se estiren verticalmente */
+
+    grid-template-columns: repeat(5, 1fr); 
+    grid-template-rows: repeat(2, auto);    
+    align-items: start;                    
     justify-items: center;
         gap: 50px;
     padding-left: 2%;
@@ -366,13 +369,13 @@ Perfil
 
 .Cajitas div img {
     width: 100%;             /* Ocupa todo el ancho de izquierda a derecha */
-    height: 250px;           /* Controla la altura fija. Ajusta este número a tu gusto */
+    height: 250px;           /* Controla la altura fija.*/
     object-fit: cover;       /* Recorta la imagen para que llene el espacio sin deformarse */
     display: block;          /* Elimina espacios vacíos rebeldes en la base de la imagen */
 }
 
 .Cajitas div p {
-    font-size: 24pt;         /* Elimina espacios vacíos rebeldes en la base de la imagen */
+    font-size: clamp(1rem, 2vw, 1.5rem);      
 }
 
 /* ==========================================================================
@@ -381,4 +384,15 @@ Perfil: Configuración (Oculto)
 
 .ConfigurarPerfil {
     display: none; /*Es flex*/
+}
+
+
+/* =========================
+Media-Query
+========================= */
+
+@media (max-width: 1068px) {
+    .InicioSesion, .Registrar, .ConfigurarPerfil {
+        min-width: 0;
+    }
 }

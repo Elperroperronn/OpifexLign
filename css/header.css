@@ -5,6 +5,10 @@ Cabecera
 header {
 
     background-color: #CBB9A3 ;
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
 }
 
 
@@ -16,14 +20,12 @@ Titulo
 
 header h1 {
     text-align: center;
-    font: 6em Georgia; ;
-    
-    display: block;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    margin-top: 0;
+    font-family: Georgia, serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+
+    margin: 0;
+    padding: 0;
     color: #653d19;
-    text-shadow: white;
 }
 
 
@@ -38,19 +40,23 @@ Navegación
 
     
     padding: 10px 0;  
-    height: auto;        /* Deja que la barra crezca según su contenido */
-    
+    width: 100%;
+        display: flex;
+    justify-content: center;
+    overflow: hidden;
     
 }
 
 .barraPrincipal ul {
     list-style: none;
     display: flex;
-    gap: 20rem; /* Cambiado de 20em a 2rem para un espacio más controlado */
+    gap: 20%;
     justify-content: center;
     align-items: center;
     padding: 0;
-    font: 2em Georgia;
+
+    font-family: Georgia, serif;
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 .barraPrincipal li {
@@ -65,7 +71,7 @@ Navegación
     border-radius: 50px; /* Bordes completamente ovalados*/
 }
 
-/* Solo el botón con la clase .actual tendrá el diseño de la imagen */
+ 
 .barraPrincipal li.actual {
     background-color: #634329; /* Marrón de fondo */
     border: 0.3rem solid #ffffff; /* Borde blanco grueso */
@@ -83,6 +89,8 @@ Navegación
     color: #333333;        
     
 }
+
+
 
 /* =========================
 Navegación-Bolitas
@@ -126,6 +134,55 @@ Navegación-Bolitas
 
 /* Esto pinta la bolita del centro cuando tiene la clase "activa" */
 .bolitasNavegacion li.activa {
-    background-color: #634329;     /* Color marrón idéntico al de tu foto */
+    background-color: #634329;     
     border: none;                  /* Le quita el borde gris para que se vea sólida */
 }
+
+
+/* =========================
+Media-Query
+========================= */
+
+
+@media(max-width: 768px){
+
+ .barraPrincipal ul {
+        list-style: none;
+        display: flex;
+        /* CAMBIO: Usar px o rem en lugar de % para el eje vertical */
+        gap: 1.5rem; 
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+
+        flex-direction: column;
+    }
+
+.barraPrincipal {
+height: fit-content;
+
+}
+
+.bolitasNavegacion ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 7rem;
+    height: 8rem;
+    border: 3px solid #d1c7bd;
+    border-radius: 50px;
+    background-color: white;
+    list-style: none;
+    padding: 0 15px;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* align-content: center; */
+}
+
+
+
+}
+

@@ -23,12 +23,12 @@ main section {
 }
 
 main h2 {
-    font-size: 42pt;
+font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
 }
 
 main p {
-    font-size: 32pt;
+    font-size: clamp(1rem, 3vw, 2rem);
     text-align: center;
 }
 
@@ -169,17 +169,17 @@ Hero Section 4
 
 
 .heroSection4 caption {
-    font-size: 42pt;
+    font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
 }
 
 .heroSection4 th {
-    font-size: 42pt;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     text-align: center;
 }
 
 .heroSection4 tbody {
-    font-size: 42pt;
+    font-size: clamp(1rem, 3vw, 2rem);
     text-align: center;
 }
 
