@@ -871,11 +871,13 @@ font-size: clamp(0.9rem, 2vw, 1.25rem);
  .Registrar {
 border-radius: 0;
     overflow-y: scroll;
+            padding-bottom: 5rem;
 }
 
 .SeleccionadaPersonal {
 border-radius: 0;
     overflow-y: scroll;
+    padding-bottom: 3rem;
 }
 
 .ContenedorImagen img {

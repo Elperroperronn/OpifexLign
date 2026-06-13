@@ -272,6 +272,7 @@ html.modo-movil main {
         gap: 2rem; 
         max-width: 30rem; 
         width: 90%; 
+        padding-bottom: 2rem;
     }
 
     /* Reseteo de posiciones Grid para que Flexbox actúe libremente */
