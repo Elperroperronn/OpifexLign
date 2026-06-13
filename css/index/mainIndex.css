@@ -298,4 +298,9 @@ html.modo-movil main {
         padding-right: 2rem;
         text-align: center;
     }
+
+    .HeroSection1 div div {
+
+    padding: 1rem;
+}
 }

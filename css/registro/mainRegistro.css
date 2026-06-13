@@ -845,4 +845,45 @@ font-size: clamp(0.9rem, 2vw, 1.25rem);
 
     padding: 0 1rem;
 }
+
+.btnEditarMueble, .btnEliminarMueble {
+    flex: 1;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0.2rem;
+    color: #fcf3e5;
+}
+
+
+.NombreMueble {
+
+    font-size: clamp(0.7rem, 2vw, 1.25rem);
+}
+
+.CerrarSesion, .BorrarCuenta {
+
+    padding: 0.5rem;
+}
+}
+
+@media (max-height: 840px) {
+  
+ .Registrar {
+border-radius: 0;
+    overflow-y: scroll;
+}
+
+.SeleccionadaPersonal {
+border-radius: 0;
+    overflow-y: scroll;
+}
+
+.ContenedorImagen img {
+
+    height: 6rem;
+}
+
+.Registro {
+    margin-top: 0;
+}
 }
