@@ -1,0 +1,193 @@
+/* ==========================================================================
+Main - Estilos Generales y Elementos Base
+========================================================================== */
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+        padding-left: 2%;
+    padding-right: 2%;
+        width: 100vw;
+    height: 100vh;
+}
+
+main section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+main h2 {
+font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+}
+
+main p {
+    font-size: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+}
+
+main button {
+    border-radius: 50%;            /* Convierte el cuadrado en un círculo perfecto */
+    height: 4.5rem;
+    background-color: #a63a50;
+    border-color: white;
+    color: #a63a50; 
+    align-items: center;
+    align-content: center;
+    position: relative;
+}
+
+main button a {
+    position: absolute;
+}
+
+main button img {
+    width: 3rem;
+    position: absolute;
+    left: 0.7rem;
+    bottom: 0.3rem;
+}
+
+main button:hover {
+    color: white;
+}
+
+main button:hover img {
+    color: white;
+    opacity: 0.3;
+}
+
+
+/* ==========================================================================
+Hero Section 1
+========================================================================== */
+
+
+
+.heroSection1 img {
+    display: block;       
+    margin-left: auto;    
+    margin-right: auto;   
+    max-width: 100%;      
+    height: auto;        
+}
+
+
+/* ==========================================================================
+Hero Section 2
+========================================================================== */
+
+.heroSection2 {
+    display: none; /* es grid */
+    grid-template-columns: 1fr 1fr; /* Crea columnas */
+    justify-items: center;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.heroSection2 h2 {
+    grid-column: 1; /* asigna columna */
+}
+
+.heroSection2 p {
+    grid-column: 1; /* asigna columna */
+}
+
+.heroSection2 img {
+    grid-column: 2; /* asigna columna  2 */
+    grid-row: 1 / span 2; /* El span hace que ocupe el espacio de dos filas*/
+    border-radius: 50px;
+    align-items: center;
+    max-width: 100%; 
+    width: 50em;
+}
+
+.heroSection2 button {
+    grid-column: 1 / span 2;  /* El span hace que ocupe el espacio de dos columnas*/
+}
+
+.heroSection2 button img {
+    width: 3rem;
+    position: absolute;
+    left: 0.7rem;
+    bottom: 0.3rem;
+}
+
+
+/* ==========================================================================
+Hero Section 3
+   ========================================================================== */
+
+.heroSection3 {
+    display: none; /* es grid */
+    grid-template-columns: 1fr 1fr; /* Crea columnas */
+    justify-items: center;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.heroSection3 p {
+    grid-column: 2; /* asigna columna */
+    grid-row: 1 / span 2; /* El span hace que ocupe el espacio de dos filas*/
+}
+
+.heroSection3 img {
+    grid-column: 1; /* asigna columna  2 */
+    grid-row: 1 / span 2; /* El span hace que ocupe el espacio de dos filas*/
+    border-radius: 50px;
+    align-items: center;
+    width: 50em;
+    max-width: 100%; 
+}
+
+.heroSection3 button {
+    grid-column: 1 / span 2;  /* El span hace que ocupe el espacio de dos columnas*/
+}
+
+.heroSection3 button img {
+    width: 3rem;
+    position: absolute;
+    left: 0.7rem;
+    bottom: 0.3rem;
+}
+
+
+/* ==========================================================================
+Hero Section 4
+========================================================================== */
+.heroSection4 {
+        display: none;
+    
+    justify-items: center;
+}
+
+
+.heroSection4 caption {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+}
+
+.heroSection4 th {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+}
+
+.heroSection4 tbody {
+    font-size: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+}
+
+.heroSection4 table {
+    border-spacing: 1.5rem; /*spaciado entre celdas, especial para tablas*/
+}
+
+.heroSection4 button {
+    height: 4.5rem;
+    width: 4.5rem;
+}
