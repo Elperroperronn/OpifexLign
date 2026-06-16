@@ -1,378 +1,495 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/registro/mainRegistro.css">
-    <script src="js/eventos.js"></script>
-    <title>OpifexLign</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/registro/mainRegistro.css">
+  <script src="js/eventos.js"></script>
+  <title>OpifexLign</title>
 </head>
-
 <body>
+  <header>
+    <div class="NombreOpifex">
+      <img src="assets/images/NombreSolo.png" alt="">
+    </div>
 
-    <header>
-        <div class="NombreOpifex">
-            <img src="assets/images/NombreSolo.png" alt="">
+    <nav class="barraPrincipal">
+      <ul>
+        <li class="actual">
+          <a href="registro.html" tabindex="_top" class="actuala">Registro</a>
+        </li>
+        <li>
+          <a href="index.html">Inicio</a>
+        </li>
+        <li>
+          <a href="explorar.html">Explorar</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="LogoOpifex">
+      <img src="assets/images/LogoSolo.png" alt="">
+    </div>
+  </header>
+
+  <main>
+    <form class="InicioSesion">
+      <h1>Inicio de sesión</h1>
+
+      <p>Correo</p>
+      <input type="email">
+
+      <p>Contraseña</p>
+      <input type="password">
+
+      <button onclick="InicioSesion_Perfil()" type="button">
+        Iniciar sesión
+      </button>
+
+      <p class="Registro">
+        ¿No tienes cuenta?
+        <a onclick="InicioSesion_Registro()">
+          <b>Registrate aqui</b>
+        </a>
+      </p>
+    </form>
+
+    <form class="Registrar">
+      <h1>Registro</h1>
+
+      <div class="ContenedorTipo">
+        <p>
+          <b>Tipo de usuario</b>
+        </p>
+
+        <div class="TipoUsuario">
+          <input type="radio" id="Ebanista">
+          <br>
+          <label for="Ebanista">Ebanista</label>
+
+          <input type="radio" id="Cliente" checked>
+          <br>
+          <label for="Cliente">Cliente</label>
+        </div>
+      </div>
+
+      <div class="ContenedorNombre">
+        <p>Nombre</p>
+        <input type="text">
+      </div>
+
+      <div class="ContenedorApellido">
+        <p>Apellido</p>
+        <input type="text">
+      </div>
+
+      <div class="ContenedorCorreo">
+        <p>Correo</p>
+        <input type="email">
+      </div>
+
+      <div class="ContenedorContraseña">
+        <p>Contraseña</p>
+        <input type="password">
+      </div>
+
+      <div class="ContenedorFecha">
+        <p>Fecha nacimiento</p>
+        <input type="datetime">
+      </div>
+
+      <div class="ContenedorExperiencia">
+        <p>Años de experiencia</p>
+        <input type="number">
+      </div>
+
+      <div class="ContenedorSobreMi">
+        <p>Sobre mi</p>
+        <textarea></textarea>
+      </div>
+
+      <div class="ContenedorRegistro">
+        <button class="btnRegistrarse" onclick="Registro_Perfil()" type="button">
+          Registrarse
+        </button>
+
+        <button class="btnRegresar" onclick="Registro_InicioSesion()" type="button">
+          Regresar
+        </button>
+      </div>
+    </form>
+
+    <section class="Perfil">
+      <form action="" class="FormularioSolicitud">
+        <h2>Solicitud de Cotización</h2>
+
+        <div class="ContenedorFormulario">
+          <p class="Explicativo">Envía tu solicitud al ebanista.</p>
+          <p class="Aviso">Los campos marcados con * son obligatorios</p>
+
+          <section class="seccionFormulario">
+            <h3 class="TituloSeccion">1. Información del mueble</h3>
+
+            <div class="TipoMueble">
+              <label for="tipoMueble">Tipo de mueble *</label>
+              <select id="tipoMueble" required>
+                <option value="">Seleccione una opción</option>
+                <option>Cocina</option>
+                <option>Closet</option>
+                <option>Escritorio</option>
+                <option>Mesa</option>
+                <option>Estantería</option>
+                <option>Otro</option>
+              </select>
+            </div>
+
+            <div class="DescripcionDetallada">
+              <label for="descripcion">Descripción detallada *</label>
+              <textarea
+                id="descripcion"
+                rows="5"
+                placeholder="Describe el mueble, materiales deseados, acabados o características especiales."
+                required
+              ></textarea>
+            </div>
+          </section>
+
+          <section class="seccionFormulario">
+            <h3 class="TituloSeccion">2. Dimensiones aproximadas</h3>
+
+            <div class="contenedorMedidas">
+              <div class="Medidas">
+                <label for="alto">Alto (cm)</label>
+                <input type="number" id="alto" placeholder="Ej: 200">
+              </div>
+
+              <div class="Medidas">
+                <label for="ancho">Ancho (cm)</label>
+                <input type="number" id="ancho" placeholder="Ej: 150">
+              </div>
+
+              <div class="Medidas">
+                <label for="profundidad">Profundidad (cm)</label>
+                <input type="number" id="profundidad" placeholder="Ej: 60">
+              </div>
+            </div>
+          </section>
+
+          <section class="seccionFormulario">
+            <h3 class="TituloSeccion">3. Información adicional</h3>
+
+            <div class="ContenedorInfoAdicional">
+              <div class="Presupuesto">
+                <label for="presupuesto">Presupuesto aproximado (₡)</label>
+                <input type="number" id="presupuesto" placeholder="Ej: 250000">
+              </div>
+
+              <div class="EnchaEntrega">
+                <label for="fechaEntrega">Fecha deseada</label>
+                <input type="date" id="fechaEntrega">
+              </div>
+            </div>
+          </section>
+
+          <section class="seccionFormulario">
+            <h3 class="TituloSeccion">4. Información de contacto</h3>
+
+            <div class="ContenedorContacto">
+              <div class="Telefono">
+                <label for="telefono">Teléfono *</label>
+                <input type="tel" id="telefono" placeholder="8888-8888" required>
+              </div>
+
+              <div class="Correo">
+                <label for="correo">Correo electrónico *</label>
+                <input type="email" id="correo" placeholder="correo@ejemplo.com" required>
+              </div>
+            </div>
+          </section>
+
+          <section class="seccionFormulario">
+            <h3 class="TituloSeccion">5. Observaciones adicionales</h3>
+
+            <div class="Observaciones">
+              <textarea
+                id="observaciones"
+                rows="4"
+                placeholder="Agrega cualquier detalle importante para el ebanista."
+              ></textarea>
+            </div>
+          </section>
+
+          <div class="BotonesFormulario">
+            <button type="button" class="botonCancelar" onclick="CerrarPropuestaCompleta()">
+              Cancelar
+            </button>
+            <button type="button" class="botonEnviar">
+              Responder
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="InformacionPersonal">
+        <div class="MiPerfil">
+          <h2>Mi perfil</h2>
+          <p>
+            Gestiona tu informacion personal, tu portafolio de muebles y la configuración de tu cuenta.
+          </p>
         </div>
 
-        <nav class="barraPrincipal">
-            <ul>
-                <li class="actual">
-                    <a href="registro.html" tabindex="_top" class="actuala">Registro</a>
-                </li>
-                <li>
-                    <a href="index.html">Inicio</a>
-                </li>
-                <li>
-                    <a href="">Explorar</a>
-                </li>
-            </ul>
+        <div class="MiPerfil2">
+          <div class="ContenedorImagen">
+            <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+          </div>
+
+          <div class="ContenedorInformacion">
+            <p class="Nombre">
+              <b>Pedro Sanchez</b>
+            </p>
+
+            <p class="Rol">
+              Ebanista
+            </p>
+
+            <p class="Correo">
+            PedroSanchezggomg@gmail.com
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="Funcionalidades">
+        <nav class="Opciones">
+          <div class="OpcionPersonal OpcionActual" onclick="MostrarPersonal()">
+            <img src="assets/images/usuario.png" alt="">
+            <p>Información personal</p>
+          </div>
+
+          <div class="OpcionAlbum" onclick="MostrarAlbum()">
+            <img src="assets/images/galeria.png" alt="">
+            <p>Álbum de muebles</p>
+          </div>
+
+          <div class="OpcionConfiguracion" onclick="MostrarConfiguracion()">
+            <img src="assets/images/engranaje.png" alt="">
+            <p>Configuración</p>
+          </div>
+
+          <div class="OpcionPropuesta" onclick="MostrarPropuestas()">
+            <img src="assets/images/propuesta.png" alt="">
+            <p>Propuestas</p>
+          </div>
         </nav>
 
-        <div class="LogoOpifex">
-            <img src="assets/images/LogoSolo.png" alt="">
-        </div>
-    </header>
+        <div class="OpcionSeleccionada">
+          <div class="SeleccionadaPersonal">
+            <div class="ContenedorNombreO">
+              <p>Nombre</p>
+              <input type="text">
+            </div>
 
-    <main>
+            <div class="ContenedorApellidoO">
+              <p>Apellido</p>
+              <input type="text">
+            </div>
 
-        <form class="InicioSesion">
-            <h1>Inicio de sesión</h1>
+            <div class="ContenedorCorreoO">
+              <p>Correo</p>
+              <input type="email">
+            </div>
 
-            <p>Correo</p>
-            <input type="email">
+            <div class="ContenedorContraseñaO">
+              <p>Contraseña</p>
+              <input type="password">
+            </div>
 
-            <p>Contraseña</p>
-            <input type="password">
+            <div class="ContenedorFechaO">
+              <p>Fecha nacimiento</p>
+              <input type="datetime">
+            </div>
 
-            <button onclick="InicioSesion_Registro()" type="button">
-                Iniciar sesión
+            <div class="ContenedorExperienciaO">
+              <p>Años de experiencia</p>
+              <input type="number">
+            </div>
+
+            <div class="ContenedorSobreMiO">
+              <p>Sobre mi</p>
+              <textarea></textarea>
+            </div>
+
+            <button>
+              Guardar cambios
             </button>
+          </div>
 
-            <p class="Registro">
-                ¿No tienes cuenta?
-                <a href="">
-                    <b>Registrate aqui</b>
-                </a>
-            </p>
-        </form>
+          <div class="SeleccionadaAlbum">
+            <div class="EncabezadoAlbum">
+              <h3>Mi álbum de muebles</h3>
 
-        <form class="Registrar">
-            <h1>Registro</h1>
+              <button class="btnAgregarMueble">
+                + Agregar mueble
+              </button>
+            </div>
 
-            <div class="ContenedorTipo">
-                <p>
-                    <b>Tipo de usuario</b>
-                </p>
+            <div class="AlbumMuebles">
+              <div class="TarjetaMueble">
+                <img src="assets/images/images.jpg" alt="Mueble">
 
-                <div class="TipoUsuario">
-                    <input type="radio" id="Ebanista">
-                    <br>
+                <div class="InformacionMueble">
+                  <p class="NombreMueble">
+                    Mesa de comedor moderna
+                  </p>
 
-                    <label for="Ebanista">Ebanista</label>
+                  <div class="AccionesMueble">
+                    <button class="btnEditarMueble">
+                      Editar
+                    </button>
 
-                    <input type="radio" id="Cliente" checked>
-                    <br>
-
-                    <label for="Cliente">Cliente</label>
+                    <button class="btnEliminarMueble">
+                      Eliminar
+                    </button>
+                  </div>
                 </div>
-            </div>
+              </div>
 
-            <div class="ContenedorNombre">
-                <p>Nombre</p>
-                <input type="text">
-            </div>
+              <div class="TarjetaMueble">
+                <img src="assets/images/images.jpg" alt="Mueble">
 
-            <div class="ContenedorApellido">
-                <p>Apellido</p>
-                <input type="text">
-            </div>
+                <div class="InformacionMueble">
+                  <p class="NombreMueble">
+                    Armario de roble
+                  </p>
 
-            <div class="ContenedorCorreo">
-                <p>Correo</p>
-                <input type="email">
-            </div>
+                  <div class="AccionesMueble">
+                    <button class="btnEditarMueble">
+                      Editar
+                    </button>
 
-            <div class="ContenedorContraseña">
-                <p>Contraseña</p>
-                <input type="password">
-            </div>
-
-            <div class="ContenedorFecha">
-                <p>Fecha nacimiento</p>
-                <input type="datetime">
-            </div>
-
-            <div class="ContenedorExperiencia">
-                <p>Años de experiencia</p>
-                <input type="number">
-            </div>
-
-            <div class="ContenedorSobreMi">
-                <p>Sobre mi</p>
-                <textarea></textarea>
-            </div>
-
-            <div class="ContenedorRegistro">
-                <button class="btnRegistrarse" onclick="Registro_Perfil()" type="button">
-                    Registrarse
-                </button>
-
-                <button class="btnRegresar" onclick="Registro_InicioSesion()" type="button">
-                    Regresar
-                </button>
-            </div>
-        </form>
-
-        <section class="Perfil">
-
-            <div class="InformacionPersonal">
-
-                <div class="MiPerfil">
-                    <h2>Mi perfil</h2>
-
-                    <p>
-                        Gestiona tu informacion personal, tu portafolio de muebles y la configuración de tu cuenta.
-                    </p>
+                    <button class="btnEliminarMueble">
+                      Eliminar
+                    </button>
+                  </div>
                 </div>
+              </div>
 
-                <div class="MiPerfil2">
+              <div class="TarjetaMueble">
+                <img src="assets/images/images.jpg" alt="Mueble">
 
-                    <div class="ContenedorImagen">
-                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
-                    </div>
+                <div class="InformacionMueble">
+                  <p class="NombreMueble">
+                    Armario de roble
+                  </p>
 
-                    <div class="ContenedorInformacion">
-                        <p class="Nombre">
-                            <b>Pedro Sanchez</b>
-                        </p>
+                  <div class="AccionesMueble">
+                    <button class="btnEditarMueble">
+                      Editar
+                    </button>
 
-                        <p class="Rol">
-                            Ebanista
-                        </p>
-
-                        <p class="Correo">
-                            PedroSanchezggomg@gmail.com
-                        </p>
-                    </div>
-
+                    <button class="btnEliminarMueble">
+                      Eliminar
+                    </button>
+                  </div>
                 </div>
+              </div>
 
+              <div class="TarjetaMueble">
+                <img src="assets/images/images.jpg" alt="Mueble">
+
+                <div class="InformacionMueble">
+                  <p class="NombreMueble">
+                    Armario de roble
+                  </p>
+
+                  <div class="AccionesMueble">
+                    <button class="btnEditarMueble">
+                      Editar
+                    </button>
+
+                    <button class="btnEliminarMueble">
+                      Eliminar
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="TarjetaMueble">
+                <img src="assets/images/images.jpg" alt="Mueble">
+
+                <div class="InformacionMueble">
+                  <p class="NombreMueble">
+                    Armario de roble
+                  </p>
+
+                  <div class="AccionesMueble">
+                    <button class="btnEditarMueble">
+                      Editar
+                    </button>
+
+                    <button class="btnEliminarMueble">
+                      Eliminar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="SeleccionadaConfiguracion">
+            <div class="CerrarSesion">
+              <p>Finaliza tu sesión en la plataforma</p>
+
+              <button onclick="Perfil_Registro()" type="button">
+                Cerrar sesión
+              </button>
             </div>
 
-            <div class="Funcionalidades">
+            <div class="BorrarCuenta">
+              <p>
+                Elimina tu cuenta y toda tu informacion de manera permanente
+              </p>
 
-                <nav class="Opciones">
+              <button>
+                Borrar cuenta
+              </button>
+            </div>
+          </div>
 
-                    <div class="OpcionPersonal OpcionActual" onclick="MostrarPersonal()">
-                        <img src="assets/images/usuario.png" alt="">
-                        <p>Información personal</p>
-                    </div>
+          <div class="SeleccionadaPropuesta">
+            <div class="TargetaPropuesta">
+              <div class="EncabezadoPropuesta">
+                <img src="assets/images/contrato.png" alt="">
+                <h3>Información de la propuesta</h3>
+              </div>
 
-                    <div class="OpcionAlbum" onclick="MostrarAlbum()">
-                        <img src="assets/images/galeria.png" alt="">
-                        <p>Álbum de muebles</p>
-                    </div>
-
-                    <div class="OpcionConfiguracion" onclick="MostrarConfiguracion()">
-                        <img src="assets/images/engranaje.png" alt="">
-                        <p>Configuración</p>
-                    </div>
-
-                </nav>
-
-                <div class="OpcionSeleccionada">
-
-                    <div class="SeleccionadaPersonal">
-
-                        <div class="ContenedorNombreO">
-                            <p>Nombre</p>
-                            <input type="text">
-                        </div>
-
-                        <div class="ContenedorApellidoO">
-                            <p>Apellido</p>
-                            <input type="text">
-                        </div>
-
-                        <div class="ContenedorCorreoO">
-                            <p>Correo</p>
-                            <input type="email">
-                        </div>
-
-                        <div class="ContenedorContraseñaO">
-                            <p>Contraseña</p>
-                            <input type="password">
-                        </div>
-
-                        <div class="ContenedorFechaO">
-                            <p>Fecha nacimiento</p>
-                            <input type="datetime">
-                        </div>
-
-                        <div class="ContenedorExperienciaO">
-                            <p>Años de experiencia</p>
-                            <input type="number">
-                        </div>
-
-                        <div class="ContenedorSobreMiO">
-                            <p>Sobre mi</p>
-                            <textarea></textarea>
-                        </div>
-
-                        <button>
-                            Guardar cambios
-                        </button>
-
-                    </div>
-
-                    <div class="SeleccionadaAlbum">
-
-                        <div class="EncabezadoAlbum">
-                            <h3>Mi álbum de muebles</h3>
-
-                            <button class="btnAgregarMueble">
-                                + Agregar mueble
-                            </button>
-                        </div>
-
-                        <div class="AlbumMuebles">
-
-                            <div class="TarjetaMueble">
-                                <img src="assets/images/images.jpg" alt="Mueble">
-
-                                <div class="InformacionMueble">
-                                    <p class="NombreMueble">
-                                        Mesa de comedor moderna
-                                    </p>
-
-                                    <div class="AccionesMueble">
-                                        <button class="btnEditarMueble">
-                                            Editar
-                                        </button>
-
-                                        <button class="btnEliminarMueble">
-                                            Eliminar
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="TarjetaMueble">
-                                <img src="assets/images/images.jpg" alt="Mueble">
-
-                                <div class="InformacionMueble">
-                                    <p class="NombreMueble">
-                                        Armario de roble
-                                    </p>
-
-                                    <div class="AccionesMueble">
-                                        <button class="btnEditarMueble">
-                                            Editar
-                                        </button>
-
-                                        <button class="btnEliminarMueble">
-                                            Eliminar
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="TarjetaMueble">
-                                <img src="assets/images/images.jpg" alt="Mueble">
-
-                                <div class="InformacionMueble">
-                                    <p class="NombreMueble">
-                                        Armario de roble
-                                    </p>
-
-                                    <div class="AccionesMueble">
-                                        <button class="btnEditarMueble">
-                                            Editar
-                                        </button>
-
-                                        <button class="btnEliminarMueble">
-                                            Eliminar
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="TarjetaMueble">
-                                <img src="assets/images/images.jpg" alt="Mueble">
-
-                                <div class="InformacionMueble">
-                                    <p class="NombreMueble">
-                                        Armario de roble
-                                    </p>
-
-                                    <div class="AccionesMueble">
-                                        <button class="btnEditarMueble">
-                                            Editar
-                                        </button>
-
-                                        <button class="btnEliminarMueble">
-                                            Eliminar
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="TarjetaMueble">
-                                <img src="assets/images/images.jpg" alt="Mueble">
-
-                                <div class="InformacionMueble">
-                                    <p class="NombreMueble">
-                                        Armario de roble
-                                    </p>
-
-                                    <div class="AccionesMueble">
-                                        <button class="btnEditarMueble">
-                                            Editar
-                                        </button>
-
-                                        <button class="btnEliminarMueble">
-                                            Eliminar
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="SeleccionadaConfiguracion">
-
-                        <div class="CerrarSesion">
-                            <p>Finaliza tu sesión en la plataforma</p>
-
-                            <button onclick="Perfil_Registro()" type="button">
-                                Cerrar sesión
-                            </button>
-                        </div>
-
-                        <div class="BorrarCuenta">
-                            <p>
-                                Elimina tu cuenta y toda tu informacion de manera permanente
-                            </p>
-
-                            <button>
-                                Borrar cuenta
-                            </button>
-                        </div>
-
-                    </div>
-
+              <div class="ContenedorInfoProp">
+                <div class="InfoProp1">
+                  <p><b>Cliente:</b> Marco pocoyo</p>
+                  <p><b>Fecha solicitud:</b> 14/6/2026</p>
                 </div>
 
+                <div class="InfoProp2">
+                  <p><b>Descripción:</b> Closet de madera ya que quiero salir de el...</p>
+                </div>
+
+                <div class="InfoProp3">
+                  <p class="pAlto"><b>Alto:</b> 222 cm</p>
+                  <p class="pAncho"><b>Ancho:</b> 180 cm</p>
+                  <p class="pProfundiad"><b>Profundidad:</b> 60 cm</p>
+                </div>
+
+                <div class="ContenedorEnlace">
+                  <a onclick="VerPropuestaCompleta()">Ver solicitud completa</a>
+                </div>
+              </div>
             </div>
-
-        </section>
-
-    </main>
-
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

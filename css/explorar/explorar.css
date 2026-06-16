@@ -1,0 +1,522 @@
+/* ==========================================================================
+1. Animaciones
+========================================================================== */
+
+@-webkit-keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(-100px); /* Ajustado de -100px a 0 para que "aparezca" entrando */
+        transform: translateX(-100px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(-100px);
+        transform: translateX(-100px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================================================
+2. Buscador
+========================================================================== */
+
+.Buscador {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 12px;
+}
+
+input[type="search"] {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="search"]:hover,
+input[type="search"]:focus {
+    border-color: #4f6d5a; /* Color de enfoque */
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3); /* Efecto brillante */
+}
+
+/* ==========================================================================
+3. Botones principales
+========================================================================== */
+
+.btnBuscar {
+    /*margin: auto; */
+    /* margin-bottom: 1rem; */
+    /* margin-top: 2rem; */
+    border-radius: 1rem;
+    /* height: 4.5rem; */
+    width: 17rem;
+    background-color: #4f6d5a;
+    border-color: #4f6d5a;
+    font-size: clamp(1.25rem, 3vw, 0.8rem);
+    color: #fcf3e5;
+    flex: 1;
+}
+
+.btnNuevaPropuesta {
+    /*margin: auto; */
+    /* margin-bottom: 1rem; */
+    /* margin-top: 2rem; */
+    border-radius: 1rem;
+    /* height: 4.5rem; */
+    width: 17rem;
+    background-color: #4f6d5a;
+    border-color: #4f6d5a;
+    font-size: clamp(0.25rem, 0.8rem, 1.85rem);
+    color: #fcf3e5;
+    flex: 1;
+}
+
+.btnMostrar {
+    /* margin-bottom: 1rem; */
+    /* margin-top: 2rem; */
+    border-radius: 1rem;
+    /* height: 4.5rem; */
+    /* width: 17rem; */
+    background-color: #780000;
+    border-color: #780000;
+    font-size: clamp(0.25rem, 1.1rem, 1.85rem);
+    color: #fcf3e5;
+    flex: 1;
+    margin-left: 1rem;
+}
+
+/* ==========================================================================
+4. Estructura principal
+========================================================================== */
+
+.TodaVentana {
+    width: 100%;
+    /* min-height: 80vh; */
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fcf3e5;
+    margin-top: 6px;
+    flex: 8;
+    gap: 8px;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+5. Filtros
+========================================================================== */
+
+.Filtros {
+    width: 9.8rem;
+    height: 100%;
+    background-color: antiquewhite;
+    opacity: 0.7;
+    position: absolute;
+    border-radius: 1rem;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease; /* Permite ocultarse suavemente al cerrar */
+}
+
+.Filtros.mostrar {
+    opacity: 0.9;
+    visibility: visible;
+    pointer-events: auto;
+
+    /* Tu animación de Animista */
+    -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.CabeceraFiltros {
+    display: flex;
+    height: 5rem;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Filtros p {
+    padding-left: 1rem;
+}
+
+.Filtros h2 {
+    font-size: clamp(1rem, 2rem, 2.5rem);
+}
+
+/* ==========================================================================
+6. Navegación de opciones
+========================================================================== */
+
+.Opciones {
+    flex: 10;
+    overflow: hidden;
+    display: flex;
+    background-color: #fcf3e5;
+    padding: 0 1rem;
+}
+
+.Opciones p {
+    font-size: clamp(0.4rem, 4vw, 1.25rem);
+}
+
+.OpcionSeleccionada {
+    flex: 8;
+    overflow: hidden;
+    display: flex;
+}
+
+.OpcionCotizaciones {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.OpcionCotizaciones:hover {
+    background-color: antiquewhite;
+}
+
+.OpcionCotizaciones img {
+    margin-bottom: 3px;
+}
+
+.OpcionEbanistas {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.OpcionEbanistas:hover {
+    background-color: antiquewhite;
+}
+
+.OpcionActual {
+    border-bottom: 0.2rem solid #4f6d5a;
+    border-radius: 0.2rem;
+}
+
+/* ==========================================================================
+7. Contenedores de contenido
+========================================================================== */
+
+.Cotizaciones {
+    flex: 100;
+    display: grid; /*Es grid*/
+    grid-template-columns: 50% 50%;
+    /* Modificado: define el tamaño de las filas automáticas futuras */
+    grid-auto-rows: 18rem;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 7rem;
+    grid-auto-flow: row;
+}
+
+.Ebanistas {
+    flex: 100;
+    display: none; /*Es grid*/
+    grid-template-columns: 50% 50%;
+    /* Modificado: define el tamaño de las filas automáticas futuras */
+    grid-auto-rows: 18rem;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 7rem;
+    grid-auto-flow: row;
+}
+
+/* ==========================================================================
+8. Tarjetas de cotizaciones
+========================================================================== */
+
+.Cotizacion {
+    /* CONTAIN-INTRINSIC-BLOCK-SIZE: AUTO 100PX; */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid #f0e6df;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin: 0rem;
+
+    /* max-width: 850px; */
+    font-family: Arial, sans-serif;
+    /* width: 100%; */
+    overflow: hidden;
+    height: 100%;
+}
+
+.InformacionImagen {
+    flex: 1.4;
+    height: 100%;
+}
+
+.Cotizacion img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+/* Bloque Izquierdo: Imagen */
+.ContenedorImagen {
+    flex: 1;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.ContenedorImagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bloque Derecho: Información completa */
+.InformacionCotizacion {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+    height: 100%;
+    width: 0;
+    flex-direction: column;
+}
+
+/* Sub-bloque Izquierdo de Info: Textos descriptivos */
+.InformacionParte1 {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    overflow: hidden;
+    flex: 1.5;
+    height: 100%;
+}
+
+.InformacionParte1 h3 {
+    margin: 0.2rem 0;
+    font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+    color: #1a1a1a;
+}
+
+.Descripcion {
+    margin: 0;
+    color: #666666;
+    font-size: clamp(0.8rem, 1vw, 1.1rem);
+    height: 100%;
+    /* line-height: 1.4;*/
+}
+
+/* Sub-bloque Derecho de Info: Precio y Botones */
+.InformacionParte2 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* min-width: 160px; */
+    width: 100%;
+    text-align: right;
+    gap: 0.5rem;
+    flex: 1;
+    overflow: hidden;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.InformacionParte2 h3 {
+    margin: 0;
+    font-size: clamp(1.4rem, 1.8vw, 2rem);
+    color: #780000;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+9. Etiquetas y filtros de cotización
+========================================================================== */
+
+.Categoria {
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: antiquewhite;
+    color: #665040;
+    width: fit-content;
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+    font-size: clamp(0.9rem, 0.5vw, 3rem);
+    font-weight: bold;
+}
+
+.Estilo {
+    margin-top: 0;
+    background-color: #897056;
+    width: fit-content;
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+    font-size: clamp(0.9rem, 0.5vw, 3rem);
+    margin-bottom: 0;
+    color: #f0e6df;
+}
+
+.ContenedorFiltros {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.ContenedorCotizaciones {
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================================================
+10. Botones de acciones
+========================================================================== */
+
+.btnVerPerfil {
+    /* margin: auto; */
+    /* margin-bottom: 1rem; */
+    /* margin-top: 2rem; */
+    border-radius: 1rem;
+    /* height: 4.5rem; */
+    /* width: 17rem; */
+    background-color: white;
+    border-color: #634329;
+    font-size: clamp(0.25rem, 0.8rem, 1.85rem);
+    color: #634329;
+    font-weight: 900;
+    flex: 1;
+}
+
+.btnVerPerfil:hover {
+    /* margin: auto; */
+    /* margin-bottom: 1rem; */
+    /* margin-top: 2rem; */
+    border-radius: 1rem;
+    /* height: 4.5rem; */
+    /* width: 17rem; */
+    background-color: #634329;
+    border-color: #634329;
+    font-size: clamp(0.25rem, 0.8rem, 1.85rem);
+    color: white;
+    font-weight: 900;
+    flex: 1;
+}
+
+.btnResponder {
+    /* margin: auto; */
+    /* margin-bottom: 1rem; */
+    /* margin-top: 2rem; */
+    border-radius: 1rem;
+    /* height: 4.5rem; */
+    /* width: 17rem; */
+    background-color: white;
+    border-color: #780000;
+    font-size: clamp(0.25rem, 0.8rem, 1.85rem);
+    color: #780000;
+    font-weight: 900;
+    flex: 1;
+}
+
+.btnResponder:hover {
+    /* margin: auto; */
+    /* margin-bottom: 1rem; */
+    /* margin-top: 2rem; */
+    border-radius: 1rem;
+    /* height: 4.5rem; */
+    /* width: 17rem; */
+    background-color: #780000;
+    border-color: white;
+    font-size: clamp(0.25rem, 0.8rem, 1.85rem);
+    color: white;
+    font-weight: 900;
+    flex: 1;
+}
+
+/* ==========================================================================
+11. Tarjetas de ebanistas
+========================================================================== */
+
+.Ebanista {
+    /* CONTAIN-INTRINSIC-BLOCK-SIZE: AUTO 100PX; */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid #f0e6df;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin: 0rem;
+
+    /* max-width: 850px; */
+    font-family: Arial, sans-serif;
+    /* width: 100%; */
+    overflow: hidden;
+    height: 100%;
+}
+
+.InformacionEbanista {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+    height: 100%;
+    width: 0;
+    flex-direction: column;
+}
+
+.SobreMi {
+    margin: 0;
+    color: #666666;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    height: 100%;
+}
+
+.Ebanista .InformacionParte1 {
+    flex: 5.5;
+}
+
+.Ebanista img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+/* ==========================================================================
+12. Media Queries
+========================================================================== */
+
+@media (max-width: 874px) {
+
+    .Cotizaciones {
+        grid-template-columns: 100%;
+    }
+
+    .Ebanistas {
+        grid-template-columns: 100%;
+    }
+}
+

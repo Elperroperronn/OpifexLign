@@ -12,7 +12,6 @@ main {
 }
 
 
-
 /* ==========================================================================
 2. Formularios - Elementos Base (Inputs, Textarea, Radio, File)
 ========================================================================== */
@@ -41,7 +40,6 @@ input[type="number"]:focus,
 textarea:focus {
     border-color: #4f6d5a; /* Color de enfoque */
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.3); /* Efecto brillante */
-
 }
 
 input[type="text"]:hover, 
@@ -51,7 +49,6 @@ input[type="datetime"]:hover,
 textarea:hover {
     border-color: #4f6d5a; /* Color de enfoque */
     box-shadow: 0 0 1rem #4f6d5a; /* Efecto brillante */
-
 }
 
 input[type="radio"] {
@@ -64,10 +61,8 @@ input[type="file"] {
 }
 
 
-
-
 /* ==========================================================================
-5. Sección - Inicio de Sesión (.InicioSesion)
+3. Sección - Inicio de Sesión (.InicioSesion)
 ========================================================================== */
 .InicioSesion {
     /*background-color: #cbb9a3;*/
@@ -92,23 +87,17 @@ input[type="file"] {
 .InicioSesion p {
     font-size: clamp(1.25rem, 3vw, 2rem);
     margin-bottom: 1rem;
-    
 }
 
-
-
 .InicioSesion button{
-
     margin: auto;
     margin-bottom: 1rem;
     margin-top: 2rem;
     border-radius: 1rem;
     height: 4.5rem;
-
     width: 17rem;
     background-color: #4f6d5a;
     border-color: #4f6d5a;
-
     font-size: clamp(1.25rem, 3vw, 1.85rem);
     color: #fcf3e5;
 }
@@ -119,21 +108,26 @@ input[type="file"] {
     text-shadow: 0 0 1rem #cbb9a3;
 }
 
+.Registro a {
+    text-decoration: underline;
+    color: green;
+}
+
+
 /* ==========================================================================
-6. Sección - Registro (.Registrar)
+4. Sección - Registro (.Registrar)
 ========================================================================== */
 .Registrar {
     display: none;
     grid-template-columns: 30rem 7rem 30rem;
     grid-template-rows: repeat(7, 7rem); /* Simplificado las 7 filas */
-
     border-radius: 6rem;
     padding-left: 3rem;
     padding-right: 3rem;
 }
 
 .Registrar div {
-        padding-left: 1rem;
+    padding-left: 1rem;
 }
 
 .Registrar h1 {
@@ -174,7 +168,7 @@ input[type="file"] {
     grid-column: 1 / span 3;
     border-radius: 1rem;
     flex-direction: column;
-        margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .TipoUsuario {
@@ -192,41 +186,41 @@ input[type="file"] {
 
 .ContenedorNombre {
     grid-column: 1;
-grid-row: 3;
+    grid-row: 3;
 }
 
 .ContenedorApellido {
     grid-column: 3;
-grid-row: 3;
+    grid-row: 3;
 }
 
 .ContenedorCorreo {
     grid-column: 1;
-grid-row: 4;
+    grid-row: 4;
 }
 
 .ContenedorContraseña {
     grid-column: 3;
-grid-row: 4;
+    grid-row: 4;
 }
 
 .ContenedorFecha {
     grid-column: 1;
-grid-row: 5;
+    grid-row: 5;
 }
 
 .ContenedorExperiencia {
     grid-column: 3;
-grid-row: 5;
+    grid-row: 5;
 }
 
 .ContenedorSobreMi {
     grid-column: 1  / span 3 ;
-grid-row: 6;
+    grid-row: 6;
 }
 
 .ContenedorSobreMi p {
-margin-top: 0rem;
+    margin-top: 0rem;
 }
 
 .ContenedorRegistro  {
@@ -239,15 +233,14 @@ margin-top: 0rem;
 }
 
 .ContenedorRegistro button {
-margin: auto;
-margin-bottom: 1rem;
+    margin: auto;
+    margin-bottom: 1rem;
     /* margin-top: 5rem; */
     border-radius: 1rem;
     height: 4.5rem;
     /* margin-left: auto; */
     /* margin-right: auto; */
     width: 17rem;
-    
 }
 
 .btnRegistrarse {
@@ -277,13 +270,11 @@ margin-bottom: 1rem;
 }
 
 
-
 /* ==========================================================================
-7. Sección - Perfil
+5. Sección - Perfil (estructura general)
 ========================================================================== */
-
 .Perfil {
-flex: 1;
+    flex: 1;
     width: 100%;
     /* margin-left: 4rem; */
     /* margin-right: 4rem; */
@@ -291,11 +282,11 @@ flex: 1;
     display: none; /*Es flex*/
     flex-direction: column;
     overflow: hidden;
-        gap: 5px;
+    gap: 5px;
+    position: relative;
 }
 
 .InformacionPersonal {
-
     flex: 1;
     width: 100%;
     display: flex;
@@ -303,32 +294,30 @@ flex: 1;
 }
 
 .MiPerfil {
-background-color: #fcf3e5;
-flex: 1;
-width: 100%;
-display: flex;
-flex-direction: column;
-padding-left: 1rem;
-overflow: hidden;
+    background-color: #fcf3e5;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    overflow: hidden;
 }
 
 .MiPerfil h1{
-margin-bottom: 1rem;
-
+    margin-bottom: 1rem;
 }
 
-
 .MiPerfil2 {
-background-color: #fcf3e5;
-flex: 1;
-width: 100%;
-padding-left: 1rem;
-display: flex;
-overflow: hidden;
+    background-color: #fcf3e5;
+    flex: 1;
+    width: 100%;
+    padding-left: 1rem;
+    display: flex;
+    overflow: hidden;
 }
 
 .ContenedorImagen {
-flex: 1;
+    flex: 1;
     padding-top: 1rem;
     /* width: 100%; */
     margin-right: 1rem;
@@ -337,13 +326,13 @@ flex: 1;
 }
 
 .ContenedorImagen img {
-        border-radius: 9rem;
+    border-radius: 9rem;
     height: 10rem;
 }
 
 .Nombre {
-font-size: clamp(0rem, 2.3vw, 2rem);
-margin-bottom: 0.4rem;
+    font-size: clamp(0rem, 2.3vw, 2rem);
+    margin-bottom: 0.4rem;
 }
 
 .Correo {
@@ -352,13 +341,12 @@ margin-bottom: 0.4rem;
 }
 
 .Rol {
-        background-color: antiquewhite;
+    background-color: antiquewhite;
     width: fit-content;
     border-radius: 0.5rem;
     padding: 0.4rem;
     font-size: clamp(0.9rem, 0.5vw, 3rem);
     margin-top: 0;
-
 }
 
 .ContenedorInformacion {
@@ -366,7 +354,6 @@ margin-bottom: 0.4rem;
 }
 
 .Funcionalidades {
-
     flex: 3;
     width: 100%;
     display: flex;
@@ -376,12 +363,10 @@ margin-bottom: 0.4rem;
     overflow: hidden;
 }
 
-
 .MiPerfil p {
     font-size: clamp(0rem, 2vw, 1rem);
     font-family: 'Montserrat', sans-serif;
     padding-right: 5rem;
-
 }
 
 .MiPerfil h2{
@@ -390,12 +375,13 @@ margin-bottom: 0.4rem;
     justify-content: left;
     width: fit-content;
     border-radius: 0.5rem;
-        margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 
-
-
+/* ==========================================================================
+6. Sección - Perfil: Navegación de opciones
+========================================================================== */
 .Opciones {
     flex: 1;
     overflow: hidden;
@@ -408,60 +394,93 @@ margin-bottom: 0.4rem;
     font-size: clamp(0.4rem, 2vw, 1.25rem);
 }
 
+/* Estructura base unificada para las 3 opciones */
+.OpcionPersonal, 
+.OpcionAlbum, 
+.OpcionConfiguracion,
+.OpcionPropuesta {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+/* Comportamiento Hover unificado para las 3 opciones */
+.OpcionPersonal:hover, 
+.OpcionAlbum:hover, 
+.OpcionConfiguracion:hover,
+.OpcionPropuesta:hover {
+    background-color: antiquewhite;
+}
+
+/* Este se mantiene igual ya que solo aplica a la imagen de la opción personal */
+.OpcionPersonal img {
+    margin-bottom: 3px;
+}
+
+.OpcionActual {
+    border-bottom: 0.2rem solid #4f6d5a;
+    border-radius: 0.2rem;
+}
+
 .OpcionSeleccionada {
     flex: 8;
     overflow: hidden;
     display: flex;
 }
 
+
+/* ==========================================================================
+7. Sección - Perfil: Opción Información Personal
+========================================================================== */
 .SeleccionadaPersonal {
     display: grid; /*Es grid*/
     grid-template-columns: AUTO 3rem AUTO;
-grid-template-rows: 5rem 5rem 6rem 9rem 4rem;
+    grid-template-rows: 5rem 5rem 6rem 9rem 4rem;
     border-radius: 6rem;
     padding-left: 3rem;
     padding-right: 3rem;
     WIDTH: 100%;
 }
 
-.SeleccionadaPersonal P {
-margin-bottom: 0;
+.SeleccionadaPersonal p {
+    margin-bottom: 0;
 }
-
 
 .ContenedorNombreO {
     grid-column: 1;
-grid-row: 1;
+    grid-row: 1;
 }
 
 .ContenedorApellidoO {
     grid-column: 3;
-grid-row: 1;
+    grid-row: 1;
 }
 
 .ContenedorCorreoO {
     grid-column: 1;
-grid-row: 2;
+    grid-row: 2;
 }
 
 .ContenedorContraseñaO {
     grid-column: 3;
-grid-row: 2;
+    grid-row: 2;
 }
 
 .ContenedorFechaO {
     grid-column: 1;
-grid-row: 3;
+    grid-row: 3;
 }
 
 .ContenedorExperienciaO {
     grid-column: 3;
-grid-row: 3;
+    grid-row: 3;
 }
 
 .ContenedorSobreMiO {
     grid-column: 1  / span 3 ;
-grid-row: 4;
+    grid-row: 4;
     margin-top: 0.2rem;
 }
 
@@ -470,9 +489,8 @@ grid-row: 4;
     height: 6rem;
 }
 
-
 .ContenedorSobreMiO p {
-margin-top: 0rem;
+    margin-top: 0rem;
 }
 
 .SeleccionadaPersonal button {
@@ -494,57 +512,16 @@ margin-top: 0rem;
     padding: 0.5rem;
 }
 
-
 .SeleccionadaPersonal button:hover {
-    border-color: #4f6d5a; /* Color de enfoque */
-    box-shadow: 0 0 1rem #4f6d5a; /* Efecto brillante */
-    text-shadow: 0 0 1rem #cbb9a3;
-}
-
-.OpcionPersonal {
-flex: 1;
-display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2px;
-}
-
-.OpcionPersonal:hover{
-background-color: antiquewhite ;
-}
-
-.OpcionPersonal img {
-margin-bottom: 3px;
-}
-
-.OpcionAlbum {
-    flex: 1;
-    display: flex;
-        justify-content: center;
-    align-items: center;
-    gap: 2px;
-}
-.OpcionAlbum:hover{
-background-color: antiquewhite ;
-}
-.OpcionConfiguracion:hover {
-    background-color: antiquewhite ;
-}
-
-.OpcionConfiguracion {
-    flex: 1;
-    display: flex;
-        justify-content: center;
-    align-items: center;
-    gap: 2px;
-}
-
-.OpcionActual {
-    border-bottom: 0.2rem solid #4f6d5a;
-    border-radius: 0.2rem;
+    background-color: #fcf3e5;
+    border-color: #4f6d5a;
+    color: #4f6d5a;
 }
 
 
+/* ==========================================================================
+8. Sección - Perfil: Opción Álbum de muebles
+========================================================================== */
 .SeleccionadaAlbum{
     display: none; /*Es flex*/
     flex-direction: column;
@@ -558,7 +535,7 @@ background-color: antiquewhite ;
     display: flex;
     justify-content: space-between;
     align-items: center;
-        padding: 0 1rem;
+    padding: 0 1rem;
 }
 
 .EncabezadoAlbum h3{
@@ -568,24 +545,19 @@ background-color: antiquewhite ;
 }
 
 .btnAgregarMueble{
-    border: none;
     border-radius: 1rem;
     padding: 0.8rem 1.2rem;
-
-    background-color: #8B1E3F;
-    color: white;
-
+    background-color: #780000;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
     font-size: 0.9rem;
-
 }
-
 
 .btnAgregarMueble:hover{
-    border-color: #8B1E3F;
-    box-shadow: 0 0 1rem #8B1E3F;
-    text-shadow: 0 0 1rem #cbb9a3;
+    background-color: #fcf3e5;
+    border-color: #780000;
+    color: #780000;
 }
-
 
 .AlbumMuebles{
     display: grid;
@@ -603,7 +575,6 @@ background-color: antiquewhite ;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 .TarjetaMueble img{
@@ -621,7 +592,7 @@ background-color: antiquewhite ;
 }
 
 .NombreMueble{
-margin: 0 0 1rem 0;
+    margin: 0 0 1rem 0;
     font-weight: 600;
     color: #4B372A;
     width: 100%;
@@ -630,49 +601,47 @@ margin: 0 0 1rem 0;
 
 .AccionesMueble{
     display: flex;
-
     gap: 0.7rem;
 }
 
 .btnEditarMueble,
 .btnEliminarMueble{
     flex: 1;
-
-    border: none;
-
     border-radius: 0.8rem;
-
     padding: 0.6rem;
-
     color: #fcf3e5;
-
-
 }
 
 .btnEditarMueble{
-    background-color: #4f6d5a;
+    background-color: #fcf3e5;
+    border-color: #4f6d5a;
+    color: #4f6d5a;
 }
 
 .btnEditarMueble:hover{
-    border-color: #4f6d5a;
-    box-shadow: 0 0 1rem #4f6d5a;
-    text-shadow: 0 0 1rem #cbb9a3;
+    background-color: #4f6d5a;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
 }
 
-
 .btnEliminarMueble{
-    background-color: #8B1E3F;
+    background-color: #fcf3e5;
+    border-color: #780000;
+    color: #780000;
 }
 
 .btnEliminarMueble:hover{
-    border-color: #8B1E3F;
-    box-shadow: 0 0 1rem #8B1E3F;
-    text-shadow: 0 0 1rem #cbb9a3;
+    background-color: #780000;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
 }
 
 
+/* ==========================================================================
+9. Sección - Perfil: Opción Configuración
+========================================================================== */
 .SeleccionadaConfiguracion{
-width: 100%;
+    width: 100%;
     height: 100%;
     display: none; /*Es flex*/
     flex-direction: column;
@@ -681,16 +650,13 @@ width: 100%;
 }
 
 .CerrarSesion, .BorrarCuenta {
-display: flex;
+    display: flex;
     align-items: center;
     gap: 2rem;
     border: 0.2rem solid #780000;
     padding: 1rem;
     border-radius: 1rem;
 }
-
-
-
 
 .CerrarSesion button, .BorrarCuenta button {
     background-color: #fcf3e5;
@@ -703,10 +669,219 @@ display: flex;
     border-radius: 1rem;
 }
 
+.CerrarSesion button:hover, .BorrarCuenta button:hover {
+    background-color: #780000;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
+}
 
 
 /* ==========================================================================
-Media-Queries - Adaptación de Formularios (Login, Registro, Perfil)
+10. Sección - Perfil: Opción Propuestas y Formulario de solicitud
+========================================================================== */
+.SeleccionadaPropuesta {
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow-y: scroll;
+    grid-template-columns: 100%;
+    grid-auto-rows: 14rem;
+    gap: 1REM;
+    padding: 0 7px;
+}
+
+.TargetaPropuesta {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: inset 0px 0px 0rem 2px #4f6d5a;
+}
+
+.EncabezadoPropuesta {
+    flex: 1;
+    display: flex;
+    padding-bottom: 4px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.EncabezadoPropuesta h3 {
+    margin: 0;
+    color: darkgreen;
+    font-weight: bolder;
+}
+
+.ContenedorInfoProp {
+    flex: 6;
+    /* margin: 1rem 1rem; */
+    background-color: antiquewhite;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 8px;
+}
+
+.ContenedorInfoProp p {
+    font-size: clamp(0.9rem, 2vw, 1.25rem);
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.InfoProp1 {
+    display: flex;
+    flex: 1;
+    gap: 1rem;
+    /* gap: unset; */
+    /* font-size: clamp(-0.9rem, 1vw, 0.25rem); */
+    align-content: center;
+    justify-content: space-between;
+}
+
+.InfoProp2 {
+    flex: 1;
+}
+
+.InfoProp3 {
+    display: flex;
+    flex: 1;
+    gap: clamp(0rem, 1vh, 6rem);
+}
+
+.ContenedorEnlace {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+
+.ContenedorEnlace a {
+    text-decoration: underline;
+    color: darkolivegreen;
+}
+
+/* Formulario modal de solicitud */
+.FormularioSolicitud {
+    display: none;
+    flex-direction: column;
+    width: 23rem;
+    height: 39rem;
+    background-color: antiquewhite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* OVERFLOW-Y: scroll; */
+    PADDING: 1REM;
+    border-radius: 2rem;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.FormularioSolicitud h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3.5vw, 2rem);
+}
+
+.ContenedorFormulario {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.TituloSeccion {
+    border-bottom: 0.2rem solid #4f6d5a;
+    /* display: flex; */
+    width: fit-content;
+}
+
+.TipoMueble {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.seccionFormulario {
+    background: #fcf3e5;
+    padding: 8px;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.BotonesFormulario {
+    display: flex;
+    gap: 1rem;
+    height: 2rem;
+    justify-content: space-around;
+}
+
+.BotonesFormulario button {
+    border-radius: 1rem;
+    font-size: clamp(0.50rem, 4vh, 1rem);
+    font-weight: 900;
+    flex: 1;
+}
+
+.botonCancelar {
+    background-color: #fcf3e5;
+    border-color: #780000;
+    color: #780000;
+}
+
+.botonEnviar {
+    background-color: #fcf3e5;
+    border-color: #4f6d5a;
+    color: #4f6d5a;
+}
+
+.botonEnviar:hover {
+    background-color: #4f6d5a;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
+}
+
+.botonCancelar:hover {
+    background-color: #780000;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
+}
+
+.Telefono {
+    margin-bottom: 1rem;
+}
+
+.Aviso {
+    margin: 0;
+    margin-bottom: 6px;
+    font-size: clamp(0.9rem, 1vw, 1.25rem);
+    color: darkred;
+}
+
+.Explicativo {
+    margin: 0;
+}
+
+.Desabilitado{
+  cursor: not-allowed;   /* Cambia el diseño del cursor */
+  pointer-events: none;  /* Hace que el elemento sea invisible a los clics */
+}
+
+.Habilitado{
+  cursor: auto;   /* Cambia el diseño del cursor */
+  pointer-events: all;  /* Hace que el elemento sea invisible a los clics */
+}
+
+
+/* ==========================================================================
+11. Media-Queries - Adaptación de Formularios (Login, Registro, Perfil)
 ========================================================================== */
 
 /* Pantallas medianas / tablets (hasta 1412px) */
@@ -717,7 +892,6 @@ Media-Queries - Adaptación de Formularios (Login, Registro, Perfil)
     }
 
     .Registrar {
-
         grid-template-columns: auto 7rem auto;
         grid-template-rows: 6rem 6rem 6rem 6rem 6rem 8rem 6rem;
     }
@@ -760,6 +934,7 @@ Media-Queries - Adaptación de Formularios (Login, Registro, Perfil)
     }
 }
 
+
 /* Pantallas pequeñas / móviles (hasta 630px) */
 @media (max-width: 630px) {
     .InicioSesion, .Registrar, .ConfigurarPerfil {
@@ -768,7 +943,6 @@ Media-Queries - Adaptación de Formularios (Login, Registro, Perfil)
     }
 
     .Registrar {
-
         grid-template-columns: auto 7rem auto;
         grid-template-rows: 6rem 6rem 6rem 6rem 6rem 8rem 6rem;
     }
@@ -813,79 +987,88 @@ Media-Queries - Adaptación de Formularios (Login, Registro, Perfil)
 
 @media (max-width: 630px) {
     .Perfil {
+        padding: 1rem 1rem;
+    }
 
-    padding: 1rem 1rem;
+    .Opciones p {
+        display: none;
+    }
 
-}
+    .MiPerfil {
+        display: none;
+    }
 
-.Opciones p {
-    display: none;
-}
-.MiPerfil {
+    .SeleccionadaPersonal p {
+        font-size: clamp(0.9rem, 2vw, 1.25rem);
+    }
 
-    display: none;
+    .SeleccionadaPersonal {
+        padding-left: 0;
+        padding-right: 0;
+        grid-template-rows: 5rem 5rem 5rem 8rem 4rem;
+    }
 
-}
+    .ContenedorSobreMiO p {
+        margin-top: 0.3rem;
+    }
 
-.SeleccionadaPersonal p {
-font-size: clamp(0.9rem, 2vw, 1.25rem);
-}
+    .OpcionSeleccionada {
+        padding: 0 1rem;
+    }
 
-.SeleccionadaPersonal {
-    padding-left: 0;
-    padding-right: 0;
-    grid-template-rows: 5rem 5rem 5rem 8rem 4rem;
-}
+    .btnEditarMueble, .btnEliminarMueble {
+        flex: 1;
+        /* border: none; */
+        border-radius: 0.8rem;
+        padding: 0.2rem;
+        /* color: #fcf3e5; */
+    }
 
-.ContenedorSobreMiO p {
-    margin-top: 0.3rem;
-}
+    .NombreMueble {
+        font-size: clamp(0.7rem, 2vw, 1.25rem);
+    }
 
-.OpcionSeleccionada {
-
-    padding: 0 1rem;
-}
-
-.btnEditarMueble, .btnEliminarMueble {
-    flex: 1;
-    border: none;
-    border-radius: 0.8rem;
-    padding: 0.2rem;
-    color: #fcf3e5;
-}
-
-
-.NombreMueble {
-
-    font-size: clamp(0.7rem, 2vw, 1.25rem);
-}
-
-.CerrarSesion, .BorrarCuenta {
-
-    padding: 0.5rem;
-}
+    .CerrarSesion, .BorrarCuenta {
+        padding: 0.5rem;
+    }
 }
 
 @media (max-height: 840px) {
-  
- .Registrar {
-border-radius: 0;
-    overflow-y: scroll;
-            padding-bottom: 5rem;
-}
+    .Registrar {
+        border-radius: 0;
+        overflow-y: scroll;
+        padding-bottom: 5rem;
+    }
 
-.SeleccionadaPersonal {
-border-radius: 0;
-    overflow-y: scroll;
-    padding-bottom: 3rem;
-}
+    .SeleccionadaPersonal {
+        border-radius: 0;
+        overflow-y: scroll;
+        padding-bottom: 3rem;
+    }
 
-.ContenedorImagen img {
+    .ContenedorImagen img {
+        height: 6rem;
+    }
 
-    height: 6rem;
-}
+    .Registro {
+        margin-top: 0;
+    }
 
-.Registro {
-    margin-top: 0;
-}
+    .FormularioSolicitud {
+        flex-direction: column;
+        width: 23rem;
+        height: 26rem;
+        background-color: antiquewhite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* OVERFLOW-Y: scroll; */
+        PADDING: 1REM;
+        border-radius: 2rem;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+    }
 }

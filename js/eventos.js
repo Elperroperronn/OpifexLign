@@ -9,6 +9,14 @@ let funcionListenerGlobal = null;
 function InicioSesion_Registro() {
     document.querySelector(".Registrar").style.display = "grid";
     document.querySelector(".InicioSesion").style.display = "none";
+    
+    
+}
+
+function InicioSesion_Perfil() {
+    document.querySelector(".Perfil").style.display = "flex";
+    document.querySelector(".InicioSesion").style.display = "none";
+    document.querySelector(".actuala").textContent = "Perfil"
 }
 
 function Registro_InicioSesion() {
@@ -19,6 +27,7 @@ function Registro_InicioSesion() {
 function Registro_Perfil() {
     document.querySelector(".Perfil").style.display = "flex";
     document.querySelector(".Registrar").style.display = "none";
+    document.querySelector(".actuala").textContent = "Perfil"
 }
 
 function Perfil_Registro() {
@@ -33,10 +42,12 @@ function MostrarAlbum() {
     document.querySelector(".SeleccionadaPersonal").style.display = "none";
     document.querySelector(".SeleccionadaConfiguracion").style.display = "none";
     document.querySelector(".SeleccionadaAlbum").style.display = "flex";
+    document.querySelector(".SeleccionadaPropuesta").style.display = "none";
 
     document.querySelector(".OpcionPersonal").classList.remove("OpcionActual");
     document.querySelector(".OpcionConfiguracion").classList.remove("OpcionActual");
     document.querySelector(".OpcionAlbum").classList.add("OpcionActual");
+    document.querySelector(".OpcionPropuesta").classList.remove("OpcionActual");
 }
 
 function MostrarPersonal() {
@@ -44,10 +55,12 @@ function MostrarPersonal() {
     document.querySelector(".SeleccionadaAlbum").style.display = "none";
     document.querySelector(".SeleccionadaConfiguracion").style.display = "none";
     document.querySelector(".SeleccionadaPersonal").style.display = "grid";
+    document.querySelector(".SeleccionadaPropuesta").style.display = "none";
 
     document.querySelector(".OpcionAlbum").classList.remove("OpcionActual");
     document.querySelector(".OpcionConfiguracion").classList.remove("OpcionActual");
     document.querySelector(".OpcionPersonal").classList.add("OpcionActual");
+    document.querySelector(".OpcionPropuesta").classList.remove("OpcionActual");
 }
 
 function MostrarConfiguracion() {
@@ -55,10 +68,27 @@ function MostrarConfiguracion() {
     document.querySelector(".SeleccionadaAlbum").style.display = "none";
     document.querySelector(".SeleccionadaPersonal").style.display = "none";
     document.querySelector(".SeleccionadaConfiguracion").style.display = "flex";
+    document.querySelector(".SeleccionadaPropuesta").style.display = "none";
 
     document.querySelector(".OpcionAlbum").classList.remove("OpcionActual");
     document.querySelector(".OpcionPersonal").classList.remove("OpcionActual");
     document.querySelector(".OpcionConfiguracion").classList.add("OpcionActual");
+    document.querySelector(".OpcionPropuesta").classList.remove("OpcionActual");
+}
+
+
+function MostrarPropuestas() {
+
+    document.querySelector(".SeleccionadaAlbum").style.display = "none";
+    document.querySelector(".SeleccionadaPersonal").style.display = "none";
+    document.querySelector(".SeleccionadaConfiguracion").style.display = "none";
+    document.querySelector(".SeleccionadaPropuesta").style.display = "grid";
+
+    document.querySelector(".OpcionAlbum").classList.remove("OpcionActual");
+    document.querySelector(".OpcionPersonal").classList.remove("OpcionActual");
+    document.querySelector(".OpcionConfiguracion").classList.remove("OpcionActual");
+    document.querySelector(".OpcionPropuesta").classList.add("OpcionActual");
+    
 }
 
 function Hero1_Hero2() {
@@ -127,3 +157,56 @@ function removerMediaScroll() {
     console.log("Listener removido con éxito.");
   }
 }
+
+
+
+function MostrarFiltros(){
+  const seccionFiltros = document.querySelector('.Filtros');
+  const boton = document.querySelector('.btnMostrar');
+  seccionFiltros.classList.toggle('mostrar');
+
+  if (boton.textContent==="Mostrar filtros") {
+    boton.textContent = "Ocultar filtros"
+  } else {
+    boton.textContent = "Mostrar filtros"
+  }
+  
+
+}
+
+
+function MostrarCotizaciones() {
+
+
+    document.querySelector(".Ebanistas").style.display = "none";
+    document.querySelector(".Cotizaciones").style.display = "grid";
+
+    
+    document.querySelector(".OpcionEbanistas").classList.remove("OpcionActual");
+    document.querySelector(".OpcionCotizaciones").classList.add("OpcionActual");
+}
+
+function MostrarEbanistas() {
+
+
+    document.querySelector(".Cotizaciones").style.display = "none";
+    document.querySelector(".Ebanistas").style.display = "grid";
+
+    
+    document.querySelector(".OpcionCotizaciones").classList.remove("OpcionActual");
+    document.querySelector(".OpcionEbanistas").classList.add("OpcionActual");
+}
+
+function VerPropuestaCompleta(){
+  document.querySelector(".FormularioSolicitud").style.display = "flex";
+  document.querySelector(".Perfil").classList.add("Desabilitado");
+  document.querySelector(".FormularioSolicitud").classList.add("Habilitado");
+  
+}
+
+function CerrarPropuestaCompleta(){
+  document.querySelector(".FormularioSolicitud").style.display = "none";
+  document.querySelector(".Perfil").classList.remove("Desabilitado");
+  document.querySelector(".FormularioSolicitud").classList.remove("Habilitado");
+}
+  

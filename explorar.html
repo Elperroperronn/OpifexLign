@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/explorar/explorar.css">
+    
+    <script src="js/eventos.js"></script>
+    
+    <title>OpifexLign</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="NombreOpifex">
+            <img src="assets/images/NombreSolo.png" alt="">
+        </div>
+
+        <nav class="barraPrincipal">
+            <ul>
+                <li>
+                    <a href="registro.html" tabindex="_top">Registro</a>
+                </li>
+
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+
+                <li class="actual">
+                    <a href="explorar.html" class="actuala">Explorar</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="LogoOpifex">
+            <img src="assets/images/LogoSolo.png" alt="">
+        </div>
+    </header>
+
+    <main>
+
+        <section class="Buscador">
+            <input type="search" name="Buscar" id="">
+
+            <button class="btnBuscar">
+                Buscar
+            </button>
+
+            <button class="btnNuevaPropuesta">
+                Nueva propuesta
+            </button>
+        </section>
+
+        <button class="btnMostrar" onclick="MostrarFiltros()">
+            Mostrar filtros
+        </button>
+
+        <section class="TodaVentana">
+
+            <section class="Filtros">
+
+                <div class="CabeceraFiltros">
+                    <h2>Filtros</h2>
+                </div>
+
+                <p><b>Categoría</b></p>
+
+                <input type="checkbox" id="Todos">
+                <label for="Todos">Todos</label>
+                <br>
+
+                <input type="checkbox" id="Mesas">
+                <label for="Mesas">Mesas</label>
+                <br>
+
+                <input type="checkbox" id="Sillas">
+                <label for="Sillas">Sillas</label>
+                <br>
+
+                <input type="checkbox" id="Closets">
+                <label for="Closets">Closets</label>
+                <br>
+
+                <input type="checkbox" id="Camas">
+                <label for="Camas">Camas</label>
+                <br>
+
+                <input type="checkbox" id="Estanterias">
+                <label for="Estanterias">Estanterias</label>
+                <br>
+
+                <input type="checkbox" id="Otros">
+                <label for="Otros">Otros</label>
+
+                <p><b>Estilo</b></p>
+
+                <input type="checkbox" id="Todos">
+                <label for="Todos">Todos</label>
+                <br>
+
+                <input type="checkbox" id="Minimalista">
+                <label for="Minimalista">Minimalista</label>
+                <br>
+
+                <input type="checkbox" id="Moderno">
+                <label for="Moderno">Moderno</label>
+                <br>
+
+                <input type="checkbox" id="Rustico">
+                <label for="Rustico">Rustico</label>
+                <br>
+
+                <input type="checkbox" id="Clasico">
+                <label for="Clasico">Clasico</label>
+
+            </section>
+
+            <nav class="Opciones">
+
+                <div class="OpcionCotizaciones OpcionActual" onclick="MostrarCotizaciones()">
+                    <img src="assets/images/usuario.png" alt="">
+                    <p>Cotizaciones</p>
+                </div>
+
+                <div class="OpcionEbanistas" onclick="MostrarEbanistas()">
+                    <img src="assets/images/galeria.png" alt="">
+                    <p>Ebanistas</p>
+                </div>
+
+            </nav>
+
+            <section class="Cotizaciones">
+
+                <div class="Cotizacion">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Juego de mesa.webp" alt="">
+                    </div>
+
+                    <div class="InformacionCotizacion">
+
+                        <div class="InformacionParte1">
+
+                            <div class="ContenedorFiltros">
+                                <p class="Categoria">Mesa</p>
+                                <p class="Estilo">Clasico</p>
+                            </div>
+
+                            <h3>Mesa de roble macizo</h3>
+
+                            <p class="Descripcion">
+                                Mesa de comedor para 6 personas en roble macizo con acabado natural
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <h3>$200.000</h3>
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                            <button class="btnResponder">
+                                Responder
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Cotizacion">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Juego de mesa.webp" alt="">
+                    </div>
+
+                    <div class="InformacionCotizacion">
+
+                        <div class="InformacionParte1">
+
+                            <div class="ContenedorFiltros">
+                                <p class="Categoria">Mesa</p>
+                                <p class="Estilo">Clasico</p>
+                            </div>
+
+                            <h3>Mesa de roble macizo</h3>
+
+                            <p class="Descripcion">
+                                Mesa de comedor para 6 personas en roble macizo con acabado natural
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <h3>$200.000</h3>
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                            <button class="btnResponder">
+                                Responder
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Cotizacion">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Juego de mesa.webp" alt="">
+                    </div>
+
+                    <div class="InformacionCotizacion">
+
+                        <div class="InformacionParte1">
+
+                            <div class="ContenedorFiltros">
+                                <p class="Categoria">Mesa</p>
+                                <p class="Estilo">Clasico</p>
+                            </div>
+
+                            <h3>Mesa de roble macizo</h3>
+
+                            <p class="Descripcion">
+                                Mesa de comedor para 6 personas en roble macizo con acabado natural
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <h3>$200.000</h3>
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                            <button class="btnResponder">
+                                Responder
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Cotizacion">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Juego de mesa.webp" alt="">
+                    </div>
+
+                    <div class="InformacionCotizacion">
+
+                        <div class="InformacionParte1">
+
+                            <div class="ContenedorFiltros">
+                                <p class="Categoria">Mesa</p>
+                                <p class="Estilo">Clasico</p>
+                            </div>
+
+                            <h3>Mesa de roble macizo</h3>
+
+                            <p class="Descripcion">
+                                Mesa de comedor para 6 personas en roble macizo con acabado natural
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <h3>$200.000</h3>
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                            <button class="btnResponder">
+                                Responder
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Cotizacion">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Juego de mesa.webp" alt="">
+                    </div>
+
+                    <div class="InformacionCotizacion">
+
+                        <div class="InformacionParte1">
+
+                            <div class="ContenedorFiltros">
+                                <p class="Categoria">Mesa</p>
+                                <p class="Estilo">Clasico</p>
+                            </div>
+
+                            <h3>Mesa de roble macizo</h3>
+
+                            <p class="Descripcion">
+                                Mesa de comedor para 6 personas en roble macizo con acabado natural
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <h3>$200.000</h3>
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                            <button class="btnResponder">
+                                Responder
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Cotizacion">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Juego de mesa.webp" alt="">
+                    </div>
+
+                    <div class="InformacionCotizacion">
+
+                        <div class="InformacionParte1">
+
+                            <div class="ContenedorFiltros">
+                                <p class="Categoria">Mesa</p>
+                                <p class="Estilo">Clasico</p>
+                            </div>
+
+                            <h3>Mesa de roble macizo</h3>
+
+                            <p class="Descripcion">
+                                Mesa de comedor para 6 personas en roble macizo con acabado natural
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <h3>$200.000</h3>
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                            <button class="btnResponder">
+                                Responder
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Cotizacion">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Juego de mesa.webp" alt="">
+                    </div>
+
+                    <div class="InformacionCotizacion">
+
+                        <div class="InformacionParte1">
+
+                            <div class="ContenedorFiltros">
+                                <p class="Categoria">Mesa</p>
+                                <p class="Estilo">Clasico</p>
+                            </div>
+
+                            <h3>Mesa de roble macizo</h3>
+
+                            <p class="Descripcion">
+                                Mesa de comedor para 6 personas en roble macizo con acabado natural
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <h3>$200.000</h3>
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                            <button class="btnResponder">
+                                Responder
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="Ebanistas">
+
+                <div class="Ebanista">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+                    </div>
+
+                    <div class="InformacionEbanista">
+
+                        <div class="InformacionParte1">
+
+                            <h3>Pedro Sanchez</h3>
+
+                            <p class="SobreMi">
+                                Economista, político y, ante todo, un firme creyente en el poder de la resistencia y la convicción. Como Presidente del Gobierno de España, mi trayectoria ha estado marcada por la superación de desafíos complejos, siempre con el objetivo de consolidar un país más justo, feminista y sostenible.
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Ebanista">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+                    </div>
+
+                    <div class="InformacionEbanista">
+
+                        <div class="InformacionParte1">
+
+                            <h3>Pedro Sanchez</h3>
+
+                            <p class="SobreMi">
+                                Economista, político y, ante todo, un firme creyente en el poder de la resistencia y la convicción. Como Presidente del Gobierno de España, mi trayectoria ha estado marcada por la superación de desafíos complejos, siempre con el objetivo de consolidar un país más justo, feminista y sostenible.
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Ebanista">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+                    </div>
+
+                    <div class="InformacionEbanista">
+
+                        <div class="InformacionParte1">
+
+                            <h3>Pedro Sanchez</h3>
+
+                            <p class="SobreMi">
+                                Economista, político y, ante todo, un firme creyente en el poder de la resistencia y la convicción. Como Presidente del Gobierno de España, mi trayectoria ha estado marcada por la superación de desafíos complejos, siempre con el objetivo de consolidar un país más justo, feminista y sostenible.
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Ebanista">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+                    </div>
+
+                    <div class="InformacionEbanista">
+
+                        <div class="InformacionParte1">
+
+                            <h3>Pedro Sanchez</h3>
+
+                            <p class="SobreMi">
+                                Economista, político y, ante todo, un firme creyente en el poder de la resistencia y la convicción. Como Presidente del Gobierno de España, mi trayectoria ha estado marcada por la superación de desafíos complejos, siempre con el objetivo de consolidar un país más justo, feminista y sostenible.
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Ebanista">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+                    </div>
+
+                    <div class="InformacionEbanista">
+
+                        <div class="InformacionParte1">
+
+                            <h3>Pedro Sanchez</h3>
+
+                            <p class="SobreMi">
+                                Economista, político y, ante todo, un firme creyente en el poder de la resistencia y la convicción. Como Presidente del Gobierno de España, mi trayectoria ha estado marcada por la superación de desafíos complejos, siempre con el objetivo de consolidar un país más justo, feminista y sostenible.
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Ebanista">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+                    </div>
+
+                    <div class="InformacionEbanista">
+
+                        <div class="InformacionParte1">
+
+                            <h3>Pedro Sanchez</h3>
+
+                            <p class="SobreMi">
+                                Economista, político y, ante todo, un firme creyente en el poder de la resistencia y la convicción. Como Presidente del Gobierno de España, mi trayectoria ha estado marcada por la superación de desafíos complejos, siempre con el objetivo de consolidar un país más justo, feminista y sostenible.
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Ebanista">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+                    </div>
+
+                    <div class="InformacionEbanista">
+
+                        <div class="InformacionParte1">
+
+                            <h3>Pedro Sanchez</h3>
+
+                            <p class="SobreMi">
+                                Economista, político y, ante todo, un firme creyente en el poder de la resistencia y la convicción. Como Presidente del Gobierno de España, mi trayectoria ha estado marcada por la superación de desafíos complejos, siempre con el objetivo de consolidar un país más justo, feminista y sostenible.
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Ebanista">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+                    </div>
+
+                    <div class="InformacionEbanista">
+
+                        <div class="InformacionParte1">
+
+                            <h3>Pedro Sanchez</h3>
+
+                            <p class="SobreMi">
+                                Economista, político y, ante todo, un firme creyente en el poder de la resistencia y la convicción. Como Presidente del Gobierno de España, mi trayectoria ha estado marcada por la superación de desafíos complejos, siempre con el objetivo de consolidar un país más justo, feminista y sostenible.
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="Ebanista">
+
+                    <div class="InformacionImagen">
+                        <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+                    </div>
+
+                    <div class="InformacionEbanista">
+
+                        <div class="InformacionParte1">
+
+                            <h3>Pedro Sanchez</h3>
+
+                            <p class="SobreMi">
+                                Economista, político y, ante todo, un firme creyente en el poder de la resistencia y la convicción. Como Presidente del Gobierno de España, mi trayectoria ha estado marcada por la superación de desafíos complejos, siempre con el objetivo de consolidar un país más justo, feminista y sostenible.
+                            </p>
+
+                        </div>
+
+                        <div class="InformacionParte2">
+
+                            <button class="btnVerPerfil">
+                                Ver perfil
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
