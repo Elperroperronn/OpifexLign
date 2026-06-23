@@ -189,8 +189,8 @@ function obtenerFiltrosActivos() {
     return filtrosActivos;
 }
 
-// 3. Escucha los cambios en cada checkbox para actualizar el arreglo en tiempo real
 
+const inputBuscador = document.getElementById('InputBuscar');
 // 3. Escucha los cambios en cada checkbox para actualizar el arreglo en tiempo real
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
@@ -199,6 +199,7 @@ checkboxes.forEach(checkbox => {
         
         // Ejecutamos tu función de filtrado pasándole el nuevo arreglo
         FiltrosAplicar(filtrosActuales);
+        filtrarPorTexto(inputBuscador.value);
     });
 });
 
@@ -238,3 +239,48 @@ function MostrarEbanistas() {
     document.querySelector(".OpcionCotizaciones").classList.remove("OpcionActual");
     document.querySelector(".OpcionEbanistas").classList.add("OpcionActual");
 }
+
+
+
+
+function filtrarPorTexto(texto) {
+    const textoBusqueda = texto.toLowerCase().trim();
+    
+    // Captura ambos tipos de tarjetas que puedan existir en el DOM
+    const cotizaciones = document.querySelectorAll('.Cotizacion');
+    const ebanistas = document.querySelectorAll('.Ebanista');
+
+    // 1. SI EL BUSCADOR ESTÁ VACÍO: Muestra todas las tarjetas de ambos tipos
+    if (textoBusqueda === "") {
+        cotizaciones.forEach(tarjeta => tarjeta.style.display = 'flex');
+        ebanistas.forEach(tarjeta => tarjeta.style.display = 'flex');
+        return;
+    }
+
+    // 2. BUCLE PARA COTIZACIONES (Verifica su h3)
+    cotizaciones.forEach((tarjeta) => {
+        const titulo = tarjeta.querySelector('.InformacionParte1 h3').textContent.toLowerCase();
+        if (titulo.includes(textoBusqueda)) {
+            tarjeta.style.display = 'flex'; 
+        } else {
+            tarjeta.style.display = 'none'; 
+        }
+    });
+
+    // 3. BUCLE PARA EBANISTAS (Verifica su h3)
+    ebanistas.forEach((tarjeta) => {
+        const titulo = tarjeta.querySelector('.InformacionParte1 h3').textContent.toLowerCase();
+        if (titulo.includes(textoBusqueda)) {
+            tarjeta.style.display = 'flex'; 
+        } else {
+            tarjeta.style.display = 'none'; 
+        }
+    });
+}
+
+
+
+inputBuscador.addEventListener('input', (e) => {
+    filtrarPorTexto(e.target.value);
+});
+
