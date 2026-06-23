@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/registro/mainRegistro.css">
-  <script src="js/eventos.js"></script>
+
+  
   <title>OpifexLign</title>
 </head>
 <body>
@@ -35,16 +36,27 @@
   </header>
 
   <main>
+    
     <form class="InicioSesion">
+
+      <div class="ConfirmacionSesion">
+        <p>Inicio de sesión exitoso</p>
+        <button onclick="InicioSesion_Perfil()" type="button">Continuar</button>
+      </div>
+      <div class="DenegarSesion">
+        <p>No existe sesion asociada</p>
+        <button onclick="SesionDenegadaCerrar()" type="button">Volver</button>
+      </div>
+
       <h1>Inicio de sesión</h1>
 
       <p>Correo</p>
-      <input type="email">
-
+      <input type="email" id="emailInput">
+      <small id="errorCorreo" class="form-error"></small>
       <p>Contraseña</p>
-      <input type="password">
-
-      <button onclick="InicioSesion_Perfil()" type="button">
+      <input type="password" id="ContraseñaInput">
+      <small id="errorContraseña" class="form-error"></small>
+      <button onclick="Inicio_Confirmacion()" type="button">
         Iniciar sesión
       </button>
 
@@ -65,11 +77,11 @@
         </p>
 
         <div class="TipoUsuario">
-          <input type="radio" id="Ebanista">
+          <input type="radio" id="Ebanista" name="Tipo">
           <br>
           <label for="Ebanista">Ebanista</label>
 
-          <input type="radio" id="Cliente" checked>
+          <input type="radio" id="Cliente" checked name="Tipo">
           <br>
           <label for="Cliente">Cliente</label>
         </div>
@@ -77,161 +89,63 @@
 
       <div class="ContenedorNombre">
         <p>Nombre</p>
-        <input type="text">
+        <input type="text" id="NombreInput">
+        <small id="errorNombre" class="form-error"></small>
       </div>
 
       <div class="ContenedorApellido">
         <p>Apellido</p>
-        <input type="text">
+        <input type="text" id="ApellidoInput">
+        <small id="errorApellido" class="form-error"></small>
       </div>
 
       <div class="ContenedorCorreo">
         <p>Correo</p>
-        <input type="email">
+        <input type="email" id="Correo2Input">
+        <small id="errorCorreo2" class="form-error"></small>
       </div>
 
       <div class="ContenedorContraseña">
         <p>Contraseña</p>
-        <input type="password">
+        <input type="password" id="ContraseñaInput2">
+        <small id="errorContraseña2" class="form-error"></small>
       </div>
 
       <div class="ContenedorFecha">
         <p>Fecha nacimiento</p>
-        <input type="datetime">
+        <input type="datetime" id="FechaInput">
+        <small id="errorFecha" class="form-error"></small>
       </div>
 
       <div class="ContenedorExperiencia">
         <p>Años de experiencia</p>
-        <input type="number">
+        <input type="number" min="0" max="100" id="AniosInput">
+        <small id="errorExperiencia" class="form-error"></small>
       </div>
 
       <div class="ContenedorSobreMi">
         <p>Sobre mi</p>
-        <textarea></textarea>
+        <textarea id="SobreMiInput"></textarea>
+        <small id="errorSobreMi" class="form-error"></small>
       </div>
 
       <div class="ContenedorRegistro">
-        <button class="btnRegistrarse" onclick="Registro_Perfil()" type="button">
+        <button class="btnRegistrarse" onclick="Registro_Confirmacion()" type="button">
           Registrarse
         </button>
 
         <button class="btnRegresar" onclick="Registro_InicioSesion()" type="button">
           Regresar
         </button>
+
+        <button class="btnLimpiar" onclick="LimpiarCampos()" type="button">
+          Limpiar
+        </button>
       </div>
     </form>
 
     <section class="Perfil">
-      <form action="" class="FormularioSolicitud">
-        <h2>Solicitud de Cotización</h2>
-
-        <div class="ContenedorFormulario">
-          <p class="Explicativo">Envía tu solicitud al ebanista.</p>
-          <p class="Aviso">Los campos marcados con * son obligatorios</p>
-
-          <section class="seccionFormulario">
-            <h3 class="TituloSeccion">1. Información del mueble</h3>
-
-            <div class="TipoMueble">
-              <label for="tipoMueble">Tipo de mueble *</label>
-              <select id="tipoMueble" required>
-                <option value="">Seleccione una opción</option>
-                <option>Cocina</option>
-                <option>Closet</option>
-                <option>Escritorio</option>
-                <option>Mesa</option>
-                <option>Estantería</option>
-                <option>Otro</option>
-              </select>
-            </div>
-
-            <div class="DescripcionDetallada">
-              <label for="descripcion">Descripción detallada *</label>
-              <textarea
-                id="descripcion"
-                rows="5"
-                placeholder="Describe el mueble, materiales deseados, acabados o características especiales."
-                required
-              ></textarea>
-            </div>
-          </section>
-
-          <section class="seccionFormulario">
-            <h3 class="TituloSeccion">2. Dimensiones aproximadas</h3>
-
-            <div class="contenedorMedidas">
-              <div class="Medidas">
-                <label for="alto">Alto (cm)</label>
-                <input type="number" id="alto" placeholder="Ej: 200">
-              </div>
-
-              <div class="Medidas">
-                <label for="ancho">Ancho (cm)</label>
-                <input type="number" id="ancho" placeholder="Ej: 150">
-              </div>
-
-              <div class="Medidas">
-                <label for="profundidad">Profundidad (cm)</label>
-                <input type="number" id="profundidad" placeholder="Ej: 60">
-              </div>
-            </div>
-          </section>
-
-          <section class="seccionFormulario">
-            <h3 class="TituloSeccion">3. Información adicional</h3>
-
-            <div class="ContenedorInfoAdicional">
-              <div class="Presupuesto">
-                <label for="presupuesto">Presupuesto aproximado (₡)</label>
-                <input type="number" id="presupuesto" placeholder="Ej: 250000">
-              </div>
-
-              <div class="EnchaEntrega">
-                <label for="fechaEntrega">Fecha deseada</label>
-                <input type="date" id="fechaEntrega">
-              </div>
-            </div>
-          </section>
-
-          <section class="seccionFormulario">
-            <h3 class="TituloSeccion">4. Información de contacto</h3>
-
-            <div class="ContenedorContacto">
-              <div class="Telefono">
-                <label for="telefono">Teléfono *</label>
-                <input type="tel" id="telefono" placeholder="8888-8888" required>
-              </div>
-
-              <div class="Correo">
-                <label for="correo">Correo electrónico *</label>
-                <input type="email" id="correo" placeholder="correo@ejemplo.com" required>
-              </div>
-            </div>
-          </section>
-
-          <section class="seccionFormulario">
-            <h3 class="TituloSeccion">5. Observaciones adicionales</h3>
-
-            <div class="Observaciones">
-              <textarea
-                id="observaciones"
-                rows="4"
-                placeholder="Agrega cualquier detalle importante para el ebanista."
-              ></textarea>
-            </div>
-          </section>
-
-          <div class="BotonesFormulario">
-            <button type="button" class="botonCancelar" onclick="CerrarPropuestaCompleta()">
-              Cancelar
-            </button>
-            <button type="button" class="botonEnviar">
-              Responder
-            </button>
-          </div>
-        </div>
-      </form>
-
+      
       <div class="InformacionPersonal">
         <div class="MiPerfil">
           <h2>Mi perfil</h2>
@@ -242,20 +156,20 @@
 
         <div class="MiPerfil2">
           <div class="ContenedorImagen">
-            <img src="assets/images/Pedro_Sánchez_2020_(portrait).jpg" alt="">
+            <img src="" alt="" id="ImagenPerfil">
           </div>
 
           <div class="ContenedorInformacion">
             <p class="Nombre">
-              <b>Pedro Sanchez</b>
+              <b></b>
             </p>
 
             <p class="Rol">
-              Ebanista
+              
             </p>
 
             <p class="Correo">
-            PedroSanchezggomg@gmail.com
+            
             </p>
           </div>
         </div>
@@ -336,105 +250,15 @@
             </div>
 
             <div class="AlbumMuebles">
-              <div class="TarjetaMueble">
-                <img src="assets/images/images.jpg" alt="Mueble">
 
-                <div class="InformacionMueble">
-                  <p class="NombreMueble">
-                    Mesa de comedor moderna
-                  </p>
 
-                  <div class="AccionesMueble">
-                    <button class="btnEditarMueble">
-                      Editar
-                    </button>
 
-                    <button class="btnEliminarMueble">
-                      Eliminar
-                    </button>
-                  </div>
-                </div>
-              </div>
 
-              <div class="TarjetaMueble">
-                <img src="assets/images/images.jpg" alt="Mueble">
 
-                <div class="InformacionMueble">
-                  <p class="NombreMueble">
-                    Armario de roble
-                  </p>
 
-                  <div class="AccionesMueble">
-                    <button class="btnEditarMueble">
-                      Editar
-                    </button>
 
-                    <button class="btnEliminarMueble">
-                      Eliminar
-                    </button>
-                  </div>
-                </div>
-              </div>
 
-              <div class="TarjetaMueble">
-                <img src="assets/images/images.jpg" alt="Mueble">
 
-                <div class="InformacionMueble">
-                  <p class="NombreMueble">
-                    Armario de roble
-                  </p>
-
-                  <div class="AccionesMueble">
-                    <button class="btnEditarMueble">
-                      Editar
-                    </button>
-
-                    <button class="btnEliminarMueble">
-                      Eliminar
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="TarjetaMueble">
-                <img src="assets/images/images.jpg" alt="Mueble">
-
-                <div class="InformacionMueble">
-                  <p class="NombreMueble">
-                    Armario de roble
-                  </p>
-
-                  <div class="AccionesMueble">
-                    <button class="btnEditarMueble">
-                      Editar
-                    </button>
-
-                    <button class="btnEliminarMueble">
-                      Eliminar
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="TarjetaMueble">
-                <img src="assets/images/images.jpg" alt="Mueble">
-
-                <div class="InformacionMueble">
-                  <p class="NombreMueble">
-                    Armario de roble
-                  </p>
-
-                  <div class="AccionesMueble">
-                    <button class="btnEditarMueble">
-                      Editar
-                    </button>
-
-                    <button class="btnEliminarMueble">
-                      Eliminar
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -442,7 +266,7 @@
             <div class="CerrarSesion">
               <p>Finaliza tu sesión en la plataforma</p>
 
-              <button onclick="Perfil_Registro()" type="button">
+              <button onclick="Perfil_Sesion()" type="button">
                 Cerrar sesión
               </button>
             </div>
@@ -459,37 +283,14 @@
           </div>
 
           <div class="SeleccionadaPropuesta">
-            <div class="TargetaPropuesta">
-              <div class="EncabezadoPropuesta">
-                <img src="assets/images/contrato.png" alt="">
-                <h3>Información de la propuesta</h3>
-              </div>
 
-              <div class="ContenedorInfoProp">
-                <div class="InfoProp1">
-                  <p><b>Cliente:</b> Marco pocoyo</p>
-                  <p><b>Fecha solicitud:</b> 14/6/2026</p>
-                </div>
-
-                <div class="InfoProp2">
-                  <p><b>Descripción:</b> Closet de madera ya que quiero salir de el...</p>
-                </div>
-
-                <div class="InfoProp3">
-                  <p class="pAlto"><b>Alto:</b> 222 cm</p>
-                  <p class="pAncho"><b>Ancho:</b> 180 cm</p>
-                  <p class="pProfundiad"><b>Profundidad:</b> 60 cm</p>
-                </div>
-
-                <div class="ContenedorEnlace">
-                  <a onclick="VerPropuestaCompleta()">Ver solicitud completa</a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 </body>
+<script src="js/datos.js"></script>
+<script src="js/registroEventos.js"></script>
+
 </html>

@@ -74,7 +74,7 @@ header {
     border: 0.3rem solid #897056; /* Borde blanco grueso */
     border-radius: 50px; /* Bordes completamente ovalados como tu imagen */
     /* Sombra exterior marrón claro desplazada hacia abajo y la derecha */
-    box-shadow: 7px 8px 0px #b1987d; 
+    box-shadow: 4px 5px 0px #b1987d;
 }
 
 .barraPrincipal li a.actuala {
@@ -191,7 +191,7 @@ Media-Queries - Adaptación del Header
     }
 
     .NombreOpifex img {
-        margin-top: 26px;
+        margin-top: 10px;
         object-fit: cover;
         width: 100%;
         height: 126%;

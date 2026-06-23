@@ -35,29 +35,42 @@ font-size: clamp(1.5rem, 5vw, 4rem);
     padding: 6rem;
 }
 
+.HeroSection1 div div div{
+        
+    width: auto;
+    height: auto;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+        flex-direction: row;
+    
+}
+
 .HeroSection1 div div button{
 
     /* margin-top: 5rem; */
     border-radius: 1rem;
     height: 4.5rem;
-    margin-left: auto;
-    margin-right: auto;
+
     width: 12rem;
-    background-color: #780000;
+background-color: #fcf3e5;
+    border-color: #780000;
+    color: #780000;
     /* border-color: #a63a50; */
     /* align-items: center; */
     /* align-content: center; */
     /* position: relative; */
     font-size: clamp(1.25rem, 3vw, 1.7rem);
-    color: #fcf3e5;
+
     font-family: 'Montserrat', sans-serif;
     box-shadow: 7px 7px 0px #CBB9A3;
 }
 
 .HeroSection1 div div button:hover {
-border-color: #CBB9A3; /* Color de enfoque */
-
-    text-shadow: 0 0 1rem #cbb9a3
+    background-color: #780000;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
 }
 /* ==========================================
    HERO SECTION 2
@@ -120,6 +133,7 @@ border-color: #CBB9A3; /* Color de enfoque */
     justify-content: center;
     /* align-content: center; */
     align-items: center;
+    padding-top: 1rem;
 }
 
 .Funcionalidades h2{
@@ -147,6 +161,8 @@ border-color: #CBB9A3; /* Color de enfoque */
     padding-left: 5rem;
     font-family: 'Montserrat', sans-serif;
     padding-right: 5rem;
+    padding: 1rem;
+
 }
 
 .Tabla button{
@@ -155,9 +171,10 @@ border-radius: 1rem;
     /* margin-left: auto; */
     /* margin-right: auto; */
     /* width: 12rem; */
-    background-color: #780000;
+background-color: #fcf3e5;
+    border-color: #780000;
+    color: #780000;
     font-size: clamp(1.25rem, 3vw, 0.7rem);
-    color: #fcf3e5;
     font-family: 'Montserrat', sans-serif;
     box-shadow: 7px 7px 0px #CBB9A3;
     grid-column: 2;
@@ -165,8 +182,9 @@ border-radius: 1rem;
 }
 
 .Tabla button:hover {
-border-color: #CBB9A3; /* Color de enfoque */
-    text-shadow: 0 0 1rem #cbb9a3
+    background-color: #780000;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
 }
 
 /* ==========================================
@@ -290,7 +308,10 @@ html.modo-movil main {
     .Tabla button {
         grid-column: auto;
         grid-row: auto;
-        width: 12rem; 
+        width: 12rem;
+        background-color: #780000;
+        border-color: #780000;
+        color: #fcf3e5;
     }
 
     /* Ajuste de padding para pantallas más angostas */

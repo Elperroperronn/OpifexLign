@@ -11,6 +11,25 @@ main {
     min-height: 0; /* Previene desbordamientos internos en flexbox */
 }
 
+.input-error {
+    border-color: #dc2626 !important;
+    background-color: #fef2f2 !important;
+}
+
+.input-success {
+    border-color: #16a34a !important;
+    background-color: #f0fdf4 !important;
+}
+
+.form-error {
+    display: block;
+    min-height: 16px;
+    margin-top: 4px;
+    color: #991b1b;
+    font-size: 0.78rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
 
 /* ==========================================================================
 2. Formularios - Elementos Base (Inputs, Textarea, Radio, File)
@@ -71,6 +90,7 @@ input[type="file"] {
     border-radius: 6rem;
     /*border: 0.5rem solid #4f6d5a;*/
     display: flex; /* es flex */
+    position: relative;
     flex-direction: column;
     /*box-shadow: 0rem 0rem 1rem 3px #4f6d5a;*/
 }
@@ -113,6 +133,79 @@ input[type="file"] {
     color: green;
 }
 
+.ConfirmacionSesion {
+position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 1rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background: antiquewhite;
+    width: 20rem;
+    box-shadow: 0px 0px 1rem #4f6d5a;
+}
+
+.ConfirmacionSesion p {
+font-weight: bold;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+}
+
+.ConfirmacionSesion button {
+margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    height: 3.5rem;
+    width: 10rem;
+    background-color: #4f6d5a;
+    border-color: #4f6d5a;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+    color: #fcf3e5;
+}
+
+
+.DenegarSesion {
+position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 1rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background: antiquewhite;
+    width: 20rem;
+    box-shadow: 0px 0px 1rem #780000;
+}
+
+
+.DenegarSesion p {
+font-weight: bold;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+}
+
+.DenegarSesion button {
+margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    height: 3.5rem;
+    width: 10rem;
+    background-color: #780000;
+    border-color: #780000;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+    color: #fcf3e5;
+}
+
+
 
 /* ==========================================================================
 4. Sección - Registro (.Registrar)
@@ -124,6 +217,7 @@ input[type="file"] {
     border-radius: 6rem;
     padding-left: 3rem;
     padding-right: 3rem;
+    row-gap: 1rem;
 }
 
 .Registrar div {
@@ -161,7 +255,7 @@ input[type="file"] {
 }
 
 .ContenedorTipo p {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 1.4rem);
     display: flex;
     width: 100%;
     background-color: #efdfd0;
@@ -230,6 +324,7 @@ input[type="file"] {
     /* align-items: center; */
     /* justify-content: center; */
     /* margin: auto; */
+    gap: 0.5rem;
 }
 
 .ContenedorRegistro button {
@@ -244,32 +339,52 @@ input[type="file"] {
 }
 
 .btnRegistrarse {
-    background-color: #4f6d5a;
+    background-color: #fcf3e5;
     border-color: #4f6d5a;
     /* align-items: center; */
     /* align-content: center; */
     /* position: relative; */
     font-size: clamp(1.25rem, 3vw, 1.85rem);
-    color: #fcf3e5;
+    color: #4f6d5a;
 }
 
 .btnRegistrarse:hover {
-    border-color: #4f6d5a; /* Color de enfoque */
-    box-shadow: 0 0 1rem #4f6d5a; /* Efecto brillante */
-    text-shadow: 0 0 1rem #cbb9a3;
+    background-color: #4f6d5a;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
 }
 
 .btnRegresar{
-    background-color: #780000;
+    background-color: #fcf3e5;
     border-color: #780000;
     /* align-items: center; */
     /* align-content: center; */
     /* position: relative; */
     font-size: clamp(1.25rem, 3vw, 1.85rem);
+    color: #780000;
+}
+
+.btnRegresar:hover {
+    background-color: #780000;
+    border-color: #fcf3e5;
     color: #fcf3e5;
 }
 
+.btnLimpiar {
+        background-color: #fcf3e5;
+    border-color: #4f6d6d;
+    /* align-items: center; */
+    /* align-content: center; */
+    /* position: relative; */
+    font-size: clamp(1.25rem, 3vw, 1.85rem);
+    color: #4f6d6d;
+}
 
+.btnLimpiar:hover {
+    background-color: #4f6d6d;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
+}
 /* ==========================================================================
 5. Sección - Perfil (estructura general)
 ========================================================================== */
@@ -331,7 +446,7 @@ input[type="file"] {
 }
 
 .Nombre {
-    font-size: clamp(0rem, 2.3vw, 2rem);
+    font-size: clamp(1rem, 2.3vw, 2rem);
     margin-bottom: 0.4rem;
 }
 
@@ -451,42 +566,50 @@ input[type="file"] {
 .ContenedorNombreO {
     grid-column: 1;
     grid-row: 1;
+    pointer-events: none;
 }
 
 .ContenedorApellidoO {
     grid-column: 3;
     grid-row: 1;
+    pointer-events: none;
 }
 
 .ContenedorCorreoO {
     grid-column: 1;
     grid-row: 2;
+    pointer-events: none;
 }
 
 .ContenedorContraseñaO {
     grid-column: 3;
     grid-row: 2;
+    pointer-events: none;
 }
 
 .ContenedorFechaO {
     grid-column: 1;
     grid-row: 3;
+    pointer-events: none;
 }
 
 .ContenedorExperienciaO {
     grid-column: 3;
     grid-row: 3;
+    pointer-events: none;
 }
 
 .ContenedorSobreMiO {
     grid-column: 1  / span 3 ;
     grid-row: 4;
     margin-top: 0.2rem;
+    pointer-events: none;
 }
 
 .ContenedorSobreMiO textarea {
     width: 100%;
     height: 6rem;
+    pointer-events: none;
 }
 
 .ContenedorSobreMiO p {
@@ -496,7 +619,7 @@ input[type="file"] {
 .SeleccionadaPersonal button {
     grid-column: 1 / span 3;
     grid-row: 5;
-    background-color: #4f6d5a;
+    background-color:  gray;
     border-color: #4f6d5a;
     /* align-items: center; */
     /* align-content: center; */
@@ -510,13 +633,10 @@ input[type="file"] {
     /* height: 4.5rem; */
     /* width: 17rem; */
     padding: 0.5rem;
+    pointer-events: none;
 }
 
-.SeleccionadaPersonal button:hover {
-    background-color: #fcf3e5;
-    border-color: #4f6d5a;
-    color: #4f6d5a;
-}
+
 
 
 /* ==========================================================================
@@ -656,6 +776,8 @@ input[type="file"] {
     border: 0.2rem solid #780000;
     padding: 1rem;
     border-radius: 1rem;
+        /* box-shadow: inset 0px 0px 0rem 2px #4f6d5a; */
+    box-shadow: 0 0.3rem 0.8rem #78000054;
 }
 
 .CerrarSesion button, .BorrarCuenta button {
@@ -680,14 +802,19 @@ input[type="file"] {
 10. Sección - Perfil: Opción Propuestas y Formulario de solicitud
 ========================================================================== */
 .SeleccionadaPropuesta {
-    width: 100%;
+width: 100%;
     height: 100%;
     display: none;
     overflow-y: scroll;
     grid-template-columns: 100%;
     grid-auto-rows: 14rem;
-    gap: 1REM;
+    gap: 4REM;
     padding: 0 7px;
+}
+
+.CorreoForm {
+    font-size: clamp(0.8rem, 1vw, 1.25rem);
+    padding-right: 1rem;
 }
 
 .TargetaPropuesta {
@@ -696,7 +823,9 @@ input[type="file"] {
     overflow: hidden;
     border-radius: 1rem;
     padding: 0.5rem;
-    box-shadow: inset 0px 0px 0rem 2px #4f6d5a;
+    /* box-shadow: inset 0px 0px 0rem 2px #4f6d5a; */
+    box-shadow: 0 0.3rem 0.8rem rgb(40 78 30 / 32%);
+    height: 16rem;
 }
 
 .EncabezadoPropuesta {
@@ -767,9 +896,9 @@ input[type="file"] {
 
 /* Formulario modal de solicitud */
 .FormularioSolicitud {
-    display: none;
+display: flex;
     flex-direction: column;
-    width: 23rem;
+    width: 36rem;
     height: 39rem;
     background-color: antiquewhite;
     position: absolute;
@@ -783,6 +912,7 @@ input[type="file"] {
     justify-content: center;
     align-items: center;
     gap: 6px;
+    z-index: 1;
 }
 
 .FormularioSolicitud h2 {
@@ -814,6 +944,7 @@ input[type="file"] {
     padding: 8px;
     border-radius: 1rem;
     margin-bottom: 1rem;
+        pointer-events: none;
 }
 
 .BotonesFormulario {
@@ -894,6 +1025,7 @@ input[type="file"] {
     .Registrar {
         grid-template-columns: auto 7rem auto;
         grid-template-rows: 6rem 6rem 6rem 6rem 6rem 8rem 6rem;
+        row-gap: 2rem;
     }
 
     .Registrar div {
@@ -940,11 +1072,14 @@ input[type="file"] {
     .InicioSesion, .Registrar, .ConfigurarPerfil {
         min-width: 0;
         padding: 4%;
+        
     }
 
     .Registrar {
         grid-template-columns: auto 7rem auto;
         grid-template-rows: 6rem 6rem 6rem 6rem 6rem 8rem 6rem;
+                grid-template-columns: 9rem 3rem 10rem;
+                row-gap: 3rem;
     }
 
     .Registrar div {
@@ -1005,7 +1140,7 @@ input[type="file"] {
     .SeleccionadaPersonal {
         padding-left: 0;
         padding-right: 0;
-        grid-template-rows: 5rem 5rem 5rem 8rem 4rem;
+        grid-template-rows: 5rem 5rem 7rem 8rem 4rem;
     }
 
     .ContenedorSobreMiO p {
@@ -1031,6 +1166,12 @@ input[type="file"] {
     .CerrarSesion, .BorrarCuenta {
         padding: 0.5rem;
     }
+
+    .AlbumMuebles {
+
+    grid-template-columns: repeat(1, 1fr);
+
+}
 }
 
 @media (max-height: 840px) {

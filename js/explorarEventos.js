@@ -1,0 +1,240 @@
+
+
+function CargarCotizaciones(){
+    const contenedor = document.querySelector(".Cotizaciones")
+    for (const cotizacion of cotizaciones) {
+      contenedor.innerHTML += `
+    <div class="Cotizacion">
+
+        <div class="InformacionImagen">
+            <img src="${cotizacion.imagen}" alt="${cotizacion.titulo}">
+        </div>
+
+        <div class="InformacionCotizacion">
+
+            <div class="InformacionParte1">
+
+                <h3>${cotizacion.titulo}</h3>
+
+                <div class="ContenedorFiltros">
+                    <p class="Categoria">${cotizacion.categoria}</p>
+                    <p class="Estilo">${cotizacion.estilo}</p>
+                </div>
+
+                <p class="Descripcion">
+                    ${cotizacion.descripcion}
+                </p>
+
+            </div>
+
+            <div class="InformacionParte2">
+
+                <h3>$${cotizacion.precio.toLocaleString()}</h3>
+
+                <button class="btnVerPerfil" data-id="${cotizacion.idEbanista}">
+                    Ver perfil
+                </button>
+
+                <button class="btnResponder" data-id="${cotizacion.idCotizacion}">
+                    Responder
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+`;
+    }
+}
+
+
+
+
+
+
+
+function AgregarPerfiles(){
+  const contenedor = document.querySelector(".Ebanistas")
+  for (const ebanista of usuarios) {
+    if (ebanista.tipoUsuario==="ebanista") {
+      contenedor.innerHTML += `
+    <div class="Ebanista">
+
+        <div class="InformacionImagen">
+            <img src="${ebanista.album[0].foto}" alt="${ebanista.nombre} ${ebanista.apellido}">
+        </div>
+
+        <div class="InformacionEbanista">
+
+            <div class="InformacionParte1">
+
+                <h3>${ebanista.nombre} ${ebanista.apellido}</h3>
+
+                <p class="SobreMi">
+                    ${ebanista.sobreMi}
+                </p>
+
+            </div>
+
+            <div class="InformacionParte2">
+
+                <button class="btnVerPerfil" data-id="${ebanista.idUsuario}">
+                    Ver perfil
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+`;
+    }
+  }
+}
+
+
+
+document.addEventListener("DOMContentLoaded",() => {
+CargarCotizaciones()
+AgregarPerfiles()
+})
+
+
+function FiltrosAplicar(arregloFiltros){
+const contenedor = document.querySelector(".Cotizaciones")
+contenedor.innerHTML = ""
+
+
+if (arregloFiltros.length === 0) {
+        CargarCotizaciones()
+        return;
+    }
+
+
+for (const cotizacion of cotizaciones) {
+    
+    if (arregloFiltros.includes(cotizacion.categoria) || arregloFiltros.includes(cotizacion.estilo)  ) {
+      contenedor.innerHTML += `
+    <div class="Cotizacion">
+
+        <div class="InformacionImagen">
+            <img src="${cotizacion.imagen}" alt="${cotizacion.titulo}">
+        </div>
+
+        <div class="InformacionCotizacion">
+
+            <div class="InformacionParte1">
+
+                <h3>${cotizacion.titulo}</h3>
+
+                <div class="ContenedorFiltros">
+                    <p class="Categoria">${cotizacion.categoria}</p>
+                    <p class="Estilo">${cotizacion.estilo}</p>
+                </div>
+
+                <p class="Descripcion">
+                    ${cotizacion.descripcion}
+                </p>
+
+            </div>
+
+            <div class="InformacionParte2">
+
+                <h3>$${cotizacion.precio.toLocaleString()}</h3>
+
+                <button class="btnVerPerfil" data-id="${cotizacion.idEbanista}">
+                    Ver perfil
+                </button>
+
+                <button class="btnResponder" data-id="${cotizacion.idCotizacion}">
+                    Responder
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+`;
+    }
+
+
+      
+    }
+
+
+
+
+
+}
+
+
+
+
+
+const checkboxes = document.querySelectorAll('.filtro-check');
+
+function obtenerFiltrosActivos() {
+    // 1. Convertimos a arreglo
+    const filtrosActivos = Array.from(checkboxes)
+        // 2. Filtramos: solo dejamos los que están marcados
+        .filter(checkbox => checkbox.checked)
+        // 3. Mapeamos: guardamos su ID (el nombre del filtro)
+        .map(checkbox => checkbox.id);
+    
+    console.log(filtrosActivos); 
+    // Ejemplo de salida si marcas Mesas y Moderno: ["Mesas", "Moderno"]
+    
+    return filtrosActivos;
+}
+
+// 3. Escucha los cambios en cada checkbox para actualizar el arreglo en tiempo real
+
+// 3. Escucha los cambios en cada checkbox para actualizar el arreglo en tiempo real
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        // Obtenemos la lista actualizada de IDs marcados (ej: ["Mesas", "Moderno"])
+        const filtrosActuales = obtenerFiltrosActivos();
+        
+        // Ejecutamos tu función de filtrado pasándole el nuevo arreglo
+        FiltrosAplicar(filtrosActuales);
+    });
+});
+
+
+function MostrarFiltros(){
+  const seccionFiltros = document.querySelector('.Filtros');
+  const boton = document.querySelector('.btnMostrar');
+  seccionFiltros.classList.toggle('mostrar');
+
+  if (boton.textContent == "Ocultar filtros") {
+    boton.textContent = "Mostrar filtros"
+  } else {
+    boton.textContent = "Ocultar filtros"
+  }
+  
+
+}
+
+function MostrarCotizaciones() {
+
+
+    document.querySelector(".Ebanistas").style.display = "none";
+    document.querySelector(".Cotizaciones").style.display = "grid";
+
+    
+    document.querySelector(".OpcionEbanistas").classList.remove("OpcionActual");
+    document.querySelector(".OpcionCotizaciones").classList.add("OpcionActual");
+}
+
+function MostrarEbanistas() {
+
+
+    document.querySelector(".Cotizaciones").style.display = "none";
+    document.querySelector(".Ebanistas").style.display = "grid";
+
+    
+    document.querySelector(".OpcionCotizaciones").classList.remove("OpcionActual");
+    document.querySelector(".OpcionEbanistas").classList.add("OpcionActual");
+}

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/index/mainIndex.css">
-    <script src="js/eventos.js"></script>
+    <script src="js/indexEventos.js" ></script>
     <title>OpifexLign</title>
 </head>
 <body>
@@ -31,12 +31,16 @@
             <div>
                 <div>
                     <h1>Visibilidad, contacto directo y exclusividad, en un solo lugar</h1>
-                    <p>OpefixLign es un ecosistema digital creado para unir la maestría artesanal con la demanda del mercado moderno. Funcionamos como un punto de encuentro donde los ebanistas transforman su taller en una vitrina global, permitiéndoles comercializar piezas exclusivas.</p>
-                    <button onclick="Hero1_Hero2()">Saber más</button>
+                    <p id="OpifexLignDescripcion"></p>
+                    <div>
+                        <button onclick="Hero1_Hero2()">Saber más</button>
+                        <button onclick="rotarFoto()">Ver otra imagen</button>
+                    </div>
+                    
                 </div>
             </div>
             <div>
-                <img src="assets/images/MuebleOpifex.jpeg" alt="">
+                <img src="assets/images/MuebleOpifex.jpeg" alt="Mueble con elementos con tematica de OpifexLign" id="ImagenHero1">
             </div>
         </section>
 
@@ -65,4 +69,5 @@
         </section>
     </main>
 </body>
+
 </html>
