@@ -222,17 +222,17 @@ input[type="search"]:focus {
 ========================================================================== */
 
 .Cotizaciones {
-    flex: 100;
-    display: grid; /*Es grid*/
+flex: 100;
+    display: grid;
     grid-template-columns: 50% 50%;
-    /* Modificado: define el tamaño de las filas automáticas futuras */
     grid-auto-rows: 18rem;
     gap: 1rem;
-    padding: 1rem;
+    padding: 2rem 1rem;
     overflow-y: scroll;
     overflow-x: hidden;
     padding-bottom: 7rem;
     grid-auto-flow: row;
+    
 }
 
 .Ebanistas {
@@ -329,6 +329,7 @@ input[type="search"]:focus {
     color: #666666;
     font-size: clamp(0.8rem, 1vw, 1.1rem);
     height: 100%;
+        overflow-y: scroll;
     /* line-height: 1.4;*/
 }
 
@@ -385,6 +386,9 @@ input[type="search"]:focus {
     display: flex;
     justify-content: space-evenly;
 }
+
+
+
 
 .ContenedorCotizaciones {
     width: 100%;
@@ -519,5 +523,15 @@ input[type="search"]:focus {
     .Ebanistas {
         grid-template-columns: 100%;
     }
+}
+
+
+
+@media (max-width: 740px) {
+
+.ContenedorFiltros p {
+font-size: clamp(0.6rem, 0.5vw, 3rem);
+}
+
 }
 
