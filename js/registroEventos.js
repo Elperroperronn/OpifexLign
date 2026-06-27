@@ -1,6 +1,81 @@
-let UsuarioActivo = null;
-const errorCorreo = document.getElementById("errorCorreo");
-const correoInput = document.getElementById("emailInput");
+/* ==========================================================================
+1. Configuración de Sesión y Storage
+========================================================================== */
+function CargarUsuariosBase(usuariosBase){
+    localStorage.setItem(STORAGE_USUARIOS_ALMACENADOS, JSON.stringify(usuariosBase))
+
+}
+
+function obtenerUsuariosAlmacenados() {
+    const usuariosGuardado = localStorage.getItem(STORAGE_USUARIOS_ALMACENADOS)
+    if (!usuariosGuardado) {
+        return null
+    }
+    return JSON.parse(usuariosGuardado)
+}
+
+
+function guardarUsuarioSesion(usuario) {
+    localStorage.setItem(STORAGE_USUARIO, JSON.stringify(usuario))
+}
+
+function obtenerUsuarioSesion() {
+    const usuarioGuardado = localStorage.getItem(STORAGE_USUARIO)
+    if (!usuarioGuardado) {
+        return null
+    }
+    return JSON.parse(usuarioGuardado)
+}
+
+function cerrarSesion() {
+    localStorage.removeItem(STORAGE_USUARIO)
+    
+}
+
+// TENER MUCHO CUIDADO CON LA DESINCRONIZACION ENTRE EL LOCAL STORAGE Y LAS VARIABLES LOCALES, cargar datos actualiza las variables locales segun lo que tengan el local storage
+
+function ActualizarUsuariosSistema(usuarioNuevo) {
+    // 1. Obtenemos el texto de localStorage
+    const usuariosGuardado = localStorage.getItem(STORAGE_USUARIOS_ALMACENADOS);
+    
+    // 2. Convertimos a Array (si está vacío, inicializamos un array vacío [])
+    const listaUsuarios = usuariosGuardado ? JSON.parse(usuariosGuardado) : [];
+    
+    // 3. Agregamos el nuevo usuario al array usando .push()
+    listaUsuarios.push(usuarioNuevo);
+    
+    // 4. Guardamos la lista actualizada de vuelta en localStorage
+    localStorage.setItem(STORAGE_USUARIOS_ALMACENADOS, JSON.stringify(listaUsuarios));
+    cargarDatos()
+}
+
+function BorrarUsuario() {
+    let usuario = obtenerUsuarioSesion()
+    const listaUsuarios = obtenerUsuariosAlmacenados()
+    let listaUsuariosActualizada = []
+    for (const element of listaUsuarios) {
+        if (usuario.idUsuario===element.idUsuario) {
+            continue
+        }
+        listaUsuariosActualizada.push(element);
+    }
+    
+    CargarUsuariosBase(listaUsuariosActualizada);
+    cargarDatos()
+    
+}
+
+function BorrarCuenta(){
+BorrarUsuario()
+Perfil_Sesion()
+}
+
+
+
+/* ==========================================================================
+2. Funciones Utilitarias de Validación
+========================================================================== */
+
 
 
 function mostrarError(input,elemenentoError, mensaje) {
@@ -14,7 +89,25 @@ function mostrarExito(input,elemenentoError) {
     input.classList.add("input-success")
 }
 
-//Validar correo
+function mostrarCambio(elemenentoEditado) {
+    elemenentoEditado.textContent="Cambio efectuado"
+}
+
+
+/* ==========================================================================
+3. Referencias DOM - Inicio de Sesión
+========================================================================== */
+
+const errorCorreo = document.getElementById("errorCorreo");
+const correoInput = document.getElementById("emailInput");
+
+const errorContrasena = document.getElementById("errorContraseña");
+const contrasenaInput = document.getElementById("ContraseñaInput");
+
+/* ==========================================================================
+4. Validaciones - Inicio de Sesión
+========================================================================== */
+
 function validarCorreo() {
     // 1. Obtener el valor y limpiar espacios en los extremos
 
@@ -42,10 +135,6 @@ function validarCorreo() {
 
 correoInput.addEventListener("input",validarCorreo);
 
-
-const errorContrasena = document.getElementById("errorContraseña");
-const contrasenaInput = document.getElementById("ContraseñaInput");
-
 //Validar contraseña
 function validarContrasena() {
     // 1. Obtener el valor sin espacios vacíos en los extremos
@@ -62,10 +151,42 @@ function validarContrasena() {
     return true;
 }
 
+contrasenaInput.addEventListener("input",validarContrasena);
+
+/* ==========================================================================
+5. Referencias DOM - Registro
+========================================================================== */
+
+
 const errorNombre = document.getElementById("errorNombre");
 const nombreInput = document.getElementById("NombreInput");
 
-//Validar contraseña
+const errorApellido = document.getElementById("errorApellido");
+const apellidoeInput = document.getElementById("ApellidoInput");
+
+const errorCorreo2 = document.getElementById("errorCorreo2");
+const correo2Input = document.getElementById("Correo2Input");
+
+const errorContrasena2 = document.getElementById("errorContraseña2");
+const contrasenaInput2 = document.getElementById("ContraseñaInput2");
+
+
+const errorFechaNac = document.getElementById("errorFecha");
+const fechaNacInput = document.getElementById("FechaInput");
+
+
+const errorNumero = document.getElementById("errorExperiencia");
+const numeroInput = document.getElementById("AniosInput");
+
+
+const errorSobreMi = document.getElementById("errorSobreMi");
+const SobreMiInput = document.getElementById("SobreMiInput");
+
+/* ==========================================================================
+6. Validaciones - Registro
+========================================================================== */
+
+
 function validarNombre() {
     // 1. Obtener el valor sin espacios vacíos en los extremos
     const nombre = nombreInput.value.trim();
@@ -81,13 +202,9 @@ function validarNombre() {
     return true;
 }
 
-
 nombreInput.addEventListener("input",validarNombre);
 
-const errorApellido = document.getElementById("errorApellido");
-const apellidoeInput = document.getElementById("ApellidoInput");
 
-//Validar contraseña
 function validarapellido() {
     // 1. Obtener el valor sin espacios vacíos en los extremos
     const nombre = apellidoeInput.value.trim();
@@ -102,8 +219,8 @@ function validarapellido() {
     mostrarExito(apellidoeInput, errorApellido);
     return true;
 }
-const errorCorreo2 = document.getElementById("errorCorreo2");
-const correo2Input = document.getElementById("Correo2Input");
+
+apellidoeInput.addEventListener("input",validarapellido);
 
 function validarCorreo2() {
     // 1. Obtener el valor y limpiar espacios en los extremos
@@ -132,9 +249,6 @@ function validarCorreo2() {
 
 correo2Input.addEventListener("input",validarCorreo2);
 
-const errorContrasena2 = document.getElementById("errorContraseña2");
-const contrasenaInput2 = document.getElementById("ContraseñaInput2");
-
 //Validar contraseña
 function validarContrasena2() {
     // 1. Obtener el valor sin espacios vacíos en los extremos
@@ -152,10 +266,6 @@ function validarContrasena2() {
 }
 
 contrasenaInput2.addEventListener("input",validarContrasena2);
-
-
-const errorFechaNac = document.getElementById("errorFecha");
-const fechaNacInput = document.getElementById("FechaInput");
 
 //Validar fecha de nacimiento
 function validarFechaNac() {
@@ -207,12 +317,6 @@ function validarFechaNac() {
 
 fechaNacInput.addEventListener("input", validarFechaNac);
 
-
-
-
-const errorNumero = document.getElementById("errorExperiencia");
-const numeroInput = document.getElementById("AniosInput");
-
 //Validar número
 function validarNumero() {
     // 1. Obtener el valor sin espacios vacíos en los extremos
@@ -250,8 +354,6 @@ document.getElementById("AniosInput").addEventListener("keydown",(e)=>{
 
 
 
-const errorSobreMi = document.getElementById("errorSobreMi");
-const SobreMiInput = document.getElementById("SobreMiInput");
 
 //Validar contraseña
 function validarSobremi() {
@@ -260,7 +362,7 @@ function validarSobremi() {
 
     // 2. Verificar si está vacío
     if (Sobre === "") {
-        mostrarError(SobreMiInput, errorSobreMi, "La contraseña es obligatoria");
+        mostrarError(SobreMiInput, errorSobreMi, "El campo es obligatorio");
         return false;
     }
 
@@ -271,9 +373,11 @@ function validarSobremi() {
 
 SobreMiInput.addEventListener("input",validarSobremi);
 
-apellidoeInput.addEventListener("input",validarapellido);
 
-contrasenaInput.addEventListener("input",validarContrasena);
+/* ==========================================================================
+8. Gestión de Inicio de Sesión
+========================================================================== */
+
 
 function Inicio_Confirmacion(){
 
@@ -287,7 +391,7 @@ function Inicio_Confirmacion(){
     if (!ValidarSesion(correoInput.value,contrasenaInput.value)) {
         return
     }
-    
+
 document.querySelector(".ConfirmacionSesion").style.display = "flex";
 document.querySelector(".InicioSesion").classList.add("Desabilitado");
 document.querySelector(".ConfirmacionSesion").classList.add("Habilitado");
@@ -296,82 +400,21 @@ document.querySelector(".ConfirmacionSesion").classList.add("Habilitado");
 }
 
 
-function Registro_Confirmacion(){
+function ValidarSesion(correo,contrasena){
 
-    const esNombreValido = validarNombre();
-    const esApellidoValido = validarapellido();
-    const esCorreoValido = validarCorreo2();
-    const esContrasenaValido = validarContrasena2();
-    const esFechaValida = validarFechaNac();
-    const esNumeroValido = validarNumero();
-    const esSobreMiValido = validarSobremi();
+for (const element of usuarios) {
+    if (correo === element.correo && contrasena === element.contrasena) {
+    guardarUsuarioSesion(element)
 
-    // 2. Verificar que NINGUNA validación haya fallado
-    if (!esNombreValido || !esApellidoValido || !esCorreoValido || !esContrasenaValido || !esFechaValida || !esNumeroValido || !esSobreMiValido) {
-        console.log("Error");
-        
-        return; // Detiene la ejecución si hay errores en pantalla
-    }
-    let tipo = ""
-    let nombre = nombreInput.value.trim()
-    let apellido = apellidoeInput.value.trim()
-    let correo = correo2Input.value.trim()
-    let constrasena = contrasenaInput2.value.trim()
-    let fecha = fechaNacInput.value.trim()
-    let experiencia = numeroInput.value.trim()
-    let sobreMi = SobreMiInput.value.trim()
-    if (document.getElementById("Ebanista").checked) {
-    tipo = "ebanista"
-    } else {
-    tipo = "cliente"
-    }
+    return true
+    } 
+}
 
-    console.log("=== DATOS DE REGISTRO CAPTURADOS ===");
-    console.log({
-        tipo: tipo,
-        nombre: nombre,
-        apellido: apellido,
-        correo: correo,
-        contrasena: constrasena,
-        fecha_nacimiento: fecha,
-        experiencia_anios: experiencia,
-        sobre_mi: sobreMi
-    });
-    console.log("====================================");
+SesionDenegada()
+    return false
     
-document.querySelector(".ConfirmacionSesion").style.display = "flex";
-document.querySelector(".InicioSesion").classList.add("Desabilitado");
-document.querySelector(".ConfirmacionSesion").classList.add("Habilitado");
-
 
 }
-
-
-function LimpiarCampos(){
-        nombreInput.value = ""
-    apellidoeInput.value = ""
-    correo2Input.value = ""
-    contrasenaInput2.value = ""
-    fechaNacInput.value = ""
-    numeroInput.value = ""
-    SobreMiInput.value = ""
-    Registro_Confirmacion()
-}
-
-
-function InicioSesion_Perfil(){
-
-    document.querySelector(".Perfil").style.display = "flex";
-    document.querySelector(".InicioSesion").style.display = "none";
-    document.querySelector(".actuala").textContent = "Perfil"
-    AgregarInformacionUsuario(false, null);
-    document.querySelector(".ConfirmacionSesion").style.display = "none";
-    document.querySelector(".InicioSesion").classList.add("Habilitado");
-document.querySelector(".ConfirmacionSesion").classList.add("Desabilitado");
-}
-
-
-
 
 function SesionDenegada(){
     
@@ -387,20 +430,107 @@ document.querySelector(".InicioSesion").classList.add("Habilitado");
 document.querySelector(".DenegarSesion").classList.add("Desabilitado");
 }
 
-function ValidarSesion(correo,contrasena){
+function InicioSesion_Perfil(){
 
-for (const element of usuarios) {
-    if (correo === element.correo && contrasena === element.contrasena) {
-    UsuarioActivo = element;
-    return true
-    } 
+    document.querySelector(".Perfil").style.display = "flex";
+    document.querySelector(".InicioSesion").style.display = "none";
+    document.querySelector(".actuala").textContent = "Perfil"
+    AgregarInformacionUsuario(false, null);
+    EbanistaOCliente()
+    document.querySelector(".ConfirmacionSesion").style.display = "none";
+    document.querySelector(".InicioSesion").classList.remove("Desabilitado");
+document.querySelector(".ConfirmacionSesion").classList.remove("Habilitado");
 }
 
-SesionDenegada()
-    return false
-    
+/* ==========================================================================
+9. Gestión de Registro de Usuarios
+========================================================================== */
+
+function Registro_Confirmacion(){
+
+    const esNombreValido = validarNombre();
+    const esApellidoValido = validarapellido();
+    const esCorreoValido = validarCorreo2();
+    const esContrasenaValido = validarContrasena2();
+    const esFechaValida = validarFechaNac();
+    const esNumeroValido = validarNumero();
+    const esSobreMiValido = validarSobremi();
+
+
+    if (!esNombreValido || !esApellidoValido || !esCorreoValido || !esContrasenaValido || !esFechaValida || !esNumeroValido || !esSobreMiValido) {
+        console.log("Error");
+        
+        return; // Detiene la ejecución si hay errores en pantalla
+    }
+
+        let tipo = ""
+    if (document.getElementById("Ebanista").checked) {
+    tipo = "ebanista"
+    } else {
+    tipo = "cliente"
+    }
+
+    let usuarioRegistrado = {
+    "idUsuario": Math.floor(Math.random() * 100) + 1,
+    "tipoUsuario": tipo,
+    "nombre": nombreInput.value.trim(),
+    "apellido": apellidoeInput.value.trim(),
+    "correo": correo2Input.value.trim(),
+    "contrasena": contrasenaInput2.value.trim(),
+    "fechaNacimiento": fechaNacInput.value.trim(),
+    "aniosExperiencia": numeroInput.value.trim(),
+    "sobreMi": SobreMiInput.value.trim(),
+    "album": [
+        {
+        "nombre": "FotoPerfil",
+        "foto": "https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785318-stock-illustration-hand-drawn-modern-man-avatar.jpg"
+    },
+    ]
+    }
+
+
+guardarUsuarioSesion(usuarioRegistrado)
+ActualizarUsuariosSistema(usuarioRegistrado)
+cargarDatos()
+    EbanistaOCliente()
+document.querySelector(".ConfirmacionRegistro").style.display = "flex";
+document.querySelector(".Registrar").classList.add("Desabilitado");
+document.querySelector(".ConfirmacionRegistro").classList.add("Habilitado");
+
 
 }
+
+
+function LimpiarCampos(){
+        nombreInput.value = ""
+    apellidoeInput.value = ""
+    correo2Input.value = ""
+    contrasenaInput2.value = ""
+    fechaNacInput.value = ""
+    numeroInput.value = ""
+    SobreMiInput.value = ""
+    contrasenaInput.value = ""
+    correoInput.value = ""
+    const esNombreValido = validarNombre();
+    const esApellidoValido = validarapellido();
+    const esCorreoValido = validarCorreo2();
+    const esContrasenaValido = validarContrasena2();
+    const esFechaValida = validarFechaNac();
+    const esNumeroValido = validarNumero();
+    const esSobreMiValido = validarSobremi();
+}
+
+
+
+
+/* ==========================================================================
+11. Gestión del Perfil
+========================================================================== */
+
+
+
+
+
 
 function AgregarInformacionUsuario(otroUsuario, PerfilAjeno) {
     if (otroUsuario) {
@@ -414,60 +544,54 @@ document.querySelector(".ContenedorCorreoO").children[1].value = PerfilAjeno.cor
 document.querySelector(".ContenedorFechaO").children[1].value = PerfilAjeno.fechaNacimiento;
 document.querySelector(".ContenedorExperienciaO").children[1].value = PerfilAjeno.aniosExperiencia;
 document.querySelector(".ContenedorSobreMiO").children[1].textContent = PerfilAjeno.sobreMi;
-agregarAlbum()
-AgregarPropuestas()
+
+agregarAlbum(PerfilAjeno)
     } else {
-document.getElementById("ImagenPerfil").src = UsuarioActivo.album[0].foto;
-document.querySelector(".Nombre").textContent = UsuarioActivo.nombre +" "+ UsuarioActivo.apellido;
-document.querySelector(".Rol").textContent = UsuarioActivo.tipoUsuario;
-document.querySelector(".Correo").textContent = UsuarioActivo.correo;
-document.querySelector(".ContenedorNombreO").children[1].value = UsuarioActivo.nombre;
-document.querySelector(".ContenedorApellidoO").children[1].value = UsuarioActivo.apellido;
-document.querySelector(".ContenedorCorreoO").children[1].value = UsuarioActivo.correo;
-document.querySelector(".ContenedorFechaO").children[1].value = UsuarioActivo.fechaNacimiento;
-document.querySelector(".ContenedorExperienciaO").children[1].value =  parseInt(UsuarioActivo.aniosExperiencia);
-document.querySelector(".ContenedorSobreMiO").children[1].textContent =  UsuarioActivo.sobreMi;
-agregarAlbum()
+document.getElementById("ImagenPerfil").src = obtenerUsuarioSesion().album[0].foto;
+document.querySelector(".Nombre").textContent = obtenerUsuarioSesion().nombre +" "+ obtenerUsuarioSesion().apellido;
+document.querySelector(".Rol").textContent = obtenerUsuarioSesion().tipoUsuario;
+document.querySelector(".Correo").textContent = obtenerUsuarioSesion().correo;
+document.querySelector(".ContenedorNombreO").children[1].value = obtenerUsuarioSesion().nombre;
+document.querySelector(".ContenedorApellidoO").children[1].value = obtenerUsuarioSesion().apellido;
+document.querySelector(".ContenedorCorreoO").children[1].value = obtenerUsuarioSesion().correo;
+document.querySelector(".ContenedorFechaO").children[1].value = obtenerUsuarioSesion().fechaNacimiento;
+document.querySelector(".ContenedorContraseñaO").children[1].value = obtenerUsuarioSesion().contrasena;
+document.querySelector(".ContenedorExperienciaO").children[1].value =  parseInt(obtenerUsuarioSesion().aniosExperiencia);
+document.querySelector(".ContenedorSobreMiO").children[1].textContent =  obtenerUsuarioSesion().sobreMi;
+document.querySelector(".ContenedorFotoPerfil").children[1].value = obtenerUsuarioSesion().album[0].foto;
+agregarAlbum(obtenerUsuarioSesion())
 AgregarPropuestas()
     }
 
 }
 
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Intentar obtener el usuario activo (convertido de texto a objeto)
-    //NO va a servir la variable por mas que la comparta entre js igual vuelve a null
-
-    console.log("Hola");
-    
-    // 2. Verificar si es null o si existe
-    if (UsuarioActivo != null) {
-        // AQUÍ VA TU LÓGICA: El usuario está activo, déjamelo a mí
-        
-    document.querySelector(".Perfil").style.display = "flex";
-    document.querySelector(".InicioSesion").style.display = "none";
-    document.querySelector(".Registrar").style.display = "none";
-    AgregarInformacionUsuario(false,null)
-        console.log("No es nullo");
-        
-    } else {
-        // 3. Qué hacer si es null (Usuario no logueado)
-    document.querySelector(".Perfil").style.display = "none";
+function Perfil_Sesion() {
     document.querySelector(".InicioSesion").style.display = "flex";
-    document.querySelector(".Registrar").style.display = "none";
-        // Opcional: window.location.href = "login.html"; // Redirigir si no está logueado
-    console.log("Es nullo");
-    
-    }
-});
+    document.querySelector(".Perfil").style.display = "none";
+    document.querySelector(".actuala").textContent = "Registro"
+        document.querySelector(".ConfirmacionCerrarSesion").style.display = "none";
+document.querySelector(".Funcionalidades").classList.remove("Desabilitado");
+document.querySelector(".ConfirmacionCerrarSesion").classList.remove("Habilitado");
+    cerrarSesion()
+}
+
+/* ==========================================================================
+12. Gestión del Álbum
+========================================================================== */
+
+const fotoAlbumInput = document.getElementById("FotoAlbumInput");
+const errorFotoAlbum = document.getElementById("errorFotoAlbum");
+
+const descripcionAlbumInput = document.getElementById("DescripcionAlbumInput");
+const errorDescripcionAlbum = document.getElementById("errorDescripcionAlbum");
 
 
-function agregarAlbum(){
+function agregarAlbum(Usuario){
+
+
+    document.querySelector(".AlbumMuebles").innerHTML = ""
     let i = 0;
-    for (const element of UsuarioActivo.album) {
+    for (const element of Usuario.album) {
         if (i===0){
             i++
             continue
@@ -484,7 +608,7 @@ function agregarAlbum(){
             </p>
 
             <div class="AccionesMueble">
-                <button class="btnEliminarMueble">
+                <button class="btnEliminarMueble" onclick="EliminarMueble('${imagen}')">
                     Eliminar
                 </button>
             </div>
@@ -493,15 +617,154 @@ function agregarAlbum(){
 `;
     }
 
+}
 
+function MostrarAgregarFoto(){
+    document.querySelector(".AgregarAlbum").style.display = "flex";
+    document.querySelector(".SeleccionadaAlbum").classList.add("Desabilitado");
+    document.querySelector(".AgregarAlbum").classList.add("Habilitado");
+}
+
+function CerrarAgregarFoto(){
+    document.querySelector(".AgregarAlbum").style.display = "none";
+    document.querySelector(".SeleccionadaAlbum").classList.remove("Desabilitado");
+    document.querySelector(".AgregarAlbum").classList.remove("Habilitado");
+}
+
+function AgregarMueble() {
+
+    const esFotoValida = validarFotoAlbum();
+    const esDescripcionValida = validarDescripcionAlbum();
+
+    if (!esFotoValida || !esDescripcionValida) {
+        console.log("Error");
+        return;
+    }
+
+    let usuario = obtenerUsuarioSesion();
+
+    usuario.album.push({
+        nombre: descripcionAlbumInput.value.trim(),
+        foto: fotoAlbumInput.value.trim()
+    });
+
+    guardarUsuarioSesion(usuario);
+    BorrarUsuario()
+    ActualizarUsuariosSistema(obtenerUsuarioSesion())
+    console.log("Imagen agregada correctamente");
+    document.querySelector(".AgregarAlbum").style.display = "none";
+    document.querySelector(".SeleccionadaAlbum").classList.remove("Desabilitado");
+    document.querySelector(".AgregarAlbum").classList.remove("Habilitado");
+    agregarAlbum(obtenerUsuarioSesion())
+}
+
+function EliminarMueble(URL) {
+
+    let usuario = obtenerUsuarioSesion();
+    const albumUsuario = usuario.album ? usuario.album : [];
+
+    let nuevoAlbum = [];
+
+    for (const element of albumUsuario) {
+        if (element.foto === URL) {
+            continue;
+        }
+
+        nuevoAlbum.push(element);
+    }
+
+    usuario.album = nuevoAlbum;
+
+    guardarUsuarioSesion(usuario);
+    BorrarUsuario();
+    ActualizarUsuariosSistema(usuario);
+    agregarAlbum(obtenerUsuarioSesion());
 
 }
 
 
-function AgregarPropuestas(){
+const contenedorLista = document.querySelector(".AlbumMuebles");
 
+const observador = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+        if (mutation.type === "childList") {
+            
+            // Verificamos si no quedan hijos, o si el único hijo no es ya la sección de "No hay items"
+            const tieneHijosReales = contenedorLista.children.length > 0;
+            const yaMuestraElMensaje = contenedorLista.querySelector(".SinItems");
+
+            if (!tieneHijosReales) {
+                // Insertamos el HTML que nos pediste usando innerHTML
+                contenedorLista.innerHTML = `
+                    <section class="SinItems"> 
+                        <h2>No hay items para mostrar</h2>
+                    </section>
+                `;
+            } else if (tieneHijosReales && yaMuestraElMensaje && contenedorLista.children.length > 1) {
+                // Si se añade un ítem nuevo y estaba el mensaje de vacío, borramos el mensaje
+                yaMuestraElMensaje.remove();
+            }
+        }
+    }
+});
+
+// 3. Activa el observador para que escuche cambios en los hijos
+observador.observe(contenedorLista, { childList: true });
+
+
+/* ==========================================================================
+14. Validaciones - Agregar Álbum
+========================================================================== */
+
+// Validar foto
+function validarFotoAlbum() {
+
+    // 1. Obtener el valor sin espacios vacíos
+    const foto = fotoAlbumInput.value.trim();
+
+    // 2. Verificar si está vacío
+    if (foto === "") {
+        mostrarError(fotoAlbumInput, errorFotoAlbum, "La foto es obligatoria");
+        return false;
+    }
+
+    // 3. Si tiene texto mostrar éxito
+    mostrarExito(fotoAlbumInput, errorFotoAlbum);
+    return true;
+}
+
+fotoAlbumInput.addEventListener("input", validarFotoAlbum);
+
+
+// Validar descripción
+function validarDescripcionAlbum() {
+
+    // 1. Obtener el valor sin espacios vacíos
+    const descripcion = descripcionAlbumInput.value.trim();
+
+    // 2. Verificar si está vacío
+    if (descripcion === "") {
+        mostrarError(descripcionAlbumInput, errorDescripcionAlbum, "La descripción es obligatoria");
+        return false;
+    }
+
+    // 3. Si tiene texto mostrar éxito
+    mostrarExito(descripcionAlbumInput, errorDescripcionAlbum);
+    return true;
+}
+
+descripcionAlbumInput.addEventListener("input", validarDescripcionAlbum);
+
+
+/* ==========================================================================
+13. Gestión de Propuestas
+========================================================================== */
+
+
+function AgregarPropuestas(){
+document.querySelector(".SeleccionadaPropuesta").innerHTML = ""
 for (const solicitud of solicitudes) {
-    if (solicitud.idEbanista === UsuarioActivo.idUsuario) {
+    if (solicitud.idEbanista === obtenerUsuarioSesion().idUsuario) {
         
         document.querySelector(".SeleccionadaPropuesta").innerHTML += `
 <div class="TargetaPropuesta">
@@ -541,6 +804,7 @@ for (const solicitud of solicitudes) {
     
 }
 
+
 function BuscarUsuario(id){
     for (const element of usuarios) {
         if (element.idUsuario === id) {
@@ -550,11 +814,8 @@ function BuscarUsuario(id){
 }
 
 
-function Perfil_Sesion() {
-    document.querySelector(".InicioSesion").style.display = "flex";
-    document.querySelector(".Perfil").style.display = "none";
-    UsuarioActivo = null;
-}
+
+
 
 function VerPropuestaCompleta(idSolicitud) {
   // 1. Buscamos la solicitud específica por su ID
@@ -703,44 +964,69 @@ function CerrarPropuestaCompleta(boton) {
   boton.closest('form').remove();
 }
 
+const contenedorListaPropuestas = document.querySelector(".SeleccionadaPropuesta");
+
+const observador2 = new MutationObserver((mutationsList) => {
+    console.log("Holaaaa");
+    
+    for (const mutation of mutationsList) {
+        if (mutation.type === "childList") {
+            
+            // Verificamos si no quedan hijos, o si el único hijo no es ya la sección de "No hay items"
+            const tieneHijosReales = contenedorListaPropuestas.children.length > 0;
+            const yaMuestraElMensaje = contenedorListaPropuestas.querySelector(".SinItems");
+
+            if (!tieneHijosReales) {
+                // Insertamos el HTML que nos pediste usando innerHTML
+                contenedorListaPropuestas.innerHTML = `
+                    <section class="SinItems2 {"> 
+                        <h2>No hay items para mostrar</h2>
+                    </section>
+                `;
+            } else if (tieneHijosReales && yaMuestraElMensaje && contenedorListaPropuestas.children.length > 1) {
+                // Si se añade un ítem nuevo y estaba el mensaje de vacío, borramos el mensaje
+                yaMuestraElMensaje.remove();
+            }
+        }
+    }
+});
+
+// 3. Activa el observador para que escuche cambios en los hijos
+observador2.observe(contenedorListaPropuestas, { childList: true });
+
+/* ==========================================================================
+14. Navegación entre Pantallas
+========================================================================== */
 
 
 function InicioSesion_Registro() {
     document.querySelector(".Registrar").style.display = "grid";
     document.querySelector(".InicioSesion").style.display = "none";
-    
-    
+    LimpiarCampos()
 }
-
 
 
 function Registro_InicioSesion() {
     document.querySelector(".InicioSesion").style.display = "flex";
     document.querySelector(".Registrar").style.display = "none";
+    LimpiarCampos()
 }
-
+/*Va a ser remplazada */
 function Registro_Perfil() {
+
     document.querySelector(".Perfil").style.display = "flex";
     document.querySelector(".Registrar").style.display = "none";
     document.querySelector(".actuala").textContent = "Perfil"
+    AgregarInformacionUsuario(false, null);
+    document.querySelector(".ConfirmacionRegistro").style.display = "none";
+    document.querySelector(".Registrar").classList.remove("Desabilitado");
+    document.querySelector(".ConfirmacionRegistro").classList.remove("Habilitado");
+    LimpiarCampos()
 }
 
-
-
-
-
-function MostrarAlbum() {
-
-    document.querySelector(".SeleccionadaPersonal").style.display = "none";
-    document.querySelector(".SeleccionadaConfiguracion").style.display = "none";
-    document.querySelector(".SeleccionadaAlbum").style.display = "flex";
-    document.querySelector(".SeleccionadaPropuesta").style.display = "none";
-
-    document.querySelector(".OpcionPersonal").classList.remove("OpcionActual");
-    document.querySelector(".OpcionConfiguracion").classList.remove("OpcionActual");
-    document.querySelector(".OpcionAlbum").classList.add("OpcionActual");
-    document.querySelector(".OpcionPropuesta").classList.remove("OpcionActual");
-}
+/* ==========================================================================
+15. Navegación Interna del Perfil
+========================================================================== */
 
 function MostrarPersonal() {
 
@@ -782,3 +1068,378 @@ function MostrarPropuestas() {
     document.querySelector(".OpcionPropuesta").classList.add("OpcionActual");
     
 }
+
+function MostrarAlbum() {
+
+    document.querySelector(".SeleccionadaPersonal").style.display = "none";
+    document.querySelector(".SeleccionadaConfiguracion").style.display = "none";
+    document.querySelector(".SeleccionadaAlbum").style.display = "flex";
+    document.querySelector(".SeleccionadaPropuesta").style.display = "none";
+
+    document.querySelector(".OpcionPersonal").classList.remove("OpcionActual");
+    document.querySelector(".OpcionConfiguracion").classList.remove("OpcionActual");
+    document.querySelector(".OpcionAlbum").classList.add("OpcionActual");
+    document.querySelector(".OpcionPropuesta").classList.remove("OpcionActual");
+}
+
+
+/* ==========================================================================
+16. Inicialización de la Aplicación
+========================================================================== */
+
+function EbanistaOCliente(){
+if (obtenerUsuarioSesion().tipoUsuario === "cliente" ) {
+        
+        document.querySelector(".OpcionAlbum").style.display = "none";
+        document.querySelector(".OpcionPropuesta").style.display = "none";
+        } else {
+                document.querySelector(".OpcionAlbum").style.display = "flex";
+        document.querySelector(".OpcionPropuesta").style.display = "flex";
+        }
+}
+
+function PerfilAjenoAbrir(){
+        document.querySelector(".OpcionConfiguracion").style.display = "none";
+        document.querySelector(".OpcionPropuesta").style.display = "none";
+        document.getElementById("GuardarCambiosBtn").style.display = "none"; 
+        document.querySelector(".btnAgregarMueble").style.display = "none";
+
+        document.querySelector(".ContenedorNombreO").classList.add("Desabilitado");
+document.querySelector(".ContenedorApellidoO").classList.add("Desabilitado");
+document.querySelector(".ContenedorCorreoO").classList.add("Desabilitado");
+document.querySelector(".ContenedorFechaO").classList.add("Desabilitado");
+document.querySelector(".ContenedorContraseñaO").style.display = "none";
+document.querySelector(".ContenedorExperienciaO").classList.add("Desabilitado");
+document.querySelector(".ContenedorSobreMiO").classList.add("Desabilitado");
+document.querySelector(".ContenedorFotoPerfil").classList.add("Desabilitado");
+document.querySelector(".actuala").textContent = "Perfil"
+        try {
+        document.querySelectorAll(".btnEliminarMueble").forEach(btn => {
+    btn.style.display = "none";
+});
+        } catch (error) {
+        console.log("No hay ningun mueble");
+        
+        }
+        
+        
+}
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    // 1. Intentar obtener el usuario activo (convertido de texto a objeto)
+    //NO va a servir la variable por mas que la comparta entre js igual vuelve a null
+await cargarDatos()
+
+    
+    const parametros = new URLSearchParams(window.location.search);
+    const id = Number(parametros.get("id"));
+
+    if (id===0) {
+    
+    } else {
+    const PerfilAjeno = obtenerUsuariosAlmacenados().find(u => u.idUsuario === id);
+    AgregarInformacionUsuario(true,PerfilAjeno)
+    PerfilAjenoAbrir()
+    document.querySelector(".Perfil").style.display = "flex";
+    document.querySelector(".InicioSesion").style.display = "none";
+    return
+    }
+
+
+    console.log("Hola");
+    
+    // 2. Verificar si es null o si existe
+    if (obtenerUsuarioSesion() != null) {
+    
+        
+    document.querySelector(".Perfil").style.display = "flex";
+    document.querySelector(".InicioSesion").style.display = "none";
+    document.querySelector(".Registrar").style.display = "none";
+    AgregarInformacionUsuario(false,null)
+    document.querySelector(".actuala").textContent = "Perfil"
+        console.log("No es nullo");
+        EbanistaOCliente()
+    } else {
+       
+    document.querySelector(".Perfil").style.display = "none";
+    document.querySelector(".InicioSesion").style.display = "flex";
+    document.querySelector(".Registrar").style.display = "none";
+        // Opcional: window.location.href = "login.html"; // Redirigir si no está logueado
+    console.log("Es nullo");
+    
+    }
+});
+
+
+
+/* ==========================================================================
+12. Referencias DOM - Edición de Perfil
+========================================================================== */
+
+const errorNombre2 = document.getElementById("errorNombre2");
+const nombreInput2 = document.getElementById("NombreInput2");
+
+const errorApellido2 = document.getElementById("errorApellido2");
+const apellidoInput2 = document.getElementById("ApellidoInput2");
+
+const errorCorreo3 = document.getElementById("errorCorreo3");
+const correoInput3 = document.getElementById("CorreoInput3");
+
+const errorContrasena3 = document.getElementById("errorContraseña3");
+const contrasenaInput3 = document.getElementById("ContraseñaInput3");
+
+const errorFecha2 = document.getElementById("errorFecha2");
+const fechaInput2 = document.getElementById("FechaInput2");
+
+const errorExperiencia2 = document.getElementById("errorExperiencia2");
+const experienciaInput2 = document.getElementById("AniosInput2");
+
+const errorSobreMi2 = document.getElementById("errorSobreMi2");
+const sobreMiInput2 = document.getElementById("SobreMiInput2");
+
+
+/* ==========================================================================
+13. Validaciones - Edición de Perfil
+========================================================================== */
+
+function validarNombreEditar() {
+    const nombre = nombreInput2.value.trim();
+
+    if (nombre === "") {
+        mostrarError(nombreInput2, errorNombre2, "Campo obligatorio");
+        return false;
+    }
+
+    mostrarExito(nombreInput2, errorNombre2);
+    return true;
+}
+
+nombreInput2.addEventListener("input", validarNombreEditar);
+
+
+function validarApellidoEditar() {
+    const apellido = apellidoInput2.value.trim();
+
+    if (apellido === "") {
+        mostrarError(apellidoInput2, errorApellido2, "Campo obligatorio");
+        return false;
+    }
+
+    mostrarExito(apellidoInput2, errorApellido2);
+    return true;
+}
+
+apellidoInput2.addEventListener("input", validarApellidoEditar);
+
+
+function validarCorreoEditar() {
+    const correo = correoInput3.value.trim();
+
+    const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (correo === "") {
+        mostrarError(correoInput3, errorCorreo3, "El correo electrónico es obligatorio");
+        return false;
+    }
+
+    if (!regexCorreo.test(correo)) {
+        mostrarError(correoInput3, errorCorreo3, "Ingrese un formato de correo válido");
+        return false;
+    }
+
+    mostrarExito(correoInput3, errorCorreo3);
+    return true;
+}
+
+correoInput3.addEventListener("input", validarCorreoEditar);
+
+
+function validarContrasenaEditar() {
+    const contrasena = contrasenaInput3.value.trim();
+
+    if (contrasena === "") {
+        mostrarError(contrasenaInput3, errorContrasena3, "La contraseña es obligatoria");
+        return false;
+    }
+
+    mostrarExito(contrasenaInput3, errorContrasena3);
+    return true;
+}
+
+contrasenaInput3.addEventListener("input", validarContrasenaEditar);
+
+
+function validarFechaEditar() {
+    const fechaValue = fechaInput2.value.trim();
+
+    if (fechaValue === "") {
+        mostrarError(fechaInput2, errorFecha2, "La fecha de nacimiento es obligatoria");
+        return false;
+    }
+
+    const regexFecha = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+
+    if (!regexFecha.test(fechaValue)) {
+        mostrarError(fechaInput2, errorFecha2, "El formato debe ser AAAA-MM-DD");
+        return false;
+    }
+
+    const [ano, mes, dia] = fechaValue.split("-").map(Number);
+
+    const fechaVerificacion = new Date(ano, mes - 1, dia);
+
+    if (
+        fechaVerificacion.getFullYear() !== ano ||
+        fechaVerificacion.getMonth() + 1 !== mes ||
+        fechaVerificacion.getDate() !== dia
+    ) {
+        mostrarError(fechaInput2, errorFecha2, "La fecha introducida no existe");
+        return false;
+    }
+
+    const hoy = new Date();
+
+    let edad = hoy.getFullYear() - ano;
+
+    const mesDiferencia = hoy.getMonth() - (mes - 1);
+
+    if (
+        mesDiferencia < 0 ||
+        (mesDiferencia === 0 && hoy.getDate() < dia)
+    ) {
+        edad--;
+    }
+
+    if (edad < 18) {
+        mostrarError(fechaInput2, errorFecha2, "Debes ser mayor de 18 años");
+        return false;
+    }
+
+    mostrarExito(fechaInput2, errorFecha2);
+    return true;
+}
+
+fechaInput2.addEventListener("input", validarFechaEditar);
+
+
+function validarExperienciaEditar() {
+    const numeroValue = experienciaInput2.value.trim();
+
+    if (numeroValue === "") {
+        mostrarError(experienciaInput2, errorExperiencia2, "El número es obligatorio");
+        return false;
+    }
+
+    const numero = Number(numeroValue);
+
+    if (numero > 100) {
+        mostrarError(experienciaInput2, errorExperiencia2, "El número no puede ser mayor a 100");
+        return false;
+    }
+
+    mostrarExito(experienciaInput2, errorExperiencia2);
+    return true;
+}
+
+experienciaInput2.addEventListener("input", validarExperienciaEditar);
+
+
+document.getElementById("AniosInput2").addEventListener("keydown", (e) => {
+    const invalidChars = ['e', 'E', '+', '-', '.'];
+
+    if (invalidChars.includes(e.key)) {
+        e.preventDefault();
+    }
+});
+
+
+function validarSobreMiEditar() {
+    const sobreMi = sobreMiInput2.value.trim();
+
+    if (sobreMi === "") {
+        mostrarError(sobreMiInput2, errorSobreMi2, "El campo es obligatorio");
+        return false;
+    }
+
+    mostrarExito(sobreMiInput2, errorSobreMi2);
+    return true;
+}
+
+sobreMiInput2.addEventListener("input", validarSobreMiEditar);
+
+
+
+
+
+
+
+
+
+
+
+
+function ActualizarDatos() {
+
+    const esNombreValido = validarNombreEditar();
+    const esApellidoValido = validarApellidoEditar();
+    const esCorreoValido = validarCorreoEditar();
+    const esContrasenaValida = validarContrasenaEditar();
+    const esFechaValida = validarFechaEditar();
+    const esExperienciaValida = validarExperienciaEditar();
+    const esSobreMiValido = validarSobreMiEditar();
+
+    if (!esNombreValido ||!esApellidoValido ||!esCorreoValido ||!esContrasenaValida ||!esFechaValida ||!esExperienciaValida ||!esSobreMiValido) {
+        console.log("Error");
+        return;
+    }
+
+    let usuarioRegistrado = obtenerUsuarioSesion();
+
+    usuarioRegistrado.nombre = nombreInput2.value.trim();
+    usuarioRegistrado.apellido = apellidoInput2.value.trim();
+    usuarioRegistrado.correo = correoInput3.value.trim();
+    usuarioRegistrado.contrasena = contrasenaInput3.value.trim();
+    usuarioRegistrado.fechaNacimiento = fechaInput2.value.trim();
+    usuarioRegistrado.aniosExperiencia = experienciaInput2.value.trim();
+    usuarioRegistrado.sobreMi = sobreMiInput2.value.trim();
+
+
+    usuarioRegistrado.album[0].foto =
+        document.querySelector(".ContenedorFotoPerfil").children[1].value;
+    BorrarUsuario();
+    guardarUsuarioSesion(usuarioRegistrado);
+    ActualizarUsuariosSistema(usuarioRegistrado)
+    cargarDatos()
+    AgregarInformacionUsuario(false, null);
+    mostrarCambio(document.getElementById("cambioEfectuado"))
+    console.log("Datos actualizados correctamente");
+}
+
+function ConfirmacionCerrar(){
+    document.querySelector(".ConfirmacionCerrarSesion").style.display = "flex";
+document.querySelector(".Funcionalidades").classList.add("Desabilitado");
+document.querySelector(".ConfirmacionCerrarSesion").classList.add("Habilitado");
+}
+
+function ConfirmacionCerrarAtras(){
+    document.querySelector(".ConfirmacionCerrarSesion").style.display = "none";
+document.querySelector(".Funcionalidades").classList.remove("Desabilitado");
+document.querySelector(".ConfirmacionCerrarSesion").classList.remove("Habilitado");
+}
+
+function ConfirmacionBorrar(){
+    document.querySelector(".ConfirmacionBorrarCuenta").style.display = "flex";
+document.querySelector(".Funcionalidades").classList.add("Desabilitado");
+document.querySelector(".ConfirmacionBorrarCuenta").classList.add("Habilitado");
+}
+
+function ConfirmacionBorrarAtras(){
+    document.querySelector(".ConfirmacionBorrarCuenta").style.display = "none";
+document.querySelector(".Funcionalidades").classList.remove("Desabilitado");
+document.querySelector(".ConfirmacionBorrarCuenta").classList.remove("Habilitado");
+}
+
+
+

@@ -19,7 +19,7 @@
     <nav class="barraPrincipal">
       <ul>
         <li class="actual">
-          <a href="registro.html" tabindex="_top" class="actuala">Registro</a>
+          <a href="registro.html" tabindex="_top" class="actuala" id="idRegistro">Registro</a>
         </li>
         <li>
           <a href="index.html">Inicio</a>
@@ -51,10 +51,10 @@
       <h1>Inicio de sesión</h1>
 
       <p>Correo</p>
-      <input type="email" id="emailInput">
+      <input type="email" id="emailInput" placeholder="ejemplo@correo.com">
       <small id="errorCorreo" class="form-error"></small>
       <p>Contraseña</p>
-      <input type="password" id="ContraseñaInput">
+      <input type="password" id="ContraseñaInput" placeholder="Ingrese su contraseña">
       <small id="errorContraseña" class="form-error"></small>
       <button onclick="Inicio_Confirmacion()" type="button">
         Iniciar sesión
@@ -69,6 +69,13 @@
     </form>
 
     <form class="Registrar">
+
+        <div class="ConfirmacionRegistro">
+        <p>Registro exitoso</p>
+        <button onclick="Registro_Perfil()" type="button">Continuar</button>
+      </div>
+    
+
       <h1>Registro</h1>
 
       <div class="ContenedorTipo">
@@ -89,43 +96,43 @@
 
       <div class="ContenedorNombre">
         <p>Nombre</p>
-        <input type="text" id="NombreInput">
+        <input type="text" id="NombreInput" placeholder="Ej: Juan">
         <small id="errorNombre" class="form-error"></small>
       </div>
 
       <div class="ContenedorApellido">
         <p>Apellido</p>
-        <input type="text" id="ApellidoInput">
+        <input type="text" id="ApellidoInput" placeholder="Ej: Pérez">
         <small id="errorApellido" class="form-error"></small>
       </div>
 
       <div class="ContenedorCorreo">
         <p>Correo</p>
-        <input type="email" id="Correo2Input">
+        <input type="email" id="Correo2Input" placeholder="ejemplo@correo.com">
         <small id="errorCorreo2" class="form-error"></small>
       </div>
 
       <div class="ContenedorContraseña">
         <p>Contraseña</p>
-        <input type="password" id="ContraseñaInput2">
+        <input type="password" id="ContraseñaInput2" placeholder="No poner 123456">
         <small id="errorContraseña2" class="form-error"></small>
       </div>
 
       <div class="ContenedorFecha">
         <p>Fecha nacimiento</p>
-        <input type="datetime" id="FechaInput">
+        <input type="datetime" id="FechaInput" placeholder="AAAA-MM-DD">
         <small id="errorFecha" class="form-error"></small>
       </div>
 
       <div class="ContenedorExperiencia">
         <p>Años de experiencia</p>
-        <input type="number" min="0" max="100" id="AniosInput">
+        <input type="number" min="0" max="100" id="AniosInput" placeholder="0 - 100">
         <small id="errorExperiencia" class="form-error"></small>
       </div>
 
       <div class="ContenedorSobreMi">
         <p>Sobre mi</p>
-        <textarea id="SobreMiInput"></textarea>
+        <textarea id="SobreMiInput" placeholder="Describe brevemente tu experiencia como ebanista..."></textarea>
         <small id="errorSobreMi" class="form-error"></small>
       </div>
 
@@ -199,52 +206,91 @@
         </nav>
 
         <div class="OpcionSeleccionada">
-          <div class="SeleccionadaPersonal">
-            <div class="ContenedorNombreO">
-              <p>Nombre</p>
-              <input type="text">
-            </div>
+<div class="SeleccionadaPersonal">
 
-            <div class="ContenedorApellidoO">
-              <p>Apellido</p>
-              <input type="text">
-            </div>
+  <div class="ContenedorNombreO">
+  <p>Nombre</p>
+  <input type="text" id="NombreInput2" placeholder="Ej: Juan">
+  <small id="errorNombre2" class="form-error"></small>
+</div>
 
-            <div class="ContenedorCorreoO">
-              <p>Correo</p>
-              <input type="email">
-            </div>
+<div class="ContenedorApellidoO">
+  <p>Apellido</p>
+  <input type="text" id="ApellidoInput2" placeholder="Ej: Pérez">
+  <small id="errorApellido2" class="form-error"></small>
+</div>
 
-            <div class="ContenedorContraseñaO">
-              <p>Contraseña</p>
-              <input type="password">
-            </div>
+<div class="ContenedorCorreoO">
+  <p>Correo</p>
+  <input type="email" id="CorreoInput3" placeholder="ejemplo@correo.com">
+  <small id="errorCorreo3" class="form-error"></small>
+</div>
 
-            <div class="ContenedorFechaO">
-              <p>Fecha nacimiento</p>
-              <input type="datetime">
-            </div>
+<div class="ContenedorContraseñaO">
+  <p>Contraseña</p>
+  <input type="password" id="ContraseñaInput3" placeholder="Ingrese una contraseña">
+  <small id="errorContraseña3" class="form-error"></small>
+</div>
 
-            <div class="ContenedorExperienciaO">
-              <p>Años de experiencia</p>
-              <input type="number">
-            </div>
+<div class="ContenedorFechaO">
+  <p>Fecha nacimiento</p>
+  <input type="datetime" id="FechaInput2" placeholder="AAAA-MM-DD">
+  <small id="errorFecha2" class="form-error"></small>
+</div>
 
-            <div class="ContenedorSobreMiO">
-              <p>Sobre mi</p>
-              <textarea></textarea>
-            </div>
+<div class="ContenedorExperienciaO">
+  <p>Años de experiencia</p>
+  <input type="number" min="0" max="100" id="AniosInput2" placeholder="0 - 100">
+  <small id="errorExperiencia2" class="form-error"></small>
+</div>
 
-            <button>
-              Guardar cambios
-            </button>
-          </div>
+<div class="ContenedorSobreMiO">
+  <p>Sobre mi</p>
+  <textarea id="SobreMiInput2" placeholder="Describe brevemente tu experiencia..."></textarea>
+  <small id="errorSobreMi2" class="form-error"></small>
+</div>
+
+<div class="ContenedorFotoPerfil">
+  <p>Foto de perfil</p>
+  <input type="text" id="FotoInput" placeholder="assets/images/FotoPerfil1.jpg">
+  <small id="errorFoto" class="form-error"></small>
+</div>
+  
+  <button id="GuardarCambiosBtn" onclick="ActualizarDatos()" type="button">
+    Guardar cambios
+  </button>
+  <small id="cambioEfectuado" class="form-actu"></small>
+  
+</div>
 
           <div class="SeleccionadaAlbum">
+
+<div class="AgregarAlbum">
+
+    <p>Foto del mueble</p>
+    <input type="text" id="FotoAlbumInput" placeholder="Ingrese una URL de la imagen">
+    <small id="errorFotoAlbum" class="form-error"></small>
+
+    <p>Texto que describa la imagen</p>
+    <input type="text" id="DescripcionAlbumInput" placeholder="El titulo de la imagen">
+    <small id="errorDescripcionAlbum" class="form-error"></small>
+
+    <button type="button" class="Continuar" onclick="AgregarMueble()">
+        Agregar
+    </button>
+
+    <button type="button" class="Regresar" onclick="CerrarAgregarFoto()">
+        Regresar
+    </button>
+
+
+
+</div>
+
             <div class="EncabezadoAlbum">
               <h3>Mi álbum de muebles</h3>
 
-              <button class="btnAgregarMueble">
+              <button class="btnAgregarMueble" onclick="MostrarAgregarFoto()" type="button">
                 + Agregar mueble
               </button>
             </div>
@@ -254,24 +300,32 @@
 
 
 
-
-
-
-
-
             </div>
           </div>
 
           <div class="SeleccionadaConfiguracion">
+            
+            <div class="ConfirmacionCerrarSesion">
+            <p>¿Realmente quiere cerrar la sesion?</p>
+            <button onclick="Perfil_Sesion()" type="button" class="Continuar">Continuar</button>
+            <button type="button" class="Regresar" onclick="ConfirmacionCerrarAtras()">Regresar</button>
+            </div>
+
+            <div class="ConfirmacionBorrarCuenta">
+            <p>¿Realmente quiere borrar la cuenta?</p>
+            <button onclick="BorrarCuenta()" type="button" class="Continuar">Continuar</button>
+            <button type="button" class="Regresar" onclick="ConfirmacionBorrarAtras()">Regresar</button>
+            </div>
+            
             <div class="CerrarSesion">
               <p>Finaliza tu sesión en la plataforma</p>
 
-              <button onclick="Perfil_Sesion()" type="button">
+              <button onclick="ConfirmacionCerrar()" type="button">
                 Cerrar sesión
               </button>
             </div>
 
-            <div class="BorrarCuenta">
+            <div class="BorrarCuenta" onclick="ConfirmacionBorrar()" type="button">
               <p>
                 Elimina tu cuenta y toda tu informacion de manera permanente
               </p>

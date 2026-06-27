@@ -1,0 +1,52 @@
+[
+  {
+    "idCotizacion": 1,
+    "idEbanista": 1,
+    "titulo": "Mesa de roble macizo",
+    "categoria": "Mesa",
+    "estilo": "Clasico",
+    "descripcion": "Mesa de comedor para 6 personas en roble macizo con acabado natural.",
+    "precio": 200000,
+    "imagen": "assets/images/Juego de mesa.webp"
+  },
+  {
+    "idCotizacion": 2,
+    "idEbanista": 2,
+    "titulo": "Silla minimalista de nogal",
+    "categoria": "Silla",
+    "estilo": "Minimalista",
+    "descripcion": "Silla ergonómica de nogal con acabado mate.",
+    "precio": 85000,
+    "imagen": "assets/images/Juego de mesa.webp"
+  },
+  {
+    "idCotizacion": 3,
+    "idEbanista": 1,
+    "titulo": "Closet moderno de melamina",
+    "categoria": "Closet",
+    "estilo": "Moderno",
+    "descripcion": "Closet de 3 puertas corredizas con espejos y cajoneras internas.",
+    "precio": 350000,
+    "imagen": "assets/images/Juego de mesa.webp"
+  },
+  {
+    "idCotizacion": 4,
+    "idEbanista": 3,
+    "titulo": "Cama matrimonial rústica",
+    "categoria": "Cama",
+    "estilo": "Rustico",
+    "descripcion": "Cama matrimonial elaborada en madera sólida con acabado envejecido.",
+    "precio": 275000,
+    "imagen": "assets/images/Juego de mesa.webp"
+  },
+  {
+    "idCotizacion": 5,
+    "idEbanista": 2,
+    "titulo": "Estantería flotante moderna",
+    "categoria": "Estanteria",
+    "estilo": "Moderno",
+    "descripcion": "Estantería de pared con diseño minimalista para sala u oficina.",
+    "precio": 95000,
+    "imagen": "assets/images/Juego de mesa.webp"
+  }
+]

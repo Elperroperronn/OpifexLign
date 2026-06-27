@@ -2,6 +2,14 @@
 let mqlGlobal = null;
 let funcionListenerGlobal = null;
 
+function obtenerUsuarioSesion() {
+    const usuarioGuardado = localStorage.getItem(STORAGE_USUARIO)
+    if (!usuarioGuardado) {
+        return null
+    }
+    return JSON.parse(usuarioGuardado)
+}
+
 
 function Hero1_Hero2() {
   // Nota el punto "." antes de Registrar, funciona como en CSS
@@ -115,4 +123,20 @@ function cargarDescripcion() {
 }
 
 // 2. Corregido: Se pasa la función sin paréntesis ()
-document.addEventListener("DOMContentLoaded", cargarDescripcion);
+document.addEventListener("DOMContentLoaded", ()=> {
+  
+  cargarDescripcion()
+if (obtenerUsuarioSesion() != null) {
+        // AQUÍ VA TU LÓGICA: El usuario está activo, déjamelo a mí
+        
+
+    document.getElementById("idRegistro").textContent = "Perfil"
+
+        
+    } else {
+
+    console.log("Es nullo");
+    
+    }
+
+});

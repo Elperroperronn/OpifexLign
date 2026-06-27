@@ -1,0 +1,82 @@
+[
+  {
+    "idSolicitud": 1,
+    "idUsuario": 1,
+    "idEbanista": 1,
+
+    "tipoMueble": "Cocina",
+    "descripcion": "Cocina moderna con acabado en porcelanato, espacio para horno empotrado y múltiples gavetas.",
+
+    "dimensiones": {
+      "alto": 240,
+      "ancho": 350,
+      "profundidad": 60
+    },
+
+    "presupuesto": 850000,
+    "presupuestoRecomendado": 2520,
+    "fechaEntrega": "2026-08-15",
+
+    "telefono": "8888-1111",
+    "correo": "maria@gmail.com",
+
+    "observaciones": "Deseo colores claros y tiradores ocultos.",
+
+    "estado": "Pendiente",
+    "fechaSolicitud": "2026-06-18"
+  },
+
+  {
+    "idSolicitud": 2,
+    "idUsuario": 1,
+    "idEbanista": 1,
+
+    "tipoMueble": "Closet",
+    "descripcion": "Closet para habitación principal con puertas corredizas y espejo integrado.",
+
+    "dimensiones": {
+      "alto": 220,
+      "ancho": 280,
+      "profundidad": 65
+    },
+
+    "presupuesto": 450000,
+    "presupuestoRecomendado": 2520,
+    "fechaEntrega": "2026-07-30",
+
+    "telefono": "8888-2222",
+    "correo": "carlos@gmail.com",
+
+    "observaciones": "Necesito espacio para ropa larga y zapatera.",
+
+    "estado": "Respondida",
+    "fechaSolicitud": "2026-06-15"
+  },
+
+  {
+    "idSolicitud": 3,
+    "idUsuario": 1,
+    "idEbanista": 1,
+
+    "tipoMueble": "Escritorio",
+    "descripcion": "Escritorio para oficina en casa con cajones laterales y espacio para dos monitores.",
+
+    "dimensiones": {
+      "alto": 75,
+      "ancho": 180,
+      "profundidad": 70
+    },
+
+    "presupuesto": 180000,
+    "presupuestoRecomendado": 2520,
+    "fechaEntrega": "2026-07-10",
+
+    "telefono": "8888-3333",
+    "correo": "andrea@gmail.com",
+
+    "observaciones": "Preferiblemente en madera de melina con acabado oscuro.",
+
+    "estado": "Aceptada",
+    "fechaSolicitud": "2026-06-10"
+  }
+]

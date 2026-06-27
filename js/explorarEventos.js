@@ -1,3 +1,11 @@
+function obtenerUsuarioSesion() {
+    const usuarioGuardado = localStorage.getItem(STORAGE_USUARIO)
+    if (!usuarioGuardado) {
+        return null
+    }
+    return JSON.parse(usuarioGuardado)
+}
+
 
 
 function CargarCotizaciones(){
@@ -31,9 +39,11 @@ function CargarCotizaciones(){
 
                 <h3>$${cotizacion.precio.toLocaleString()}</h3>
 
-                <button class="btnVerPerfil" data-id="${cotizacion.idEbanista}">
-                    Ver perfil
-                </button>
+<a href="registro.html?id=${cotizacion.idEbanista}">
+    <button class="btnVerPerfil">
+        Ver perfil
+    </button>
+</a>
 
                 <button class="btnResponder" data-id="${cotizacion.idCotizacion}">
                     Responder
@@ -57,6 +67,8 @@ function CargarCotizaciones(){
 function AgregarPerfiles(){
   const contenedor = document.querySelector(".Ebanistas")
   for (const ebanista of usuarios) {
+    console.log(ebanista);
+    
     if (ebanista.tipoUsuario==="ebanista") {
       contenedor.innerHTML += `
     <div class="Ebanista">
@@ -79,9 +91,11 @@ function AgregarPerfiles(){
 
             <div class="InformacionParte2">
 
-                <button class="btnVerPerfil" data-id="${ebanista.idUsuario}">
-                    Ver perfil
-                </button>
+<a href="registro.html?id=${ebanista.idUsuario}">
+    <button class="btnVerPerfil">
+        Ver perfil
+    </button>
+</a>
 
             </div>
 
@@ -95,9 +109,23 @@ function AgregarPerfiles(){
 
 
 
-document.addEventListener("DOMContentLoaded",() => {
+document.addEventListener("DOMContentLoaded", async () => {
+await cargarDatos()
 CargarCotizaciones()
 AgregarPerfiles()
+
+if (obtenerUsuarioSesion() != null) {
+        // AQUÍ VA TU LÓGICA: El usuario está activo, déjamelo a mí
+        
+
+    document.getElementById("idRegistro").textContent = "Perfil"
+
+        
+    } else {
+
+    console.log("Es nullo");
+    
+    }
 })
 
 

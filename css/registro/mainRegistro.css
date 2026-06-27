@@ -31,6 +31,37 @@ main {
     line-height: 1.2;
 }
 
+
+.form-actu {
+
+    min-height: 16px;
+    margin-top: 4px;
+    color: #16a34a;
+    /* font-size: 0.78rem; */
+    font-weight: bold;
+    line-height: 1.2;
+    grid-column: 1 / span 3;
+    grid-row: 7;
+    text-align: center;
+    padding-top: 0;
+    z-index: 0;
+    /* width: fit-content; */
+
+}
+
+
+.SinItems {
+        grid-column: 1 / span 3;
+    text-align: center;
+    color: brown;
+}
+
+.SinItems2 {
+        grid-column: 1;
+    text-align: center;
+    color: brown;
+}
+
 /* ==========================================================================
 2. Formularios - Elementos Base (Inputs, Textarea, Radio, File)
 ========================================================================== */
@@ -132,6 +163,7 @@ input[type="file"] {
     text-decoration: underline;
     color: green;
 }
+
 
 .ConfirmacionSesion {
 position: absolute;
@@ -385,6 +417,45 @@ margin: auto;
     border-color: #fcf3e5;
     color: #fcf3e5;
 }
+
+.ConfirmacionRegistro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 1rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background: antiquewhite;
+    width: 20rem;
+    box-shadow: 0px 0px 1rem #4f6d5a;
+    z-index: 1;
+}
+
+
+
+.ConfirmacionRegistro p {
+font-weight: bold;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+}
+
+.ConfirmacionRegistro button {
+margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    height: 3.5rem;
+    width: 10rem;
+    background-color: #4f6d5a;
+    border-color: #4f6d5a;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+    color: #fcf3e5;
+}
+
 /* ==========================================================================
 5. Sección - Perfil (estructura general)
 ========================================================================== */
@@ -556,7 +627,10 @@ margin: auto;
     border-radius: 6rem;
     padding-left: 3rem;
     padding-right: 3rem;
+    padding-bottom: 3rem;
     WIDTH: 100%;
+        row-gap: 3rem;
+    overflow-y: scroll;
 }
 
 .SeleccionadaPersonal p {
@@ -566,60 +640,64 @@ margin: auto;
 .ContenedorNombreO {
     grid-column: 1;
     grid-row: 1;
-    pointer-events: none;
+    
 }
 
 .ContenedorApellidoO {
     grid-column: 3;
     grid-row: 1;
-    pointer-events: none;
+    
 }
 
 .ContenedorCorreoO {
     grid-column: 1;
     grid-row: 2;
-    pointer-events: none;
+    
 }
 
 .ContenedorContraseñaO {
     grid-column: 3;
     grid-row: 2;
-    pointer-events: none;
+    
 }
 
 .ContenedorFechaO {
     grid-column: 1;
     grid-row: 3;
-    pointer-events: none;
+    
 }
 
 .ContenedorExperienciaO {
     grid-column: 3;
     grid-row: 3;
-    pointer-events: none;
+    
 }
 
 .ContenedorSobreMiO {
     grid-column: 1  / span 3 ;
     grid-row: 4;
     margin-top: 0.2rem;
-    pointer-events: none;
+    
 }
 
 .ContenedorSobreMiO textarea {
     width: 100%;
     height: 6rem;
-    pointer-events: none;
+    
 }
 
 .ContenedorSobreMiO p {
     margin-top: 0rem;
 }
+.ContenedorFotoPerfil {
+        grid-column: 1 / span 3;;
+    grid-row: 5;
+}
 
 .SeleccionadaPersonal button {
     grid-column: 1 / span 3;
-    grid-row: 5;
-    background-color:  gray;
+    grid-row: 6;
+    background-color:  #4f6d5a;
     border-color: #4f6d5a;
     /* align-items: center; */
     /* align-content: center; */
@@ -633,7 +711,7 @@ margin: auto;
     /* height: 4.5rem; */
     /* width: 17rem; */
     padding: 0.5rem;
-    pointer-events: none;
+    
 }
 
 
@@ -681,8 +759,8 @@ margin: auto;
 
 .AlbumMuebles{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 22rem) ;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 22rem);
     gap: 1.5rem;
     padding: 0rem 1rem;
 }
@@ -700,7 +778,7 @@ margin: auto;
 .TarjetaMueble img{
     /* width: 100%; */
     /* aspect-ratio: 1 / 1; */
-    object-fit: cover;
+    object-fit: fill;
     /* display: block; */
     flex: 2;
     overflow: hidden;
@@ -712,11 +790,13 @@ margin: auto;
 }
 
 .NombreMueble{
-    margin: 0 0 1rem 0;
+margin: 0 0 1rem 0;
     font-weight: 600;
     color: #4B372A;
     width: 100%;
     height: 2rem;
+    overflow-y: scroll;
+    height: 3rem;
 }
 
 .AccionesMueble{
@@ -756,6 +836,28 @@ margin: auto;
     color: #fcf3e5;
 }
 
+.AgregarAlbum{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 1rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background: antiquewhite;
+    width: 20rem;
+    box-shadow: 0px 0px 1rem #4f6d5a;
+    text-align: center;
+}
+
+.AgregarAlbum p {
+font-weight: bold;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+}
 
 /* ==========================================================================
 9. Sección - Perfil: Opción Configuración
@@ -767,6 +869,103 @@ margin: auto;
     flex-direction: column;
     padding: 1rem;
     gap: 2rem;
+}
+
+.ConfirmacionCerrarSesion {
+position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 1rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background: antiquewhite;
+    width: 20rem;
+    box-shadow: 0px 0px 1rem #4f6d5a;
+}
+
+.ConfirmacionCerrarSesion p {
+font-weight: bold;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+}
+
+.ConfirmacionCerrarSesion button{
+margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    height: 3.5rem;
+    width: 10rem;
+
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+
+}
+
+.ConfirmacionBorrarCuenta {
+position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 1rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background: antiquewhite;
+    width: 20rem;
+    box-shadow: 0px 0px 1rem #4f6d5a;
+}
+
+.ConfirmacionBorrarCuenta p {
+font-weight: bold;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+}
+
+.ConfirmacionBorrarCuenta button{
+margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    height: 3.5rem;
+    width: 10rem;
+
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+
+}
+
+
+
+.Regresar {
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    height: 3.5rem;
+    width: 10rem;
+    background-color: #780000;
+    border-color: #fcf3e5;
+    color: #fcf3e5;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+}
+
+
+.Continuar {
+margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    height: 3.5rem;
+    width: 10rem;
+    background-color: #4f6d5a;
+    border-color: #4f6d5a;
+    font-size: clamp(1.25rem, 3vw, 1.25rem);
+    color: #fcf3e5;
 }
 
 .CerrarSesion, .BorrarCuenta {
@@ -1118,6 +1317,12 @@ display: flex;
         border-color: #4f6d5a; /* Color de enfoque */
         box-shadow: 0 0 1rem #4f6d5a; /* Efecto brillante */
     }
+
+.btnAgregarMueble {
+    border-radius: 1rem;
+    padding: 0.1rem 1.2rem;
+}
+
 }
 
 @media (max-width: 630px) {
