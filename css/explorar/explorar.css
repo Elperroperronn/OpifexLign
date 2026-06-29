@@ -55,20 +55,16 @@ input[type="search"]:focus {
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.3); /* Efecto brillante */
 }
 
-input[type="text"]:focus, 
-textarea:focus, select:focus,input[type="number"]:focus {
-    border-color: #4f6d5a; /* Color de enfoque */
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3); /* Efecto brillante */
-}
-
-input[type="text"]:hover, 
-textarea:hover,select:hover,input[type="number"]:hover {
-    border-color: #4f6d5a; /* Color de enfoque */
-    box-shadow: 0 0 1rem #4f6d5a; /* Efecto brillante */
-}
-
 input[type="text"], 
-textarea,select,input[type="number"] {
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+textarea,
+select {
     width: 100%;
     padding: 12px 16px;
     margin: 8px 0;
@@ -79,6 +75,36 @@ textarea,select,input[type="number"] {
     transition: 0.3s;
     font-family: 'Montserrat', sans-serif;
 }
+
+input[type="text"]:hover, 
+input[type="number"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+input[type="tel"]:hover,
+input[type="url"]:hover,
+input[type="search"]:hover,
+input[type="date"]:hover,
+textarea:hover,
+select:hover {
+    border-color: #4f6d5a; 
+    box-shadow: 0 0 1rem #4f6d5a; 
+}
+
+input[type="text"]:focus, 
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus,
+textarea:focus, 
+select:focus {
+    border-color: #4f6d5a; 
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3); 
+}
+
+
 
 /* ==========================================================================
 3. Botones principales
@@ -294,7 +320,7 @@ flex: 100;
     
 }
 .SinItems {
-        grid-column: 1 / span 2;
+        grid-column: 1 / span 3;
     text-align: center;
     color: brown;
 }
@@ -328,16 +354,18 @@ grid-template-rows: 11rem 56rem 4rem 15rem;
 }
 
 .Hacer {
-    flex: 100;
+flex: 100;
     display: none;
     grid-template-columns: 100%;
-    grid-template-rows: 9rem 15rem;
+    grid-template-rows: 35rem;
     gap: 1rem;
     padding: 1rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /* overflow-y: hidden; */
+    /* overflow-x: hidden; */
+    overflow: hidden;
     padding-bottom: 7rem;
     grid-auto-flow: row;
+    
 }
 
 /* ==========================================================================
@@ -838,102 +866,6 @@ background-color: #fcf3e5;
     color: #fcf3e5;
 }
 
-/* ==========================================================================
-13. Media Queries
-========================================================================== */
-
-@media (max-width: 874px) {
-
-    .Cotizaciones {
-        grid-template-columns: 100%;
-    }
-
-    .Ebanistas {
-        grid-template-columns: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-
-.ContenedorCrear {
-    grid-column: 1;
-    grid-row: 2;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 1rem;
-}
-
-
-.Crear {
-    flex: 100;
-    display: none;
-    grid-template-columns: 100%;
-    grid-template-rows: 11rem 75rem;
-    gap: 1rem;
-    padding: 1rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding-bottom: 7rem;
-    grid-auto-flow: row;
-}
-
-.CrearCotizacion {
-    width: 19rem;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 7rem 7rem 7rem 7rem 7rem 10rem 5rem;
-    padding: 1rem 1rem;
-    gap: 1rem;
-    /* margin-right: auto; */
-    margin: auto;
-    border: 0.2rem solid #4f6d5a;
-    border-radius: 1rem;
-}
-
-.ContenedorVistaPrevia {
-    display: flex;
-    width: 18rem;
-    height: 100%;
-    overflow: hidden;
-    margin: auto;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-#Previa {
-    width: 100%;
-    text-align: center;
-    width: fit-content;
-    margin: 0 auto;
-    font-size: clamp(2rem, 4vw, 2.5rem);
-}
-
-
-}
-
-
-@media (min-width: 740px) {
-
-.ContenedorFiltros p {
-font-size: clamp(0.6rem, 0.5vw, 3rem);
-}
-
-
-
-
-}
-
-
-@media (min-width: 900px) {
-
-
-
-
-
-}
 
 
 /* Formulario modal de solicitud */
@@ -1058,7 +990,7 @@ font-size: clamp(0.6rem, 0.5vw, 3rem);
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 7rem 9rem 14rem 14rem  8rem 8rem 8rem 8rem 7rem;
-
+overflow-y: scroll;
     gap: 1rem;
 }
 
@@ -1084,7 +1016,9 @@ font-size: clamp(0.6rem, 0.5vw, 3rem);
 .SobreHacer {
     grid-row: 1;
     display: grid;
-    grid-template-rows: 4rem 4rem 1rem;
+    grid-template-rows: 4rem 7rem 1rem;
+    width: 41rem;
+    height: 28rem;
 }
 
 
@@ -1097,3 +1031,159 @@ font-size: clamp(0.6rem, 0.5vw, 3rem);
     color: #780000;
     font-weight: 900;
 }
+
+
+.ContenedorHacer {
+grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    gap: 2rem;
+        overflow: hidden;
+}
+
+
+/* ==========================================================================
+13. Media Queries
+========================================================================== */
+
+@media (max-width: 874px) {
+
+    .Cotizaciones {
+        grid-template-columns: 100%;
+    }
+
+    .Ebanistas {
+        grid-template-columns: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+
+.ContenedorCrear {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+}
+
+
+.Crear {
+    flex: 100;
+    display: none;
+    grid-template-columns: 100%;
+    grid-template-rows: 11rem 76rem;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 7rem;
+    grid-auto-flow: row;
+}
+
+.CrearCotizacion {
+    width: 19rem;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 7rem 7rem 7rem 7rem 7rem 10rem 5rem;
+    padding: 1rem 1rem;
+    gap: 1rem;
+    /* margin-right: auto; */
+    margin: auto;
+    border: 0.2rem solid #4f6d5a;
+    border-radius: 1rem;
+}
+
+.ContenedorVistaPrevia {
+    display: flex;
+    width: 18rem;
+    height: 100%;
+    overflow: hidden;
+    margin: auto;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#Previa {
+    width: 100%;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+
+    .Hacer {
+        flex: 100 1 0%;
+        display: none;
+        grid-template-columns: 100%;
+        grid-template-rows: 118rem;
+        gap: 1rem;
+        padding: 1rem 1rem 7rem;
+        overflow: hidden;
+        overflow-y: scroll;
+        grid-auto-flow: row;
+    }
+
+.ContenedorHacer {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    gap: 2rem;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.SobreHacer {
+    grid-row: 1;
+    display: grid;
+    grid-template-rows: 4rem 7rem 1rem;
+ width: 20rem;
+    height: 28rem;
+    margin: auto;
+}
+
+.SobreHacer h2 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+
+.CrearPropuesta {
+    grid-column: 1;
+    grid-row: 4;
+    width: 20rem;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 7rem 9rem 14rem 14rem 8rem 8rem 8rem 8rem 7rem;
+    overflow-y: hidden;
+    gap: 1rem;
+    margin: auto;
+}
+
+}
+
+
+@media (min-width: 740px) {
+
+.ContenedorFiltros p {
+font-size: clamp(0.6rem, 0.5vw, 3rem);
+}
+
+
+
+
+}
+
+
+@media (min-width: 900px) {
+
+
+
+
+
+}
+
