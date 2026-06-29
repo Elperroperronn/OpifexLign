@@ -588,6 +588,14 @@ const errorDescripcionAlbum = document.getElementById("errorDescripcionAlbum");
 
 function agregarAlbum(Usuario){
 
+    if (Usuario.album.length === 1) {
+        contenedorLista.innerHTML = `
+                    <section class="SinItems"> 
+                        <h2>No hay items para mostrar</h2>
+                    </section>
+                `;
+                return
+    }
 
     document.querySelector(".AlbumMuebles").innerHTML = ""
     let i = 0;
@@ -762,10 +770,12 @@ descripcionAlbumInput.addEventListener("input", validarDescripcionAlbum);
 
 
 function AgregarPropuestas(){
+let existe = false;
+
 document.querySelector(".SeleccionadaPropuesta").innerHTML = ""
 for (const solicitud of solicitudes) {
     if (solicitud.idEbanista === obtenerUsuarioSesion().idUsuario) {
-        
+        existe = true;
         document.querySelector(".SeleccionadaPropuesta").innerHTML += `
 <div class="TargetaPropuesta">
     <div class="EncabezadoPropuesta">
@@ -800,7 +810,16 @@ for (const solicitud of solicitudes) {
     }
 }
 
+     if (!existe) {
+            
+        document.querySelector(".SeleccionadaPropuesta").innerHTML = `
+                    <section class="SinItems"> 
+                        <h2>No hay items para mostrar</h2>
+                    </section>
+                `;
+                return
     
+     }
     
 }
 
