@@ -302,7 +302,7 @@ flex: 100;
 .Ebanistas {
     flex: 100;
     display: none; /*Es grid*/
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 33% 33% 33%;
     /* Modificado: define el tamaño de las filas automáticas futuras */
     grid-auto-rows: 18rem;
     gap: 1rem;
@@ -318,7 +318,7 @@ flex: 100;
     display: none; /*Es grid*/
     grid-template-columns: 100%;
     /* Modificado: define el tamaño de las filas automáticas futuras */
-grid-template-rows: 9rem 4rem 15rem 40rem;
+grid-template-rows: 11rem 56rem 4rem 15rem;
     gap: 1rem;
     padding: 1rem;
     overflow-y: scroll;
@@ -419,7 +419,7 @@ grid-template-rows: 9rem 4rem 15rem 40rem;
 .Descripcion {
     margin: 0;
     color: #666666;
-    font-size: clamp(0.8rem, 1vw, 1.1rem);
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
     height: 100%;
         overflow-y: scroll;
     /* line-height: 1.4;*/
@@ -620,45 +620,72 @@ margin-top: 0;
 ========================================================================== */
 
 .SobreCrear {
-    grid-column: 1;
+grid-column: 1;
     grid-row: 1;
     width: 100%;
     height: 100%;
+        border-bottom: 0.2rem solid #4f6d5a;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
 }
 
 .SobreCrear h2 {
 font-size: clamp(1.2rem, 4vw, 2.5rem);
+margin-bottom: 0;
 }
 
 #Previa{
-    grid-column: 1;
-    grid-row: 2;
+
     width: 100%;
-    height: 1.3rem;
+
     text-align: center;
     width: fit-content;
         margin: 0 auto;
 }
 
 .VistaPrevia {
-    grid-column: 1;
-    grid-row: 3;
+
     width: 100%;
+        margin-bottom: auto;
+    margin-top: auto;
+}
+
+.ContenedorVistaPrevia {
+    display: flex;
+    width: 35rem;
     height: 100%;
+    overflow: hidden;
+    margin: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    
 }
 
 
-
 .CrearCotizacion {
-    grid-column: 1;
-    grid-row: 4;
-    width: 100%;
+    width: 45rem;
     height: 100%;
     display: grid;
     grid-template-columns: 100%;
-        grid-template-rows: 7rem 7rem 7rem 7rem 7rem 10rem 10em;
-
+    grid-template-rows: 7rem 7rem 7rem 7rem 7rem 10rem 10em;
+    padding: 1rem 1rem;
     gap: 1rem;
+    margin-right: auto;
+    border: 0.2rem solid #4f6d5a;
+    border-radius: 1rem;
+}
+
+.ContenedorCrear{
+    grid-column: 1;
+    grid-row: 2;
+        width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+        gap: 1rem;
+
 }
 
 .ContenedorForm {
@@ -826,6 +853,66 @@ background-color: #fcf3e5;
     }
 }
 
+@media (max-width: 600px) {
+
+.ContenedorCrear {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+}
+
+
+.Crear {
+    flex: 100;
+    display: none;
+    grid-template-columns: 100%;
+    grid-template-rows: 11rem 75rem;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 7rem;
+    grid-auto-flow: row;
+}
+
+.CrearCotizacion {
+    width: 19rem;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 7rem 7rem 7rem 7rem 7rem 10rem 5rem;
+    padding: 1rem 1rem;
+    gap: 1rem;
+    /* margin-right: auto; */
+    margin: auto;
+    border: 0.2rem solid #4f6d5a;
+    border-radius: 1rem;
+}
+
+.ContenedorVistaPrevia {
+    display: flex;
+    width: 18rem;
+    height: 100%;
+    overflow: hidden;
+    margin: auto;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#Previa {
+    width: 100%;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+
+}
 
 
 @media (min-width: 740px) {
@@ -835,10 +922,7 @@ font-size: clamp(0.6rem, 0.5vw, 3rem);
 }
 
 
-.VistaPrevia {
 
-    padding: 0 21rem;
-}
 
 }
 
@@ -847,10 +931,7 @@ font-size: clamp(0.6rem, 0.5vw, 3rem);
 
 
 
-.VistaPrevia {
 
-    padding: 0 21rem;
-}
 
 }
 

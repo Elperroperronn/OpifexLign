@@ -319,6 +319,7 @@ function MostrarCrear() {
     document.querySelector(".Hacer").style.display = "none";
 
     // Control de menú (Botones)
+    PreviaCotizacion()
     document.querySelector(".OpcionCotizaciones").classList.remove("OpcionActual");
     document.querySelector(".OpcionEbanistas").classList.remove("OpcionActual");
     document.querySelector(".OpcionCrear").classList.add("OpcionActual");

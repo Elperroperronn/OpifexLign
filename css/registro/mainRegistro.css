@@ -1011,6 +1011,7 @@ width: 100%;
     grid-auto-rows: 14rem;
     gap: 4REM;
     padding: 0 7px;
+    overflow-x: hidden;
 }
 
 .CorreoForm {
