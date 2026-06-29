@@ -3,142 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/explorar/explorar.css">
-    
-
-    
     <title>OpifexLign</title>
 </head>
-
 <body>
-
     <header>
         <div class="NombreOpifex">
             <img src="assets/images/NombreSolo.png" alt="">
         </div>
-
         <nav class="barraPrincipal">
             <ul>
                 <li>
                     <a href="registro.html" tabindex="_top" id="idRegistro">Registro</a>
                 </li>
-
                 <li>
                     <a href="index.html">Inicio</a>
                 </li>
-
                 <li class="actual">
                     <a href="explorar.html" class="actuala">Explorar</a>
                 </li>
             </ul>
         </nav>
-
         <div class="LogoOpifex">
             <img src="assets/images/LogoSolo.png" alt="">
         </div>
     </header>
-
     <main>
-
         <section class="Buscador">
-            <input type="search" name="Buscar" id="InputBuscar">
-
-            <button class="btnBuscar" onclick="filtrarPorTexto(document.getElementById('InputBuscar').value)">
-                Buscar
-            </button>
-
-            <button class="btnNuevaPropuesta">
-                Nueva propuesta
-            </button>
+            <input type="search" name="Buscar" id="InputBuscar" placeholder="! Aqui puedes ingresar el texto de busqueda ¡">
         </section>
-
         <button class="btnMostrar" onclick="MostrarFiltros()">
             Mostrar filtros
         </button>
-
         <section class="TodaVentana">
-
             <section class="Filtros">
-
                 <div class="CabeceraFiltros">
                     <h2>Filtros</h2>
                 </div>
-
                 <p><b>Categoría</b></p>
-
 <!-- Grupo Categorías -->
-
 <input type="checkbox" id="Mesa" class="filtro-check">
 <label for="Mesa">Mesa</label><br>
-
 <input type="checkbox" id="Silla" class="filtro-check">
 <label for="Silla">Silla</label><br>
-
 <input type="checkbox" id="Closet" class="filtro-check">
 <label for="Closet">Closet</label><br>
-
 <input type="checkbox" id="Cama" class="filtro-check">
 <label for="Cama">Cama</label><br>
-
 <input type="checkbox" id="Estanteria" class="filtro-check">
 <label for="Estanteria">Estanteria</label><br>
-
 <input type="checkbox" id="Otros" class="filtro-check">
 <label for="Otros">Otro</label>
-
 <p><b>Estilo</b></p>
-
 <!-- Grupo Estilos -->
-
 <input type="checkbox" id="Minimalista" class="filtro-check">
 <label for="Minimalista">Minimalista</label><br>
-
 <input type="checkbox" id="Moderno" class="filtro-check">
 <label for="Moderno">Moderno</label><br>
-
 <input type="checkbox" id="Rustico" class="filtro-check">
 <label for="Rustico">Rustico</label><br>
-
 <input type="checkbox" id="Clasico" class="filtro-check">
 <label for="Clasico">Clasico</label>
-
-
             </section>
-
             <nav class="Opciones">
-
                 <div class="OpcionCotizaciones OpcionActual" onclick="MostrarCotizaciones()">
-                    <img src="assets/images/usuario.png" alt="">
+                    <img src="assets/images/cocina.png" alt="">
                     <p>Cotizaciones</p>
                 </div>
-
                 <div class="OpcionEbanistas" onclick="MostrarEbanistas()">
-                    <img src="assets/images/galeria.png" alt="">
+                    <img src="assets/images/carpintero.png" alt="">
                     <p>Ebanistas</p>
                 </div>
-
+                <div class="OpcionCrear" onclick="MostrarCrear()">
+                    <img src="assets/images/lapiz.png" alt="">
+                    <p>Crear</p>
+                </div>
+                <div class="OpcionHacer" onclick="MostrarHacer()">
+                    <img src="assets/images/Hacer.png" alt="">
+                    <p>Proponer</p>
+                </div>
             </nav>
-
             <section class="Cotizaciones">
-
-
-
             </section>
-
             <section class="Ebanistas">
-
-
             </section>
-
+            <section class="Crear">
+                <div class="SobreCrear">
+                    <h2>Sobre crear</h2>
+                    <p>En este apartado podras crear tu propia cotizacion para que todos tus clientes puedan ver de lo que eres capaz y los trabajos que estas dispuesto a hacer actualmente.</p>
+                </div>
+                <h2 id="Previa">Vista previa</h2>
+                <div class="VistaPrevia">
+                </div>
+<form class="CrearCotizacion">
+    <!-- Título de la Cotización -->
+    <div class="ContenedorForm">
+        <label for="TituloCotizacion">Título de la cotización</label>
+        <input type="text" id="TituloCotizacion" placeholder="Ej: Estantería flotante moderna" required>
+        <small id="errorTitulo" class="form-error"></small>
+    </div>
+    <!-- Combo Box: Categoría -->
+    <div class="ContenedorForm">
+        <label for="CategoriaCotizacion">Categoría</label>
+        <select id="CategoriaCotizacion" required>
+            <option value="" disabled selected>Selecciona una categoría</option>
+            <option value="Mesa">Mesa</option>
+            <option value="Silla">Silla</option>
+            <option value="Closet">Closet</option>
+            <option value="Cama">Cama</option>
+            <option value="Estanteria">Estanteria</option>
+            <option value="Otros">Otro</option>
+        </select>
+        <small id="errorCategoria" class="form-error"></small>
+    </div>
+    <!-- Combo Box: Estilo -->
+    <div class="ContenedorForm">
+        <label for="EstiloCotizacion">Estilo</label>
+        <select id="EstiloCotizacion" required>
+            <option value="" disabled selected>Selecciona un estilo</option>
+            <option value="Minimalista">Minimalista</option>
+            <option value="Moderno">Moderno</option>
+            <option value="Rustico">Rustico</option>
+            <option value="Clasico">Clasico</option>
+        </select>
+        <small id="errorEstilo" class="form-error"></small>
+    </div>
+    <!-- Precio -->
+    <div class="ContenedorForm">
+        <label for="PrecioCotizacion">Precio (₡)</label>
+        <input type="number" id="PrecioCotizacion" min="0" placeholder="Ej: 95000" required>
+        <small id="errorPrecio" class="form-error"></small>
+    </div>
+    <!-- Ruta de la Imagen -->
+    <div class="ContenedorForm">
+        <label for="ImagenCotizacion">Ruta de la imagen</label>
+        <input type="text" id="ImagenCotizacion" placeholder="assets/images/Juego de mesa.webp" required>
+        <small id="errorImagen" class="form-error"></small>
+    </div>
+    <!-- Descripción (Textarea) -->
+    <div class="ContenedorForm ContenedorDescripcion">
+        <label for="DescripcionCotizacion">Descripción</label>
+        <textarea id="DescripcionCotizacion" placeholder="Describe el diseño, materiales o dimensiones..." required></textarea>
+        <small id="errorDescripcion" class="form-error"></small>
+    </div>
+    <!-- Botón de Envío -->
+    <div class="ContenedorBoton">
+        <button id="GuardarCotizacionBtn" type="button" onclick="CrearNuevaCotizacion()">
+            Crear Cotización
+        </button>
+        <button id="PreviaCotizacionBtn" type="button" onclick="PreviaCotizacion()">
+            Visualizacion previa
+        </button>
+    </div>
+</form>
+            </section>
+            <section class="Hacer">
+    <div class="SobreHacer">
+        <h2>Crear propuesta</h2>
+        <p>
+            En este apartado podrás crear una propuesta personalizada para el
+            ebanista que hayas seleccionado previamente.
+        </p>
+        <br>
+        <div class="ContenedorForm">
+            <label>Ebanista</label>
+            <input
+                type="text"
+                id="EbanistaSeleccionado"
+                placeholder="Seleccione un ebanista desde la sección de ebanistas"
+                readonly
+            >
+        </div>
+        <p id="idEbanista" style="display: none;"></p>
+        <br>
+<div class="ContenedorForm">
+        <h2>Importante</h2>
+        <p>
+            Para utilizar este formulario primero debes presionar el botón
+            <strong>"Proponer"</strong> en el perfil del ebanista.
+        </p>
+        </div>
+    </div>
+    <form class="CrearPropuesta">
+        <!-- Tipo -->
+        <div class="ContenedorForm">
+            <label for="TipoMueble">Tipo de mueble</label>
+            <select id="TipoMueble">
+                <option value="" disabled selected>
+                    Selecciona un tipo
+                </option>
+                <option value="Mesa">Mesa</option>
+                <option value="Silla">Silla</option>
+                <option value="Closet">Closet</option>
+                <option value="Cama">Cama</option>
+                <option value="Estantería">Estantería</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <small id="errorTipoMueble" class="form-error"></small>
+        </div>
+        <!-- Descripción -->
+        <div class="ContenedorForm ContenedorDescripcion">
+            <label for="DescripcionMueble">
+                Descripción
+            </label>
+            <textarea
+                id="DescripcionMueble"
+                placeholder="Describe el mueble, materiales, acabados y detalles..."
+            ></textarea>
+            <small id="errorDescripcionMueble" class="form-error"></small>
+        </div>
+        <!-- Medidas -->
+        <div class="ContenedorForm">
+            <label>Dimensiones (cm)</label>
+            <div class="ContenedorMedidas">
+                <input
+                    type="number"
+                    id="AltoMueble"
+                    placeholder="Alto"
+                >
+                <input
+                    type="number"
+                    id="AnchoMueble"
+                    placeholder="Ancho"
+                >
+                <input
+                    type="number"
+                    id="ProfundidadMueble"
+                    placeholder="Profundidad"
+                >
+            </div>
+            <small id="errorMedidas" class="form-error"></small>
+        </div>
+        <!-- Presupuesto -->
+        <div class="ContenedorForm">
+            <label for="Presupuesto">
+                Presupuesto aproximado (₡)
+            </label>
+            <input
+                type="number"
+                id="Presupuesto"
+                placeholder="Ej: 250000"
+            >
+            <small id="errorPresupuesto" class="form-error"></small>
+                        <label for="PresupuestoAutomatico" id="PresupuestoAutomaticoId">
+                Presupuesto recomendado por el sistema
+            </label>
+            <input
+                type="number"
+                id="PresupuestoAutomatico"
+                placeholder="Se generara automaticamente"
+                readonly
+            >
+        </div>
+        <!-- Fecha -->
+        <div class="ContenedorForm">
+            <label for="FechaEntrega">
+                Fecha deseada
+            </label>
+            <input
+                type="date"
+                id="FechaEntrega"
+            >
+            <small id="errorFechaEntrega" class="form-error"></small>
+        </div>
+        <!-- Teléfono -->
+        <div class="ContenedorForm">
+            <label for="TelefonoSolicitud">
+                Teléfono
+            </label>
+            <input
+                type="tel"
+                id="TelefonoSolicitud"
+                placeholder="88888888"
+            >
+            <small id="errorTelefono" class="form-error"></small>
+        </div>
+        <!-- Correo -->
+        <div class="ContenedorForm">
+            <label for="CorreoSolicitud">
+                Correo
+            </label>
+            <input
+                type="email"
+                id="CorreoSolicitud"
+                placeholder="correo@ejemplo.com"
+            >
+            <small id="errorCorreo" class="form-error"></small>
+        </div>
+        <!-- Observaciones -->
+        <div class="ContenedorForm ContenedorDescripcion">
+            <label for="ObservacionesSolicitud">
+                Observaciones
+            </label>
+            <textarea
+                id="ObservacionesSolicitud"
+                placeholder="Información adicional..."
+            ></textarea>
+            <small id="errorObservaciones" class="form-error"></small>
+        </div>
+        <div class="ContenedorBoton">
+            <button
+                type="button"
+                id="btnCrearPropuesta"
+                onclick="CrearNuevaPropuesta()"
+            >
+                Enviar propuesta
+            </button>
+        </div>
+    </form>
+</section>
         </section>
-
     </main>
-
 </body>
 <script src="js/datos.js"></script>
 <script src="js/explorarEventos.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>

@@ -245,7 +245,7 @@ margin: auto;
 .Registrar {
     display: none;
     grid-template-columns: 30rem 7rem 30rem;
-    grid-template-rows: repeat(7, 7rem); /* Simplificado las 7 filas */
+            grid-template-rows: 4rem 6rem 6rem 6rem 7rem 8rem 6rem;
     border-radius: 6rem;
     padding-left: 3rem;
     padding-right: 3rem;
@@ -524,6 +524,7 @@ margin: auto;
 .Correo {
     font-size: clamp(0.8rem, 1vw, 1.25rem);
     padding-right: 1rem;
+    margin-top: 0;
 }
 
 .Rol {
@@ -533,6 +534,7 @@ margin: auto;
     padding: 0.4rem;
     font-size: clamp(0.9rem, 0.5vw, 3rem);
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .ContenedorInformacion {
@@ -1094,24 +1096,23 @@ width: 100%;
 }
 
 /* Formulario modal de solicitud */
+/* Formulario modal de solicitud */
 .FormularioSolicitud {
-display: flex;
-    flex-direction: column;
-    width: 36rem;
-    height: 39rem;
-    background-color: antiquewhite;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* OVERFLOW-Y: scroll; */
-    PADDING: 1REM;
-    border-radius: 2rem;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    z-index: 1;
+        flex-direction: column;
+        width: 23rem;
+        height: 41rem;
+        background-color: #F8F4EC;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* OVERFLOW-Y: scroll; */
+        PADDING: 1REM;
+        border-radius: 2rem;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
 }
 
 .FormularioSolicitud h2 {
@@ -1223,8 +1224,8 @@ display: flex;
 
     .Registrar {
         grid-template-columns: auto 7rem auto;
-        grid-template-rows: 6rem 6rem 6rem 6rem 6rem 8rem 6rem;
-        row-gap: 2rem;
+grid-template-rows: 4rem 6rem 6rem 6rem 6rem 9rem 6rem;
+
     }
 
     .Registrar div {
@@ -1276,7 +1277,7 @@ display: flex;
 
     .Registrar {
         grid-template-columns: auto 7rem auto;
-        grid-template-rows: 6rem 6rem 6rem 6rem 6rem 8rem 6rem;
+        grid-template-rows: 4rem 6rem 6rem 6rem 7rem 8rem 6rem;
                 grid-template-columns: 9rem 3rem 10rem;
                 row-gap: 3rem;
     }

@@ -833,8 +833,7 @@ function VerPropuestaCompleta(idSolicitud) {
       <h2>Solicitud de Cotización</h2>
 
       <div class="ContenedorFormulario">
-        <p class="Explicativo">Envía tu solicitud al ebanista.</p>
-        <p class="Aviso">Los campos marcados con * son obligatorios</p>
+
 
         <section class="seccionFormulario">
           <h3 class="TituloSeccion">Detalle</h3>
@@ -846,20 +845,20 @@ function VerPropuestaCompleta(idSolicitud) {
           <h3 class="TituloSeccion">1. Información del mueble</h3>
 
           <div class="TipoMueble">
-            <label for="tipoMueble">Tipo de mueble *</label>
+            <label for="tipoMueble">Tipo de mueble </label>
             <select id="tipoMueble" required>
-              <option value="">Seleccione una opción</option>
-              <option value="Cocina" ${datos.tipoMueble === 'Cocina' ? 'selected' : ''}>Cocina</option>
-              <option value="Closet" ${datos.tipoMueble === 'Closet' ? 'selected' : ''}>Closet</option>
-              <option value="Escritorio" ${datos.tipoMueble === 'Escritorio' ? 'selected' : ''}>Escritorio</option>
-              <option value="Mesa" ${datos.tipoMueble === 'Mesa' ? 'selected' : ''}>Mesa</option>
-              <option value="Estantería" ${datos.tipoMueble === 'Estantería' ? 'selected' : ''}>Estantería</option>
-              <option value="Otro" ${datos.tipoMueble === 'Otro' ? 'selected' : ''}>Otro</option>
+<option value="">Seleccione una opción</option>
+<option value="Mesa" ${datos.tipoMueble === "Mesa" ? "selected" : ""}>Mesa</option>
+<option value="Silla" ${datos.tipoMueble === "Silla" ? "selected" : ""}>Silla</option>
+<option value="Closet" ${datos.tipoMueble === "Closet" ? "selected" : ""}>Closet</option>
+<option value="Cama" ${datos.tipoMueble === "Cama" ? "selected" : ""}>Cama</option>
+<option value="Estantería" ${datos.tipoMueble === "Estantería" ? "selected" : ""}>Estantería</option>
+<option value="Otro" ${datos.tipoMueble === "Otro" ? "selected" : ""}>Otro</option>
             </select>
           </div>
 
           <div class="DescripcionDetallada">
-            <label for="descripcion">Descripción detallada *</label>
+            <label for="descripcion">Descripción detallada </label>
             <textarea
               id="descripcion"
               rows="5"
@@ -913,12 +912,12 @@ function VerPropuestaCompleta(idSolicitud) {
 
           <div class="ContenedorContacto">
             <div class="Telefono">
-              <label for="telefono">Teléfono *</label>
+              <label for="telefono">Teléfono </label>
               <input type="tel" id="telefono" placeholder="8888-8888" required value="${datos.telefono}">
             </div>
 
             <div class="CorreoForm">
-              <label for="correo">Correo electrónico *</label>
+              <label for="correo">Correo electrónico </label>
               <input type="email" id="correo" placeholder="correo@ejemplo.com" required value="${datos.correo}">
             </div>
           </div>
