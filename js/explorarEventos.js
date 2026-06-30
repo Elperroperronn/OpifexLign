@@ -49,7 +49,7 @@ function CargarCotizaciones(){
 
             <div class="InformacionParte2">
 
-                <h3>$${cotizacion.precio.toLocaleString()}</h3>
+                <h3>₡${cotizacion.precio.toLocaleString()}</h3>
 
 <a href="registro.html?id=${cotizacion.idEbanista}">
     <button class="btnVerPerfil">
