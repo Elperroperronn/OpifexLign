@@ -109,25 +109,26 @@ function rotarFoto() {
     imagenHTML.alt = fotoSiguiente.alt;
 }
 
-const descripcionJson = {
-    nombre: "OpefixLign",
-    descripcion: "OpefixLign es un ecosistema digital creado para unir la maestría artesanal con la demanda del mercado moderno. Funcionamos como un punto de encuentro donde los ebanistas transforman su taller en una vitrina global, permitiéndoles comercializar piezas exclusivas."
-};
 
-function cargarDescripcion() {
+
+
+
+async function cargarDescripcion() {
+    const respuesta5 = await fetch("json/descripcionOpifex.json");
     const descripcionHtml = document.getElementById("OpifexLignDescripcion");
-    
+    let descripcionJson = await respuesta5.json();
+
     if (descripcionHtml) {
         descripcionHtml.textContent = descripcionJson.descripcion;
     }
 }
 
-// 2. Corregido: Se pasa la función sin paréntesis ()
+
 document.addEventListener("DOMContentLoaded", ()=> {
   
   cargarDescripcion()
 if (obtenerUsuarioSesion() != null) {
-        // AQUÍ VA TU LÓGICA: El usuario está activo, déjamelo a mí
+
         
 
     document.getElementById("idRegistro").textContent = "Perfil"

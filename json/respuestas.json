@@ -1,0 +1,79 @@
+[
+  {
+    "idRespuesta": 1,
+    "idRespuestaPadre": null,
+    "idEmisor": 8,
+    "idReceptor": 1,
+    "titulo": "Consulta sobre mesa de comedor",
+    "descripcion": "Hola, ¿la mesa de comedor puede fabricarse para ocho personas en lugar de seis?"
+  },
+  {
+    "idRespuesta": 2,
+    "idRespuestaPadre": 1,
+    "idEmisor": 1,
+    "idReceptor": 8,
+    "titulo": "Re: Consulta sobre mesa de comedor",
+    "descripcion": "Sí, podemos hacerla para ocho personas. El precio aumentaría aproximadamente un 15%."
+  },
+
+  {
+    "idRespuesta": 3,
+    "idRespuestaPadre": null,
+    "idEmisor": 8,
+    "idReceptor": 2,
+    "titulo": "Silla moderna",
+    "descripcion": "¿La silla moderna puede llevar cojines en color gris?"
+  },
+
+  {
+    "idRespuesta": 4,
+    "idRespuestaPadre": null,
+    "idEmisor": 8,
+    "idReceptor": 3,
+    "titulo": "Closet personalizado",
+    "descripcion": "¿Es posible agregar más cajones en la parte inferior del closet?"
+  },
+  {
+    "idRespuesta": 5,
+    "idRespuestaPadre": 4,
+    "idEmisor": 3,
+    "idReceptor": 8,
+    "titulo": "Re: Closet personalizado",
+    "descripcion": "Claro, podemos agregar los cajones sin problema. Solo habría un pequeño ajuste en el costo."
+  },
+
+  {
+    "idRespuesta": 6,
+    "idRespuestaPadre": null,
+    "idEmisor": 8,
+    "idReceptor": 4,
+    "titulo": "Consulta sobre cama",
+    "descripcion": "¿La cama matrimonial puede fabricarse con gavetas inferiores?"
+  },
+
+  {
+    "idRespuesta": 7,
+    "idRespuestaPadre": null,
+    "idEmisor": 8,
+    "idReceptor": 5,
+    "titulo": "Estantería flotante",
+    "descripcion": "¿La estantería soporta suficiente peso para colocar libros pesados?"
+  },
+  {
+    "idRespuesta": 8,
+    "idRespuestaPadre": 7,
+    "idEmisor": 5,
+    "idReceptor": 8,
+    "titulo": "Re: Estantería flotante",
+    "descripcion": "Sí, está diseñada para soportar hasta 40 kg distribuidos uniformemente."
+  },
+
+  {
+    "idRespuesta": 9,
+    "idRespuestaPadre": null,
+    "idEmisor": 8,
+    "idReceptor": 6,
+    "titulo": "Escritorio de oficina",
+    "descripcion": "Me interesa el escritorio. ¿Podría incluir un pasacables en la superficie?"
+  }
+]

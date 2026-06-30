@@ -164,6 +164,30 @@
     </div>
 </form>
 </div>
+
+    <div class="ContenedorRespuestaSolicitud">
+        <div class="ContenedorRespuestas">
+            <h3>Respuestas</h3>
+            <div class="ContenedorTipoRespuesta">
+                <label>
+                    <input type="radio" name="estadoRespuesta" value="respondida" checked>
+                    Respondida
+                </label>
+
+                <label>
+                    <input type="radio" name="estadoRespuesta" value="sinResponder">
+                    Sin responder
+                </label>
+            </div>
+            <div class="ContenedorCardsRespuestas">
+
+                    <section class="SinItems"> 
+                        <h2>No hay items para mostrar</h2>
+                    </section>
+                
+            </div>
+        </div>
+    </div>
             </section>
             <section class="Hacer">
     <div class="ContenedorHacer">
@@ -323,10 +347,109 @@
         </div>
     </form>
     </div>
+    
+    <div class="ContenedorRespuestaSolicitud">
+        <div class="ContenedorRespuestas">
+            <h3>Respuestas</h3>
+            <div class="ContenedorTipoRespuesta">
+                <label>
+                    <input type="radio" name="estadoRespuesta" value="respondida" checked>
+                    Respondida
+                </label>
+
+                <label>
+                    <input type="radio" name="estadoRespuesta" value="sinResponder">
+                    Sin responder
+                </label>
+            </div>
+            <div class="ContenedorCardsRespuestas">
+
+                    <section class="SinItems"> 
+                        <h2>No hay items para mostrar</h2>
+                    </section>
+                
+            </div>
+        </div>
+    </div>
 </section>
         </section>
     </main>
 </body>
+<div class="ModalRespuesta" id="ModalRespuesta">
+
+    <div class="ContenidoModalRespuesta">
+    
+        <button class="CerrarModalRespuesta" onclick="CerrarRespuesta()">Cerrar</button>
+
+        <h2>Conversación</h2>
+
+        <div class="MensajeRespuesta" id="MensajeOriginal">
+
+        </div>
+
+        <div class="MensajeRespuesta RespuestaEbanista" id="MensajeRespuesta">
+
+        </div>
+
+    </div>
+
+    
+
+</div>
+
+<div class="ModalResponder" id="ModalResponder">
+
+    <div class="ContenidoModalResponder">
+
+        <h2>Responder cotización</h2>
+
+        <!-- Se guarda el id del ebanista (oculto a propósito) -->
+        <p id="IdEbanistaResponder" style="display: none;"></p>
+        <p id="IdRespuesta" style="display: none;"></p>
+        <div class="ContenedorForm">
+            <label for="TituloRespuesta">Título</label>
+
+            <input
+                type="text"
+                id="TituloRespuesta"
+                placeholder="Ingrese un título"
+            >
+
+            <small id="errorTituloRespuesta" class="form-error"></small>
+        </div>
+
+        <div class="ContenedorForm">
+            <label for="DescripcionRespuesta">Descripción</label>
+
+            <textarea
+                id="DescripcionRespuesta"
+                placeholder="Escriba su respuesta"
+            ></textarea>
+
+            <small id="errorDescripcionRespuesta" class="form-error"></small>
+        </div>
+
+        <div class="ContenedorBotonesRespuesta">
+
+            <button
+                type="button"
+                class="btnResponder2"
+                onclick="CerrarModalResponder()">
+                Atrás
+            </button>
+
+            <button
+                type="button"
+                class="btnResponder2"
+                onclick="EnviarRespuesta()">
+                Enviar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 <script src="js/datos.js"></script>
 <script src="js/explorarEventos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

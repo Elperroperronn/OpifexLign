@@ -61,5 +61,109 @@
         "foto": "assets/images/images.jpg"
       }
     ]
+  },  {
+    "idUsuario": 4,
+    "tipoUsuario": "ebanista",
+    "nombre": "Luis",
+    "apellido": "Ramírez",
+    "correo": "luisramirez@gmail.com",
+    "contrasena": "Madera123",
+    "fechaNacimiento": "1987-08-14",
+    "aniosExperiencia": 10,
+    "sobreMi": "Fabricación de muebles rústicos y restauración de piezas de madera.",
+    "album": [        {
+        "nombre": "FotoPerfil",
+        "foto": "https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785318-stock-illustration-hand-drawn-modern-man-avatar.jpg"
+    }]
+  },
+  {
+    "idUsuario": 5,
+    "tipoUsuario": "ebanista",
+    "nombre": "Andrés",
+    "apellido": "Vargas",
+    "correo": "andresvargas@gmail.com",
+    "contrasena": "Cedro2025",
+    "fechaNacimiento": "1992-01-30",
+    "aniosExperiencia": 7,
+    "sobreMi": "Especialista en closets personalizados y muebles para dormitorios.",
+    "album": [        {
+        "nombre": "FotoPerfil",
+        "foto": "https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785318-stock-illustration-hand-drawn-modern-man-avatar.jpg"
+    }]
+  },
+  {
+    "idUsuario": 6,
+    "tipoUsuario": "ebanista",
+    "nombre": "Sofía",
+    "apellido": "Herrera",
+    "correo": "sofiaherrera@gmail.com",
+    "contrasena": "Roble789",
+    "fechaNacimiento": "1996-10-18",
+    "aniosExperiencia": 4,
+    "sobreMi": "Diseño y construcción de muebles modernos para oficinas.",
+    "album": [        {
+        "nombre": "FotoPerfil",
+        "foto": "https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785318-stock-illustration-hand-drawn-modern-man-avatar.jpg"
+    }]
+  },
+  {
+    "idUsuario": 7,
+    "tipoUsuario": "ebanista",
+    "nombre": "Ricardo",
+    "apellido": "Castillo",
+    "correo": "ricardocastillo@gmail.com",
+    "contrasena": "Pino456",
+    "fechaNacimiento": "1984-06-09",
+    "aniosExperiencia": 15,
+    "sobreMi": "Más de quince años fabricando cocinas integrales y muebles a medida.",
+    "album": [        {
+        "nombre": "FotoPerfil",
+        "foto": "https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785318-stock-illustration-hand-drawn-modern-man-avatar.jpg"
+    }]
+  },
+  {
+    "idUsuario": 8,
+    "tipoUsuario": "cliente",
+    "nombre": "Fernanda",
+    "apellido": "Morales",
+    "correo": "fernandamorales@gmail.com",
+    "contrasena": "Nogal321",
+    "fechaNacimiento": "1993-04-12",
+    "aniosExperiencia": 0,
+    "sobreMi": "Especializada en acabados finos y muebles decorativos.",
+    "album": [        {
+        "nombre": "FotoPerfil",
+        "foto": "https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785318-stock-illustration-hand-drawn-modern-man-avatar.jpg"
+    }]
+  },
+  {
+    "idUsuario": 9,
+    "tipoUsuario": "ebanista",
+    "nombre": "Javier",
+    "apellido": "Solís",
+    "correo": "javiersolis@gmail.com",
+    "contrasena": "Teca555",
+    "fechaNacimiento": "1989-09-27",
+    "aniosExperiencia": 11,
+    "sobreMi": "Construcción de muebles comerciales y estanterías personalizadas.",
+    "album": [        {
+        "nombre": "FotoPerfil",
+        "foto": "https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785318-stock-illustration-hand-drawn-modern-man-avatar.jpg"
+    }]
+  },
+  {
+    "idUsuario": 10,
+    "tipoUsuario": "ebanista",
+    "nombre": "Daniela",
+    "apellido": "Rojas",
+    "correo": "danielarojas@gmail.com",
+    "contrasena": "MueblesPro",
+    "fechaNacimiento": "1998-02-20",
+    "aniosExperiencia": 3,
+    "sobreMi": "Apasionada por el diseño funcional y la fabricación de mobiliario contemporáneo.",
+    "album": [        {
+        "nombre": "FotoPerfil",
+        "foto": "https://st4.depositphotos.com/29453910/37778/v/450/depositphotos_377785318-stock-illustration-hand-drawn-modern-man-avatar.jpg"
+    }]
   }
 ]

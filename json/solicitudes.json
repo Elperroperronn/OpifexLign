@@ -1,10 +1,10 @@
 [
   {
     "idSolicitud": 1,
-    "idUsuario": 1,
+    "idUsuario": 2,
     "idEbanista": 1,
 
-    "tipoMueble": "Cocina",
+    "tipoMueble": "Otro",
     "descripcion": "Cocina moderna con acabado en porcelanato, espacio para horno empotrado y múltiples gavetas.",
 
     "dimensiones": {
@@ -14,7 +14,7 @@
     },
 
     "presupuesto": 850000,
-    "presupuestoRecomendado": 2520,
+    "presupuestoRecomendado": 900000,
     "fechaEntrega": "2026-08-15",
 
     "telefono": "8888-1111",
@@ -25,10 +25,9 @@
     "estado": "Pendiente",
     "fechaSolicitud": "2026-06-18"
   },
-
   {
     "idSolicitud": 2,
-    "idUsuario": 1,
+    "idUsuario": 3,
     "idEbanista": 1,
 
     "tipoMueble": "Closet",
@@ -41,7 +40,7 @@
     },
 
     "presupuesto": 450000,
-    "presupuestoRecomendado": 2520,
+    "presupuestoRecomendado": 506000,
     "fechaEntrega": "2026-07-30",
 
     "telefono": "8888-2222",
@@ -52,13 +51,12 @@
     "estado": "Respondida",
     "fechaSolicitud": "2026-06-15"
   },
-
   {
     "idSolicitud": 3,
-    "idUsuario": 1,
+    "idUsuario": 4,
     "idEbanista": 1,
 
-    "tipoMueble": "Escritorio",
+    "tipoMueble": "Otro",
     "descripcion": "Escritorio para oficina en casa con cajones laterales y espacio para dos monitores.",
 
     "dimensiones": {
@@ -68,7 +66,7 @@
     },
 
     "presupuesto": 180000,
-    "presupuestoRecomendado": 2520,
+    "presupuestoRecomendado": 205000,
     "fechaEntrega": "2026-07-10",
 
     "telefono": "8888-3333",

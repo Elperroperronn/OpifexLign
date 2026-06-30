@@ -2,51 +2,101 @@
   {
     "idCotizacion": 1,
     "idEbanista": 1,
-    "titulo": "Mesa de roble macizo",
+    "titulo": "Mesa de comedor de madera de pino",
     "categoria": "Mesa",
     "estilo": "Clasico",
-    "descripcion": "Mesa de comedor para 6 personas en roble macizo con acabado natural.",
-    "precio": 200000,
-    "imagen": "assets/images/Juego de mesa.webp"
+    "descripcion": "Mesa para seis personas fabricada en madera de pino con acabado natural y alta resistencia.",
+    "precio": 165000,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjMJEnzGuN9wXXXYtjTAM9f7IKARknl9u2U6aDukUYlPOw-AkLuLsB2Jfh&s=10"
   },
   {
     "idCotizacion": 2,
     "idEbanista": 2,
-    "titulo": "Silla minimalista de nogal",
+    "titulo": "Silla moderna tapizada",
     "categoria": "Silla",
-    "estilo": "Minimalista",
-    "descripcion": "Silla ergonómica de nogal con acabado mate.",
-    "precio": 85000,
-    "imagen": "assets/images/Juego de mesa.webp"
+    "estilo": "Moderno",
+    "descripcion": "Silla de madera con asiento acolchado y respaldo ergonómico para comedor.",
+    "precio": 55000,
+    "imagen": "https://i.ebayimg.com/images/g/lYIAAeSw7X1pLvP9/s-l1200.webp"
   },
   {
     "idCotizacion": 3,
-    "idEbanista": 1,
-    "titulo": "Closet moderno de melamina",
+    "idEbanista": 3,
+    "titulo": "Closet de tres puertas",
     "categoria": "Closet",
-    "estilo": "Moderno",
-    "descripcion": "Closet de 3 puertas corredizas con espejos y cajoneras internas.",
-    "precio": 350000,
-    "imagen": "assets/images/Juego de mesa.webp"
+    "estilo": "Minimalista",
+    "descripcion": "Closet espacioso con barras para colgar ropa y compartimentos internos.",
+    "precio": 245000,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKyM1qN3Y5o4TroWhMNeNoQB6xwLWzK3Sun9chKc6SKPhwyIZFfB6AUPvh&s=10"
   },
   {
     "idCotizacion": 4,
-    "idEbanista": 3,
-    "titulo": "Cama matrimonial rústica",
+    "idEbanista": 4,
+    "titulo": "Cama matrimonial de cedro",
     "categoria": "Cama",
     "estilo": "Rustico",
-    "descripcion": "Cama matrimonial elaborada en madera sólida con acabado envejecido.",
-    "precio": 275000,
-    "imagen": "assets/images/Juego de mesa.webp"
+    "descripcion": "Cama matrimonial elaborada en cedro con cabecera de diseño tradicional.",
+    "precio": 235000,
+    "imagen": "https://i.pinimg.com/originals/94/71/07/947107746fd277d94062f590c1d92da3.jpg"
   },
   {
     "idCotizacion": 5,
-    "idEbanista": 2,
-    "titulo": "Estantería flotante moderna",
+    "idEbanista": 5,
+    "titulo": "Estantería flotante de pared",
     "categoria": "Estanteria",
     "estilo": "Moderno",
-    "descripcion": "Estantería de pared con diseño minimalista para sala u oficina.",
-    "precio": 95000,
-    "imagen": "assets/images/Juego de mesa.webp"
+    "descripcion": "Estantería ideal para libros y decoración con soportes ocultos.",
+    "precio": 65000,
+    "imagen": "https://cdn.manomano.com/images/images_products/10704476/P/23412108_1.jpg"
+  },
+  {
+    "idCotizacion": 6,
+    "idEbanista": 6,
+    "titulo": "Escritorio para oficina",
+    "categoria": "Otros",
+    "estilo": "Minimalista",
+    "descripcion": "Escritorio amplio con espacio para computadora y organizadores laterales.",
+    "precio": 110000,
+    "imagen": "https://sillasdeoficinacr.com/wp-content/uploads/2022/11/E14.jpg"
+  },
+  {
+    "idCotizacion": 7,
+    "idEbanista": 7,
+    "titulo": "Mesa de centro rectangular",
+    "categoria": "Mesa",
+    "estilo": "Moderno",
+    "descripcion": "Mesa de centro con acabado en barniz mate y diseño contemporáneo.",
+    "precio": 72000,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg37IU7Tz4tqW1oebur1Oyefuk6huQ6Q4hLi9WNd3AcQ&s=10"
+  },
+  {
+    "idCotizacion": 8,
+    "idEbanista": 8,
+    "titulo": "Silla mecedora artesanal",
+    "categoria": "Silla",
+    "estilo": "Rustico",
+    "descripcion": "Silla mecedora fabricada completamente en madera con acabado envejecido.",
+    "precio": 98000,
+    "imagen": "https://a.1stdibscdn.com/stickley-harvey-ellis-collection-inlaid-cherry-wood-arts-crafts-rocking-chair-for-sale-picture-4/f_27453/f_334523021679602871690/DSC_7274_master.JPG?width=768"
+  },
+  {
+    "idCotizacion": 9,
+    "idEbanista": 9,
+    "titulo": "Biblioteca de cinco niveles",
+    "categoria": "Estanteria",
+    "estilo": "Clasico",
+    "descripcion": "Biblioteca amplia con cinco repisas para libros y objetos decorativos.",
+    "precio": 145000,
+    "imagen": "https://m.media-amazon.com/images/I/81MS53zGb6L._AC_UF894,1000_QL80_.jpg"
+  },
+  {
+    "idCotizacion": 10,
+    "idEbanista": 10,
+    "titulo": "Mueble para televisión",
+    "categoria": "Otros",
+    "estilo": "Minimalista",
+    "descripcion": "Mueble para sala con compartimentos para consolas y accesorios electrónicos.",
+    "precio": 125000,
+    "imagen": "https://www.tiendamonge.com/media/catalog/product/m/u/mueble-para-tv-mia-tv7388-cafe-188172.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700"
   }
 ]

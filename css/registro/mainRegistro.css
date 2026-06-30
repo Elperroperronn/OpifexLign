@@ -51,7 +51,7 @@ main {
 
 
 .SinItems {
-        grid-column: 1 / span 3;
+        grid-column: 1 / span 1;
     text-align: center;
     color: brown;
 }
@@ -1213,7 +1213,111 @@ width: 100%;
 
 
 /* ==========================================================================
-11. Media-Queries - Adaptación de Formularios (Login, Registro, Perfil)
+12. Modal
+========================================================================== */
+
+
+
+.ModalRespuesta{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.ContenidoModalRespuesta{
+width: min(600px, 90%);
+    max-height: 61vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.MensajeRespuesta{
+    background:#fcf3e5;
+    border-left:5px solid #4f6d5a;
+    border-radius:.7rem;
+    padding:1rem;
+}
+
+.RespuestaEbanista{
+    background:#f4f4f4;
+    border-left-color:#780000;
+}
+
+.CerrarModalRespuesta{
+    align-self:flex-end;
+    border:none;
+    background:none;
+    font-size:2rem;
+    cursor:pointer;
+}
+
+.ModalResponder{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.ContenidoModalResponder{
+    width: min(650px,90%);
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ContenedorBotonesRespuesta{
+    display:flex;
+    justify-content:flex-end;
+    gap:1rem;
+}
+
+
+
+.btnResponder2 {
+    /* margin: auto; */
+    /* margin-bottom: 1rem; */
+    /* margin-top: 2rem; */
+    border-radius: 1rem;
+    /* height: 4.5rem; */
+    /* width: 17rem; */
+    background-color: white;
+    border-color: #780000;
+    font-size: clamp(0.25rem, 0.8rem, 1.85rem);
+    color: #780000;
+    font-weight: 900;
+}
+
+.btnResponder2:hover {
+    /* margin: auto; */
+    /* margin-bottom: 1rem; */
+    /* margin-top: 2rem; */
+    border-radius: 1rem;
+    /* height: 4.5rem; */
+    /* width: 17rem; */
+    background-color: #780000;
+    border-color: white;
+    font-size: clamp(0.25rem, 0.8rem, 1.85rem);
+    color: white;
+    font-weight: 900;
+}
+
+/* ==========================================================================
+13. Media-Queries - Adaptación de Formularios (Login, Registro, Perfil)
 ========================================================================== */
 
 /* Pantallas medianas / tablets (hasta 1412px) */

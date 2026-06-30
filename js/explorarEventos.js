@@ -57,8 +57,8 @@ function CargarCotizaciones(){
     </button>
 </a>
 
-                <button class="btnResponder" data-id="${cotizacion.idCotizacion}">
-                    Responder
+                <button class="btnResponder" onclick="AbrirModalResponder(${cotizacion.idEbanista})">
+                    Contactar
                 </button>
 
             </div>
@@ -170,12 +170,14 @@ for (const cotizacion of cotizaciones) {
 
                 <h3>$${cotizacion.precio.toLocaleString()}</h3>
 
-                <button class="btnVerPerfil" data-id="${cotizacion.idEbanista}">
-                    Ver perfil
-                </button>
+<a href="registro.html?id=${cotizacion.idEbanista}">
+    <button class="btnVerPerfil">
+        Ver perfil
+    </button>
+</a>
 
-                <button class="btnResponder" data-id="${cotizacion.idCotizacion}">
-                    Responder
+                <button class="btnResponder" onclick="AbrirModalResponder(${cotizacion.idEbanista})">
+                    Contactar
                 </button>
 
             </div>
@@ -235,7 +237,6 @@ function obtenerFiltrosActivos() {
         .map(checkbox => checkbox.id);
     
     console.log(filtrosActivos); 
-    // Ejemplo de salida si marcas Mesas y Moderno: ["Mesas", "Moderno"]
     
     return filtrosActivos;
 }
@@ -672,6 +673,8 @@ function BuscarUsuario(id){
 
 document.addEventListener("DOMContentLoaded", async () => {
 await cargarDatos()
+
+
 CargarCotizaciones()
 AgregarPerfiles()
 
@@ -691,7 +694,8 @@ if (obtenerUsuarioSesion() != null) {
         document.querySelectorAll(".btnResponder").forEach(btn => {
             btn.style.display = "";
         });
-
+CargarRespuestasSinResponder()
+CargarRespuestasRespondidas()
     } else {
 
         document.querySelector(".OpcionCrear").style.display = "";
@@ -704,7 +708,8 @@ if (obtenerUsuarioSesion() != null) {
         document.querySelectorAll(".btnResponder").forEach(btn => {
             btn.style.display = "none";
         });
-
+CargarRespuestasSinResponder()
+CargarRespuestasRespondidas()
     }
 
 } else {
@@ -1247,3 +1252,373 @@ const presupuesto = Math.round(costoBase * factor);
     document.getElementById("PresupuestoAutomatico").value = presupuesto;
 
 }
+
+
+function CargarRespuestasSinResponder() {
+
+    console.log("Si se llamó");
+
+    const contenedores = document.querySelectorAll(".ContenedorCardsRespuestas");
+
+    contenedores.forEach(contenedor => {
+        contenedor.innerHTML = "";
+    });
+
+    const usuario = obtenerUsuarioSesion();
+    let cargoAlguna = false;
+
+    for (const respuesta of respuestas) {
+
+        if (respuesta.idRespuestaPadre !== null) {
+            continue;
+        }
+
+        if (
+            respuesta.idEmisor !== usuario.idUsuario &&
+            respuesta.idReceptor !== usuario.idUsuario
+        ) {
+            continue;
+        }
+
+        const tieneRespuesta = respuestas.some(r =>
+            r.idRespuestaPadre === respuesta.idRespuesta
+        );
+
+        if (tieneRespuesta) {
+            continue;
+        }
+
+        const tipo = respuesta.idEmisor === usuario.idUsuario
+            ? "Su respuesta"
+            : "De alguien hacia usted";
+
+        const clase = respuesta.idEmisor === usuario.idUsuario
+            ? "enviada"
+            : "recibida";
+
+        contenedores.forEach(contenedor => {
+            contenedor.innerHTML += `
+                <div class="CardRespuesta">
+
+                    <div class="EncabezadoRespuesta">
+                        <div>
+                            <h3>${respuesta.titulo}</h3>
+                            <p class="TipoRespuesta ${clase}">
+                                ${tipo}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ContenidoRespuesta">
+                        <p>${respuesta.descripcion}</p>
+                    </div>
+
+                    <div class="PieRespuesta">
+                        <button
+                            class="btnVerRespuesta"
+                            onclick="VerRespuesta(${respuesta.idRespuesta})">
+                            Ver respuesta
+                        </button>
+
+                        <button
+                            class="btnResponder"
+                            onclick="AbrirModalResponder2(${respuesta.idEmisor}, ${respuesta.idRespuesta})">
+                            Responder
+                        </button>
+                    </div>
+
+                </div>
+            `;
+        });
+
+        cargoAlguna = true;
+    }
+
+    if (!cargoAlguna) {
+        contenedores.forEach(contenedor => {
+            contenedor.innerHTML = `
+                <section class="SinItems">
+                    <h2>No hay items para mostrar</h2>
+                </section>
+            `;
+        });
+    }
+}
+
+function CargarRespuestasRespondidas() {
+
+    console.log("Si se llamó");
+
+    const contenedores = document.querySelectorAll(".ContenedorCardsRespuestas");
+
+    contenedores.forEach(contenedor => {
+        contenedor.innerHTML = "";
+    });
+
+    const usuario = obtenerUsuarioSesion();
+    let cargoAlguna = false;
+
+    for (const respuesta of respuestas) {
+
+        if (respuesta.idRespuestaPadre !== null) {
+            continue;
+        }
+
+        if (
+            respuesta.idEmisor !== usuario.idUsuario &&
+            respuesta.idReceptor !== usuario.idUsuario
+        ) {
+            continue;
+        }
+
+        const tieneRespuesta = respuestas.some(r =>
+            r.idRespuestaPadre === respuesta.idRespuesta
+        );
+
+        if (!tieneRespuesta) {
+            continue;
+        }
+
+        const tipo = respuesta.idEmisor === usuario.idUsuario
+            ? "Su respuesta"
+            : "De alguien hacia usted";
+
+        const clase = respuesta.idEmisor === usuario.idUsuario
+            ? "enviada"
+            : "recibida";
+
+        contenedores.forEach(contenedor => {
+            contenedor.innerHTML += `
+                <div class="CardRespuesta">
+
+                    <div class="EncabezadoRespuesta">
+                        <div>
+                            <h3>${respuesta.titulo}</h3>
+                            <p class="TipoRespuesta ${clase}">
+                                ${tipo}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ContenidoRespuesta">
+                        <p>${respuesta.descripcion}</p>
+                    </div>
+
+                    <div class="PieRespuesta">
+                        <button
+                            class="btnVerRespuesta"
+                            onclick="VerRespuesta(${respuesta.idRespuesta})">
+                            Ver respuesta
+                        </button>
+                    </div>
+
+                </div>
+            `;
+        });
+
+        cargoAlguna = true;
+    }
+
+    if (!cargoAlguna) {
+        contenedores.forEach(contenedor => {
+            contenedor.innerHTML = `
+                <section class="SinItems">
+                    <h2>No hay items para mostrar</h2>
+                </section>
+            `;
+        });
+    }
+
+    console.log(cargoAlguna);
+}
+
+
+const radiosEstado = document.querySelectorAll('input[name="estadoRespuesta"]');
+
+radiosEstado.forEach(radio => {
+    radio.addEventListener("change", () => {
+
+        if (radio.value === "respondida") {
+            CargarRespuestasRespondidas();
+        } else {
+            CargarRespuestasSinResponder();
+        }
+
+    });
+});
+
+function VerRespuesta(idRespuesta){
+
+    const modal = document.getElementById("ModalRespuesta");
+    const original = document.getElementById("MensajeOriginal");
+    const respuesta = document.getElementById("MensajeRespuesta");
+
+    const mensaje = respuestas.find(r => r.idRespuesta == idRespuesta);
+
+    const contestacion = respuestas.find(r =>
+        r.idRespuestaPadre == idRespuesta
+    );
+
+    original.innerHTML = `
+        <h3>${mensaje.titulo}</h3>
+        <p>${mensaje.descripcion}</p>
+    `;
+
+    if(contestacion){
+
+        respuesta.style.display = "block";
+
+        respuesta.innerHTML = `
+            <h3>${contestacion.titulo}</h3>
+            <p>${contestacion.descripcion}</p>
+        `;
+
+    }else{
+
+        respuesta.style.display = "none";
+
+    }
+
+    modal.style.display = "flex";
+}
+
+function CerrarRespuesta() {
+    document.getElementById("ModalRespuesta").style.display = "none";
+}
+
+function AbrirModalResponder(idEbanista){
+
+    document.getElementById("IdEbanistaResponder").textContent = idEbanista;
+
+    document.getElementById("TituloRespuesta").value = "";
+    document.getElementById("DescripcionRespuesta").value = "";
+
+    document.getElementById("errorTituloRespuesta").textContent = "";
+    document.getElementById("errorDescripcionRespuesta").textContent = "";
+
+    document.getElementById("ModalResponder").style.display = "flex";
+}
+
+function CerrarModalResponder(){
+
+    document.getElementById("ModalResponder").style.display = "none";
+
+}
+
+function AbrirModalResponder2(idEbanista, idPadre){
+
+    document.getElementById("IdEbanistaResponder").textContent = idEbanista;
+    document.getElementById("IdRespuesta").textContent = idPadre;
+    document.getElementById("TituloRespuesta").value = "";
+    document.getElementById("DescripcionRespuesta").value = "";
+
+    document.getElementById("errorTituloRespuesta").textContent = "";
+    document.getElementById("errorDescripcionRespuesta").textContent = "";
+
+    document.getElementById("ModalResponder").style.display = "flex";
+}
+
+/* ==========================================================================
+Referencias DOM - Responder
+========================================================================== */
+
+const errorTituloRespuesta = document.getElementById("errorTituloRespuesta");
+const tituloRespuestaInput = document.getElementById("TituloRespuesta");
+
+const errorDescripcionRespuesta = document.getElementById("errorDescripcionRespuesta");
+const descripcionRespuestaInput = document.getElementById("DescripcionRespuesta");
+
+
+/* ==========================================================================
+Validaciones - Responder
+========================================================================== */
+
+// Validar título
+function validarTituloRespuesta() {
+
+    const titulo = tituloRespuestaInput.value.trim();
+
+    if (titulo === "") {
+        mostrarError(
+            tituloRespuestaInput,
+            errorTituloRespuesta,
+            "El título es obligatorio"
+        );
+        return false;
+    }
+
+    mostrarExito(tituloRespuestaInput, errorTituloRespuesta);
+    return true;
+}
+
+tituloRespuestaInput.addEventListener("input", validarTituloRespuesta);
+
+
+// Validar descripción
+function validarDescripcionRespuesta() {
+
+    const descripcion = descripcionRespuestaInput.value.trim();
+
+    if (descripcion === "") {
+        mostrarError(
+            descripcionRespuestaInput,
+            errorDescripcionRespuesta,
+            "La descripción es obligatoria"
+        );
+        return false;
+    }
+
+    mostrarExito(
+        descripcionRespuestaInput,
+        errorDescripcionRespuesta
+    );
+
+    return true;
+}
+
+descripcionRespuestaInput.addEventListener(
+    "input",
+    validarDescripcionRespuesta
+);
+
+function EnviarRespuesta(){
+const tituloValido = validarTituloRespuesta();
+    const descripcionValida = validarDescripcionRespuesta();
+
+    if (!tituloValido || !descripcionValida) {
+        return;
+    }
+
+    const respuestasSis = obtenerRespuestasAlmacenadas();
+    const respuestaNueva =   {
+    "idRespuesta": Math.floor(Math.random() * 100) + 10,
+    "idRespuestaPadre": Number(document.getElementById("IdRespuesta").textContent),
+    "idEmisor": obtenerUsuarioSesion().idUsuario,
+    "idReceptor": Number(document.getElementById("IdEbanistaResponder").textContent ),
+    "titulo": tituloRespuestaInput.value.trim(),
+    "descripcion": descripcionRespuestaInput.value.trim()
+  }
+  respuestasSis.push(respuestaNueva);
+  CargarRespuestasBase(respuestasSis);
+  cargarDatos()
+
+  CargarRespuestasSinResponder()
+   CargarRespuestasRespondidas()
+      Swal.fire({
+        title: "Respuesta enviada!",
+        text: "La respuesta se registró correctamente.",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+        customClass: {
+            popup: "miAlerta",
+            title: "miTitulo",
+            htmlContainer: "miTexto",
+            confirmButton: "miBoton"
+        }
+    });
+
+CerrarRespuesta();
+
+}
+
+

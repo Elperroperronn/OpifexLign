@@ -1458,6 +1458,3 @@ function ConfirmacionBorrarAtras(){
 document.querySelector(".Funcionalidades").classList.remove("Desabilitado");
 document.querySelector(".ConfirmacionBorrarCuenta").classList.remove("Habilitado");
 }
-
-
-
